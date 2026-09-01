@@ -23,13 +23,13 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="İletişim"
         titleLines={["Büromuza", "ulaşın."]}
-        lead="Dosyanız hakkında görüşmek için aşağıdaki bilgilerden bize ulaşabilir veya formu doldurabilirsiniz."
+        lead="Kısaca durumu anlatın, size dönelim. Doğrudan konuşmayı tercih ederseniz telefon numaralarımız aşağıda."
         align="wide"
       />
 
-      <section className="bg-ivory pb-28 md:pb-40">
+      <section className="bg-ivory pb-20 md:pb-28">
         <div className="container-editorial">
-          <div className="grid gap-16 border-t border-line pt-16 md:grid-cols-12 md:gap-10 md:pt-20">
+          <div className="grid gap-12 border-t border-line pt-16 md:grid-cols-12 md:gap-10">
             <div className="md:col-span-4">
               <Reveal className="space-y-12" stagger={0.1}>
                 <div>
@@ -84,12 +84,13 @@ export default function ContactPage() {
                 <h2 className="font-serif text-title font-light">
                   Bize yazın.
                 </h2>
-                <p className="mt-5 max-w-lg text-sm leading-relaxed text-ink/65">
-                  Konunuzu kısaca aktarın; en kısa sürede size dönüş yapalım.
+                <p className="mt-5 max-w-lg text-sm leading-relaxed text-ink/70">
+                  Ne olduğunu birkaç cümleyle anlatmanız yeterli. Gerisini
+                  konuşurken netleştiririz.
                 </p>
               </Reveal>
 
-              <Reveal className="mt-14" delay={0.18}>
+              <Reveal className="mt-10" delay={0.18}>
                 <ContactForm />
               </Reveal>
             </div>

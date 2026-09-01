@@ -4,9 +4,8 @@
  * Başlıklar arslanhukuk.com.tr ana sayfasında listelenen faaliyet
  * alanlarından birebir alınmıştır. Alt hizmetler yalnızca büronun mevcut
  * "Hakkımızda" ve avukat özgeçmişi metinlerinde geçen konulardan
- * oluşturulmuştur. Alanların tanımları, hukuk dalının kapsamını anlatan
- * genel ve tarafsız açıklamalardır; sonuç, başarı veya tecrübe iddiası
- * içermez.
+ * oluşturulmuştur. Açıklamalar, hukuk dalının kapsamını anlatan genel ve
+ * tarafsız metinlerdir; sonuç, başarı veya tecrübe iddiası içermez.
  */
 
 export type PracticeCategory = "Kurumsal" | "Bireysel";
@@ -35,12 +34,12 @@ export const practiceAreas: PracticeArea[] = [
     title: "Ticaret ve Uluslararası Ticaret Hukuku",
     category: "Kurumsal",
     excerpt:
-      "Şirketler hukuku, ticari sözleşmeler ve sınır ötesi ticari ilişkilerin kurulması ile yönetimi.",
+      "Şirket kuruluşundan pay devrine, ticari sözleşmelerden sınır ötesi işlere.",
     intro:
-      "Ticaret hukuku, ticari işletmelerin kuruluşundan günlük ticari ilişkilerine kadar geniş bir alanı kapsar. Uluslararası boyut kazanan işlemlerde ise uygulanacak hukukun ve uyuşmazlık çözüm yolunun baştan doğru kurgulanması belirleyici olur.",
+      "Ticari hayatta işler yolunda giderken sözleşmeye kimse bakmaz. Sözleşme, işler ters gittiğinde okunur. Bu yüzden metni kurarken en çok üzerinde durduğumuz şey, o gün ne yazdığıdır.",
     body: [
-      "Şirketlerin kuruluşu, pay devirleri, ortaklık yapısındaki değişiklikler, genel kurul ve yönetim kurulu süreçleri ile ticari sözleşmelerin hazırlanması bu alanın merkezinde yer alır. Sözleşmenin kurulma aşamasında yapılan düzenlemeler, uyuşmazlık doğduğunda tarafların elindeki en güçlü araçtır.",
-      "Sınır ötesi ticari ilişkilerde uygulanacak hukuk, yetkili mahkeme veya tahkim şartı ile ödeme ve teslim koşulları ayrı bir dikkat gerektirir. Büromuz, yurt içinde ve yurt dışında faaliyet gösteren kişi ve kurumlara bu alanda Türkçe ve İngilizce danışmanlık vermektedir.",
+      "Şirket kuruluşu, pay devirleri, ortaklık yapısındaki değişiklikler, genel kurul ve yönetim kurulu süreçleri günlük işlerimizin bir bölümünü oluşturuyor. Diğer bölümü ticari sözleşmeler: hazırlanması, karşı tarafla müzakeresi ve imzadan sonra doğan uyuşmazlıkların takibi.",
+      "İş sınırı aştığında birkaç soru öne çıkıyor: hangi ülkenin hukuku uygulanacak, uyuşmazlık nerede çözülecek, ödeme ve teslim nasıl güvenceye alınacak. Bunları sözleşme aşamasında netleştirmek, sonradan yürütülecek bir davadan çok daha ucuza gelir. Yurt içinde ve yurt dışında iş yapan müvekkillerimize bu konularda Türkçe ve İngilizce danışmanlık veriyoruz.",
     ],
     services: [
       "Şirketler Hukuku",
@@ -57,12 +56,12 @@ export const practiceAreas: PracticeArea[] = [
     title: "Kira ve Gayrimenkul Hukuku",
     category: "Kurumsal",
     excerpt:
-      "Taşınmaz mülkiyeti, kira ilişkileri ve tapuya bağlı uyuşmazlıkların yönetimi.",
+      "Kira sözleşmeleri, tahliye, tapu uyuşmazlıkları ve taşınmaz devirleri.",
     intro:
-      "Gayrimenkul, hem yatırım hem de günlük kullanım açısından uzun vadeli ilişkiler doğurur. Bu ilişkilerin sözleşme ve tapu düzeyinde doğru kurulması, sonraki yıllarda ortaya çıkabilecek uyuşmazlıkların kapsamını doğrudan belirler.",
+      "Gayrimenkul, insanın en uzun süre elinde tuttuğu şeylerden biri. Bir kira sözleşmesi on yıl, bir tapu kaydı ömür boyu sizinle kalabilir. Bu yüzden başlangıçtaki küçük bir eksik, yıllar sonra büyük bir sorun olarak geri döner.",
     body: [
-      "Kira ilişkilerinde sözleşmenin hazırlanması, kira bedelinin uyarlanması, tahliye ve alacak takibi süreçleri sık karşılaşılan konulardır. Ticari kiralarda tarafların yükümlülüklerinin ayrıntılı düzenlenmesi ayrıca önem taşır.",
-      "Taşınmaz mülkiyetine ilişkin olarak tapu kayıtlarının incelenmesi, satış ve devir işlemleri, ortaklığın giderilmesi ile tapu iptali ve tescil talepleri bu alan kapsamında ele alınır.",
+      "Kira tarafında en sık karşılaştığımız işler sözleşmenin hazırlanması, kira bedelinin güncel koşullara uyarlanması, tahliye ve birikmiş kira alacaklarının tahsili. Ticari kiralarda tarafların yükümlülüklerini ayrıntılı yazmak ayrıca önemli; çünkü orada tartışma çoğu zaman kira bedelinden değil, tadilattan, aidattan veya devirden çıkıyor.",
+      "Mülkiyet tarafında ise tapu kayıtlarının satın almadan önce incelenmesi, satış ve devir işlemleri, paylı mülkiyette ortaklığın giderilmesi ile tapu iptali ve tescil talepleri üzerinde çalışıyoruz.",
     ],
     services: [
       "Kira sözleşmelerinin hazırlanması",
@@ -77,13 +76,12 @@ export const practiceAreas: PracticeArea[] = [
     slug: "icra-ve-iflas-hukuku",
     title: "İcra ve İflas Hukuku",
     category: "Kurumsal",
-    excerpt:
-      "Alacağın tahsili, icra takibi ve borçlunun mali durumuna bağlı süreçlerin yürütülmesi.",
+    excerpt: "Alacağın tahsili, icra takibi, haciz ve iflas süreçleri.",
     intro:
-      "İcra ve iflas hukuku, alacağın hukuki yoldan tahsilini düzenler. Süreç büyük ölçüde sıkı sürelere bağlıdır; bu nedenle takibin doğru türde başlatılması ve süresinde ilerletilmesi belirleyicidir.",
+      "Bu alanda en pahalı hata genellikle gecikmedir. Süreler kısa, itiraz pencereleri dar; takibin yanlış türde açılması ya da bir sürenin kaçırılması, sağlam bir alacağı tahsil edilemez hâle getirebilir.",
     body: [
-      "İlamlı ve ilamsız icra takipleri, itirazın iptali ve kaldırılması davaları, haciz ve satış işlemleri ile istihkak uyuşmazlıkları bu alanın günlük konularıdır.",
-      "Borçlunun mali durumunun ağırlaştığı hâllerde iflas, konkordato ve buna bağlı süreçler gündeme gelir. Alacaklı ve borçlu taraf açısından izlenecek yol, her dosyanın kendi koşullarına göre değerlendirilir.",
+      "İlamlı ve ilamsız icra takipleri, itirazın iptali ve kaldırılması davaları, haciz ve satış işlemleri ile üçüncü kişilerin mallara ilişkin istihkak iddiaları bu alandaki günlük işlerimiz.",
+      "Borçlunun mali durumu ağırlaştığında iflas ve konkordato gündeme geliyor. Burada alacaklı ile borçlunun izleyeceği yol taban tabana zıt olduğu için, hangi tarafta olduğunuza göre baştan farklı bir strateji kuruyoruz.",
     ],
     services: [
       "İlamlı ve ilamsız icra takibi",
@@ -99,12 +97,12 @@ export const practiceAreas: PracticeArea[] = [
     title: "İş ve Sosyal Güvenlik Hukuku",
     category: "Kurumsal",
     excerpt:
-      "İş ilişkisinin kurulması, yürütülmesi ve sona ermesine bağlı hak ve yükümlülükler.",
+      "İşe alımdan fesihe, işçilik alacaklarından iş kazası dosyalarına.",
     intro:
-      "İş hukuku, işveren ve çalışan arasındaki ilişkiyi hem sözleşme hem de kamu düzeni boyutuyla düzenler. Fesih sürecindeki usul kurallarına uyum, uyuşmazlığın sonucunu belirleyen unsurların başında gelir.",
+      "İş hukukunda sonucu belirleyen şey çoğu zaman haklılık değil, usuldür. Yerinde bir fesih bile, tebligatı ya da savunma alma adımı atlandığı için geçersiz sayılabilir.",
     body: [
-      "İş sözleşmelerinin hazırlanması, işyeri iç düzenlemeleri, fesih süreçlerinin yönetimi ile kıdem ve ihbar tazminatı, fazla mesai ve yıllık izin alacaklarına ilişkin talepler bu alanda ele alınır.",
-      "İşe iade, iş kazası ve meslek hastalığından doğan talepler ile sosyal güvenlik mevzuatına ilişkin uyuşmazlıklar da bu kapsamdadır. Dava öncesi arabuluculuk süreci, iş uyuşmazlıklarının önemli bir bölümünde zorunlu bir aşamadır.",
+      "İşveren tarafında iş sözleşmelerinin ve işyeri iç düzenlemelerinin hazırlanması, fesih süreçlerinin adım adım yürütülmesi üzerinde çalışıyoruz. Uyuşmazlık doğduğunda ise kıdem ve ihbar tazminatı, fazla mesai, yıllık izin ve diğer işçilik alacaklarına ilişkin talepler gündeme geliyor.",
+      "İşe iade davaları, iş kazası ve meslek hastalığından doğan talepler ile sosyal güvenlik mevzuatına ilişkin uyuşmazlıklar da bu kapsamda. İş davalarının önemli bir bölümünde mahkemeye gitmeden önce arabuluculuğa başvurmak zorunlu; o aşamayı da baştan hesaba katıyoruz.",
     ],
     services: [
       "İş sözleşmeleri ve işyeri düzenlemeleri",
@@ -121,13 +119,12 @@ export const practiceAreas: PracticeArea[] = [
     title: "Fikri ve Sınai Haklar Hukuku",
     shortTitle: "Fikri ve Sınai Haklar",
     category: "Kurumsal",
-    excerpt:
-      "Marka ve patent başta olmak üzere fikri ürünler üzerindeki hakların tesisi ve korunması.",
+    excerpt: "Marka ve patent tescili, itirazlar, lisans ve tecavüz dosyaları.",
     intro:
-      "Marka, patent, tasarım ve telif hakları; bir ticari işletmenin en kalıcı değerleri arasındadır. Bu hakların tescil aşamasında doğru kurgulanması, sonraki ihlallere karşı korumanın kapsamını belirler.",
+      "Bir markanın değeri yıllar içinde birikir, ama korumasının sınırı tescil gününde çizilir. Yanlış sınıfta yapılmış bir başvuru, markanız tanınır hâle geldiğinde işe yaramaz.",
     body: [
-      "Marka ve patent başvurularının hazırlanması, sınıf seçimi, yayına itiraz ve itirazın incelenmesi süreçleri bu alanın başlangıcını oluşturur. Büromuz avukatlarından Av. Alper Arslan, 2005 yılında Türk Standartları Enstitüsü nezdinde Marka ve Patent vekilliğine hak kazanmıştır.",
-      "Tescilli hakların ihlali hâlinde tecavüzün tespiti, durdurulması ve önlenmesi ile bundan doğan tazminat talepleri gündeme gelir. Lisans ve devir sözleşmeleri ise hakkın ticari olarak kullanılmasını düzenler.",
+      "Marka ve patent başvurularının hazırlanması, sınıf seçimi, yayına itiraz ve itirazların incelenmesi süreçlerini yürütüyoruz. Büromuzdan Av. Alper Arslan, 2005 yılında Türk Standartları Enstitüsü nezdinde Marka ve Patent vekilliğine hak kazandı.",
+      "Tescilli bir hakka tecavüz edildiğinde tecavüzün tespiti, durdurulması ve önlenmesi ile buradan doğan tazminat talepleri devreye giriyor. Hakkı ticari olarak kullandırmak istediğinizde ise iş lisans ve devir sözleşmelerine dönüyor.",
     ],
     services: [
       "Marka ve patent başvuruları",
@@ -142,13 +139,12 @@ export const practiceAreas: PracticeArea[] = [
     slug: "medeni-hukuk",
     title: "Medeni Hukuk",
     category: "Bireysel",
-    excerpt:
-      "Boşanma, velayet, vesayet ve miras başta olmak üzere kişi ve aile ilişkileri.",
+    excerpt: "Boşanma, velayet, nafaka, mal rejimi, vesayet ve miras.",
     intro:
-      "Medeni hukuk, kişinin aile ve mirasa ilişkin en yakın ilişkilerini düzenler. Bu dosyalarda hukuki sonuç kadar, sürecin nasıl yürütüldüğü de taraflar açısından belirleyicidir.",
+      "Bu dosyalarda karşı taraf çoğu zaman bir yabancı değil. Bu yüzden sürecin nasıl yürütüldüğü, çıkan sonuç kadar önem taşıyor; gereksiz sertleşen bir dosya, kazanılsa bile geride kalıcı bir hasar bırakabiliyor.",
     body: [
-      "Anlaşmalı ve çekişmeli boşanma, velayet ve kişisel ilişki kurulması, nafaka ve mal rejiminin tasfiyesi bu alanın başlıca konularıdır. Yabancılık unsuru taşıyan dosyalarda tanıma ve tenfiz süreci ayrıca gündeme gelir.",
-      "Miras hukuku kapsamında mirasçılık belgesi, tereke tespiti, mirasın paylaşımı, tenkis ve muris muvazaası talepleri ile vasiyetname ve miras sözleşmelerine ilişkin uyuşmazlıklar ele alınır. Vesayet ve kayyımlık işlemleri de bu alan içindedir.",
+      "Anlaşmalı ve çekişmeli boşanma, velayet ve çocukla kişisel ilişki kurulması, nafaka ve evlilik boyunca edinilen malların paylaşımı bu alanın başlıca konuları. Taraflardan biri yurt dışındaysa ya da yabancı bir mahkeme kararı varsa, tanıma ve tenfiz süreci de işin içine giriyor.",
+      "Miras tarafında mirasçılık belgesi, terekenin tespiti, mirasın paylaşımı, saklı payın korunması için tenkis ve muris muvazaası talepleri ile vasiyetname ve miras sözleşmelerinden doğan uyuşmazlıklar üzerinde çalışıyoruz. Vesayet ve kayyımlık işlemleri de bu alanın içinde.",
     ],
     services: [
       "Boşanma ve mal rejiminin tasfiyesi",
@@ -164,12 +160,12 @@ export const practiceAreas: PracticeArea[] = [
     title: "İdare ve Vergi Hukuku",
     category: "Kurumsal",
     excerpt:
-      "İdari işlemlere karşı başvuru yolları ile vergi uyuşmazlıklarının yönetimi.",
+      "İdari işlemlere itiraz, iptal davaları ve vergi uyuşmazlıkları.",
     intro:
-      "İdare ve vergi hukukunda süreler kısa ve çoğu zaman hak düşürücüdür. Bu nedenle işlemin tebliğinden itibaren izlenecek yolun ilk aşamada belirlenmesi gerekir.",
+      "Devletten gelen bir yazıda en kritik bilgi çoğu zaman metnin kendisi değil, tebliğ tarihidir. Süreler kısa ve kaçırıldığında geri dönüşü yok; bu yüzden ilk günden doğru yolu seçmek gerekiyor.",
     body: [
-      "İdari işlemin iptali ve idarenin sorumluluğundan doğan tam yargı davaları, idari para cezalarına itiraz ile kamu ihalelerine ilişkin başvurular bu alanın kapsamındadır.",
-      "Vergi tarhiyatları ve cezalarına karşı uzlaşma, düzeltme ve dava yolları ile vergi incelemesi süreçlerinin yönetimi ayrı bir uzmanlık gerektirir. Büronun kurucusu Av. Seyit Arslan bu alanda danışmanlık vermektedir.",
+      "İdari işlemin iptali, idarenin verdiği zararın tazmini için tam yargı davaları, idari para cezalarına itiraz ve kamu ihalelerine ilişkin başvurular bu alandaki işlerimiz arasında.",
+      "Vergi tarafında tarhiyat ve cezalara karşı uzlaşma, düzeltme ve dava yolları var; hangisinin seçileceği çoğu zaman tutara ve incelemenin gidişatına bağlı. Vergi incelemesi sürecinin baştan doğru yönetilmesi, sonradan açılacak davanın zeminini de belirliyor. Büronun kurucusu Av. Seyit Arslan bu alanda danışmanlık veriyor.",
     ],
     services: [
       "İptal ve tam yargı davaları",
@@ -184,13 +180,12 @@ export const practiceAreas: PracticeArea[] = [
     slug: "bankacilik-ve-finans-hukuku",
     title: "Bankacılık ve Finans Hukuku",
     category: "Kurumsal",
-    excerpt:
-      "Kredi ilişkileri, teminat yapıları ve finansal uyuşmazlıkların değerlendirilmesi.",
+    excerpt: "Kredi sözleşmeleri, ipotek ve rehin, kefalet ve sigorta işleri.",
     intro:
-      "Finansman ilişkilerinde kredi sözleşmesi ile teminat yapısı bir bütün olarak kurgulanır. Teminatın türü ve paraya çevrilme usulü, uyuşmazlık hâlinde tarafların konumunu doğrudan etkiler.",
+      "Kredi ilişkisinde asıl pazarlık faiz oranında değil, teminatta biter. Teminatın türü ve paraya nasıl çevrileceği, işler kötüye gittiğinde tarafların nerede duracağını baştan belirler.",
     body: [
-      "Kredi sözleşmelerinin incelenmesi, ipotek ve rehin başta olmak üzere teminatların tesisi ile kefalet ilişkilerinden doğan uyuşmazlıklar bu alanda ele alınır.",
-      "Bankacılık işlemlerinden doğan alacak ve tazminat talepleri, tüketici kredilerine ilişkin uyuşmazlıklar ile sigorta hukukundan doğan talepler de bu kapsamda değerlendirilir.",
+      "Kredi sözleşmelerinin imzadan önce incelenmesi, ipotek ve rehin başta olmak üzere teminatların kurulması ve kefaletten doğan uyuşmazlıklar üzerinde çalışıyoruz. Kefalet, özellikle şirket ortaklarının kişisel sorumluluğu bakımından sonradan en çok tartışılan konulardan biri.",
+      "Bankacılık işlemlerinden doğan alacak ve tazminat talepleri, tüketici kredilerine ilişkin uyuşmazlıklar ve sigorta hukukundan doğan talepler de bu kapsamda değerlendiriliyor.",
     ],
     services: [
       "Kredi sözleşmeleri ve teminat yapıları",

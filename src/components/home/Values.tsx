@@ -8,11 +8,11 @@ import SplitLines from "@/components/ui/SplitLines";
 export default function Values() {
   return (
     <section
-      className="bg-ivory-soft py-28 md:py-40"
+      className="bg-ivory-soft py-20 md:py-28"
       aria-labelledby="yaklasim-baslik"
     >
       <div className="container-editorial">
-        <div className="grid gap-14 md:grid-cols-12 md:gap-8">
+        <div className="grid gap-10 md:grid-cols-12 md:gap-8">
           <Reveal className="md:col-span-3">
             <p className="label-eyebrow text-muted">Yaklaşımımız</p>
           </Reveal>
@@ -24,7 +24,7 @@ export default function Values() {
               className="font-serif text-title font-light"
             />
 
-            <ul className="mt-16 md:mt-20">
+            <ul className="mt-12 md:mt-14">
               {values.map((value, i) => (
                 <Reveal
                   as="li"

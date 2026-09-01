@@ -102,11 +102,11 @@ export default function ContactForm() {
       >
         <p className="label-eyebrow text-muted">Teşekkür ederiz</p>
         <p className="mt-6 max-w-lg font-serif text-[1.6rem] font-light leading-snug md:text-[1.9rem]">
-          Mesajınız tarafımıza ulaştı.
+          Mesajınızı aldık.
         </p>
-        <p className="mt-5 max-w-lg text-sm leading-relaxed text-ink/65">
-          En kısa sürede size dönüş yapacağız. Acil bir konu için büromuzu
-          telefonla da arayabilirsiniz.
+        <p className="mt-5 max-w-lg text-sm leading-relaxed text-ink/70">
+          Okuyup size döneceğiz. Beklemeyecek bir konuysa büromuzu telefonla
+          da arayabilirsiniz.
         </p>
         <button
           type="button"
@@ -297,10 +297,10 @@ export default function ContactForm() {
       </div>
 
       <p className="max-w-2xl border-t border-line pt-8 text-xs leading-relaxed text-muted">
-        Bu form üzerinden iletilen mesajlar bilgi alma amaçlıdır; form
-        gönderilmesi avukat–müvekkil ilişkisi kurmaz ve gönderilen bilgiler
-        vekâlet ilişkisi doğurmaz. Zamanaşımı veya hak düşürücü süre içeren
-        konularda lütfen büromuzla doğrudan iletişime geçiniz.
+        Bu formu doldurmanız avukat–müvekkil ilişkisi kurmaz; vekâlet ilişkisi
+        ancak ayrıca imzalanacak bir sözleşmeyle doğar. Bu nedenle gizli
+        bilgileri forma yazmamanızı öneririz. Süre sınırı olan bir konuysa
+        beklemeden bizi arayın.
       </p>
     </form>
   );

@@ -2,13 +2,13 @@
  * Kurumsal metinler.
  *
  * Kaynak: arslanhukuk.com.tr üzerindeki mevcut "Hakkımızda" ve ana sayfa
- * metinleri. Kuruluş yılı, kurucu ve faaliyet tanımları birebir korunmuştur.
+ * metinleri. Kuruluş yılı, kurucu ve faaliyet tanımları korunmuştur.
  * Deneyim yılı, ödül, müvekkil sayısı, başarı oranı gibi doğrulanamayan
  * hiçbir iddia eklenmemiştir.
  */
 
 export const hero = {
-  eyebrow: "Arslan Hukuk Bürosu",
+  eyebrow: "Avukatlık ve hukuki danışmanlık",
   /** Büronun mevcut sitesinde yer alan kurumsal sloganı. */
   headlineLines: [
     "Adalet önünde",
@@ -17,7 +17,7 @@ export const hero = {
     "iyi avukattır.",
   ],
   support:
-    "1982 yılından bu yana İstanbul'da; yurt içinde ve yurt dışında faaliyet gösteren kişi ve kurumlara hukukun çeşitli alanlarında danışmanlık ve avukatlık hizmeti sunuyoruz.",
+    "1982'den bu yana İstanbul'dayız. Yurt içinde ve yurt dışında iş yapan kişi ve şirketlere danışmanlık veriyor, dava ve takiplerini yürütüyoruz.",
   primaryCta: { label: "Uzmanlık alanlarımız", href: "/uzmanlik-alanlari" },
   secondaryCta: { label: "Bize ulaşın", href: "/iletisim" },
 } as const;
@@ -25,12 +25,13 @@ export const hero = {
 export const intro = {
   label: "Arslan Hukuk Bürosu",
   statementLines: [
-    "Hukuki meseleler",
-    "nadiren tek boyutludur.",
+    "Hukuki bir sorun,",
+    "hiçbir zaman yalnızca",
+    "hukuki değildir.",
   ],
   paragraphs: [
-    "1982 yılında Av. Seyit Arslan tarafından kurulan Arslan Hukuk Bürosu, kurulduğu günden beri sürekli gelişme göstermiş ve göstermeye devam etmektedir.",
-    "Her biri konusunda uzman ve tecrübeli hukukçu kadromuzla, yurt içinde ve yurt dışında faaliyet gösteren birçok kişi ve kuruma Türkçe ve İngilizce hukuki danışmanlık ve avukatlık hizmeti sunuyoruz.",
+    "Arkasında çoğu zaman bir şirketin işleyişi, bir ailenin düzeni ya da yılların birikimi vardır. Bu yüzden bir dosyayı devralmadan önce, sizin için asıl neyin önemli olduğunu anlamaya çalışırız.",
+    "Büromuzu 1982'de Av. Seyit Arslan kurdu. O günden bu yana kadromuz büyüdü, çalıştığımız alanlar çeşitlendi. Çalışma biçimimiz aynı kaldı.",
   ],
   link: { label: "Hakkımızda", href: "/hakkimizda" },
 } as const;
@@ -39,10 +40,10 @@ export const about = {
   title: "Hakkımızda",
   headlineLines: ["1982 yılından beri", "adaletin yanında."],
   paragraphs: [
-    "1982 yılında Av. Seyit Arslan tarafından kurulan Arslan Hukuk Bürosu, kurulduğu günden beri sürekli gelişme göstermiş ve göstermeye devam etmektedir.",
-    "Her biri konusunda uzman ve tecrübeli hukukçu kadrosu ile yurt içinde ve yurt dışında faaliyet gösteren birçok kişi ve kuruma, hukukun çeşitli alanlarında Türkçe ve İngilizce hukuki danışmanlık ve avukatlık hizmeti sunmaktadır.",
-    "Büromuzun faaliyet alanları arasında Şirketler Hukuku, Uluslararası Ticaret Hukuku, İcra ve İflas Hukuku, Kira ve Gayrimenkul Hukuku, Bankacılık ve Finans Hukuku, İş Hukuku, Fikri ve Sınai Haklar Hukuku, İdare ve Vergi Hukuku, Medeni Hukuk (boşanma, miras, velayet, vesayet vb.), Tüketici Hukuku ve Rekabet Hukuku bulunmaktadır. Büromuzdaki her bir avukatımız hukukun farklı bir alanında uzman olup yoğun tecrübe sahibidir.",
-    "Hukuk büromuz İstanbul merkezli olsa da, ülkenin birçok şehrindeki hukuk büroları ile bağlantıları bulunmakta, bu sayede çok geniş kapsamlı hizmet sunmaktadır.",
+    "Büromuz 1982 yılında Av. Seyit Arslan tarafından kuruldu. O günden bu yana çalışmalarını kesintisiz sürdürüyor.",
+    "Bugün, her biri kendi alanında uzmanlaşmış avukatlardan oluşan bir kadroyuz. Yurt içinde ve yurt dışında faaliyet gösteren kişi ve kurumlara Türkçe ve İngilizce hizmet veriyoruz.",
+    "Şirketler ve uluslararası ticaret hukukundan icra ve iflasa, kira ve gayrimenkulden bankacılık ve finansa, iş hukukundan fikri ve sınai haklara, idare ve vergiden medeni hukuka kadar geniş bir alanda çalışıyoruz. Tüketici ve rekabet hukuku da faaliyet alanlarımız arasında yer alıyor. Her avukatımız bu alanlardan birinde derinleşmiştir; dosyalar da buna göre paylaşılır.",
+    "Merkezimiz İstanbul. Ancak ülkenin birçok şehrindeki hukuk bürolarıyla kurduğumuz bağlantılar sayesinde, dosyalarınızı İstanbul dışında da takip edebiliyoruz.",
   ],
 } as const;
 
@@ -54,32 +55,32 @@ export const values = [
   {
     number: "01",
     title: "Alanında uzmanlaşma",
-    body: "Büromuzdaki her bir avukat, hukukun farklı bir alanında uzmanlaşmıştır. Dosyalar bu uzmanlığa göre yürütülür.",
+    body: "Her avukatımız hukukun belirli bir alanında derinleşti. Dosyanız o alanda çalışan kişiye gider; herkes her işe bakmaz.",
   },
   {
     number: "02",
     title: "Süreklilik",
-    body: "1982 yılında kurulan büromuz, kurulduğu günden bu yana kesintisiz olarak gelişerek çalışmalarını sürdürmektedir.",
+    body: "1982'den bu yana aynı büroyuz. Bugün açtığınız bir dosyayı, yıllar sonra da aynı yerde arayabilirsiniz.",
   },
   {
     number: "03",
-    title: "İki dilde danışmanlık",
-    body: "Hukuki danışmanlık ve avukatlık hizmetlerimiz Türkçe ve İngilizce olarak yürütülmektedir.",
+    title: "İki dilde çalışma",
+    body: "Danışmanlığı ve yazışmaları Türkçe ve İngilizce yürütüyoruz. Yurt dışındaki müvekkillerimizle aramıza çevirmen girmiyor.",
   },
   {
     number: "04",
-    title: "Yurt içi ve yurt dışı",
-    body: "Yurt içinde ve yurt dışında faaliyet gösteren kişi ve kurumlara hizmet veriyoruz.",
+    title: "Sınır ötesi dosyalar",
+    body: "Yurt dışında iş yapan şirketlerin ve yurt dışında yaşayan kişilerin işleri, büromuzun alıştığı konular arasında.",
   },
   {
     number: "05",
-    title: "Ülke geneli erişim",
-    body: "İstanbul merkezli büromuzun ülkenin birçok şehrindeki hukuk büroları ile bağlantıları bulunmaktadır.",
+    title: "İstanbul dışı",
+    body: "Başka şehirlerdeki işler için orada çalıştığımız bürolarla ilerliyoruz. Kendinize ayrıca avukat aramanız gerekmiyor.",
   },
 ] as const;
 
 export const contactCta = {
-  headlineLines: ["Hukuki meselenizi", "birlikte değerlendirelim."],
-  body: "Dosyanızı ve beklentilerinizi dinleyelim, izlenebilecek yolları birlikte ele alalım.",
+  headlineLines: ["Anlatın,", "birlikte bakalım."],
+  body: "Dosyanızın hangi aşamada olduğunu ve sizin için neyin önemli olduğunu dinleyelim. Sonrasında önünüzdeki yolları açıkça anlatalım.",
   cta: { label: "İletişime geçin", href: "/iletisim" },
 } as const;

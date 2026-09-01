@@ -28,7 +28,7 @@ export default function LegalPage({
     <>
       <PageHeader eyebrow={eyebrow} titleLines={titleLines} lead={lead} />
 
-      <section className="bg-ivory pb-28 md:pb-40">
+      <section className="bg-ivory pb-20 md:pb-28">
         <div className="container-editorial">
           <div className="max-w-2xl border-t border-line pt-14 md:pt-16">
             {sections.map((section, i) => (
@@ -71,7 +71,7 @@ export default function LegalPage({
             ))}
 
             {updatedAt && (
-              <Reveal className="mt-16 border-t border-line pt-8">
+              <Reveal className="mt-12 border-t border-line pt-8">
                 <p className="text-xs text-muted">
                   Son güncelleme: {updatedAt}
                 </p>

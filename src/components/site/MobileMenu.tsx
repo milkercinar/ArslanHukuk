@@ -71,7 +71,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
         open ? "visible opacity-100" : "invisible opacity-0"
       }`}
     >
-      <div className="container-editorial flex h-[100svh] flex-col justify-between pb-10 pt-32">
+      <div className="container-editorial flex h-[100svh] flex-col justify-between pb-10 pt-28">
         <nav aria-label="Mobil menü">
           <ul>
             {primaryNav.map((item) => (

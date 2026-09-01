@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { contact, firm, legalNav, primaryNav } from "@/lib/content/site";
 
@@ -6,22 +7,22 @@ export default function Footer() {
 
   return (
     <footer className="bg-ink-black text-ivory">
-      <div className="container-editorial py-20 md:py-28">
-        <div className="grid gap-14 md:grid-cols-12 md:gap-10">
+      <div className="container-editorial py-14 md:py-20">
+        <div className="grid gap-10 md:grid-cols-12 md:gap-10">
           <div className="md:col-span-5">
-            <Link
-              href="/"
-              className="label-eyebrow flex items-baseline gap-[0.45em] text-[0.85rem]"
-            >
-              <span className="font-semibold">{firm.wordmark.first}</span>
-              <span className="font-normal opacity-70">
-                {firm.wordmark.second}
-              </span>
+            <Link href="/" className="relative block h-[34px] w-[155px]">
+              {/* Koyu zemin için beyaz siluet. */}
+              <Image
+                src="/images/arslan-hukuk-logo.png"
+                alt={firm.name}
+                fill
+                sizes="155px"
+                className="object-contain object-left brightness-0 invert"
+              />
             </Link>
-            <p className="mt-6 max-w-xs text-sm leading-relaxed text-ivory/55">
-              {firm.foundedYear} yılında kurulan Arslan Hukuk Bürosu, İstanbul
-              merkezli olarak hukuki danışmanlık ve avukatlık hizmeti
-              vermektedir.
+            <p className="mt-6 max-w-xs text-sm leading-relaxed text-ivory/60">
+              {firm.foundedYear}&apos;den bu yana İstanbul&apos;da avukatlık ve
+              hukuki danışmanlık yapıyoruz.
             </p>
           </div>
 
@@ -75,7 +76,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 flex flex-col gap-5 border-t border-line-invert pt-8 text-xs text-ivory/55 md:flex-row md:items-center md:justify-between">
+        <div className="mt-14 flex flex-col gap-5 border-t border-line-invert pt-8 text-xs text-ivory/55 md:flex-row md:items-center md:justify-between">
           <p>
             © {year} {firm.name}. Tüm hakları saklıdır.
           </p>

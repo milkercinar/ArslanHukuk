@@ -14,8 +14,8 @@ export default function ContactCta() {
       className="bg-ink-deep text-ivory"
       aria-labelledby="iletisim-cta-baslik"
     >
-      <div className="container-editorial py-32 md:py-48">
-        <div className="grid gap-14 md:grid-cols-12 md:gap-8">
+      <div className="container-editorial py-24 md:py-32">
+        <div className="grid gap-10 md:grid-cols-12 md:gap-8">
           <Reveal className="md:col-span-3">
             <p className="label-eyebrow text-ivory/55">İletişim</p>
           </Reveal>
@@ -27,14 +27,14 @@ export default function ContactCta() {
               className="font-serif text-statement font-light"
             />
 
-            <Reveal className="mt-10 max-w-xl md:mt-14" delay={0.1}>
+            <Reveal className="mt-10 max-w-xl" delay={0.1}>
               <p className="text-[0.98rem] leading-relaxed text-ivory/65">
                 {contactCta.body}
               </p>
             </Reveal>
 
             <Reveal
-              className="mt-14 flex flex-col gap-10 md:mt-16 md:flex-row md:items-center md:gap-16"
+              className="mt-10 flex flex-col gap-10 md:mt-12 md:flex-row md:items-center md:gap-12"
               delay={0.18}
             >
               <ArrowLink href={contactCta.cta.href} invert className="text-ivory">

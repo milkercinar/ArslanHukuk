@@ -18,7 +18,7 @@ export default function PageHeader({
   align?: "left" | "wide";
 }) {
   return (
-    <header className="bg-ivory pb-16 pt-36 md:pb-24 md:pt-52">
+    <header className="bg-ivory pb-12 pt-28 md:pb-16 md:pt-36">
       <div className="container-editorial">
         <Reveal>
           <p className="label-eyebrow text-muted">{eyebrow}</p>

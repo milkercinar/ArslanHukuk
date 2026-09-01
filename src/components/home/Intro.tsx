@@ -9,7 +9,7 @@ import SplitLines from "@/components/ui/SplitLines";
  */
 export default function Intro() {
   return (
-    <section className="bg-ivory py-28 md:py-40 lg:py-52">
+    <section className="bg-ivory py-20 md:py-28 lg:py-32">
       <div className="container-editorial">
         <div className="grid gap-12 md:grid-cols-12 md:gap-8">
           <Reveal className="md:col-span-3">
@@ -24,7 +24,7 @@ export default function Intro() {
             />
 
             <Reveal
-              className="mt-10 max-w-2xl space-y-6 md:mt-14"
+              className="mt-10 max-w-2xl space-y-6"
               stagger={0.12}
             >
               {intro.paragraphs.map((p) => (

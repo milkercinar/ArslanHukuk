@@ -86,7 +86,7 @@ export default async function TeamMemberPage({ params }: Params) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
 
-      <section className="bg-ivory pb-20 pt-32 md:pb-28 md:pt-44">
+      <section className="bg-ivory pb-14 pt-28 md:pb-20 md:pt-32">
         <div className="container-editorial">
           <Reveal>
             <nav aria-label="Konum" className="label-eyebrow text-muted">
@@ -99,7 +99,7 @@ export default async function TeamMemberPage({ params }: Params) {
             </nav>
           </Reveal>
 
-          <div className="mt-14 grid gap-12 md:mt-20 md:grid-cols-12 md:gap-10">
+          <div className="mt-10 grid gap-12 md:mt-14 md:grid-cols-12 md:gap-10">
             <Reveal className="md:col-span-5" delay={0.1}>
               <div className="overflow-hidden bg-ivory-deep">
                 <Image
@@ -139,7 +139,7 @@ export default async function TeamMemberPage({ params }: Params) {
               </Reveal>
 
               {facts.length > 0 && (
-                <Reveal className="mt-14 max-w-xl" delay={0.15}>
+                <Reveal className="mt-10 max-w-xl" delay={0.15}>
                   <dl className="border-t border-line">
                     {facts.map((row) => (
                       <div
@@ -176,7 +176,7 @@ export default async function TeamMemberPage({ params }: Params) {
       </section>
 
       {member.focus && member.focus.length > 0 && (
-        <section className="bg-ivory-soft py-20 md:py-28">
+        <section className="bg-ivory-soft py-14 md:py-20">
           <div className="container-editorial">
             <div className="grid gap-10 md:grid-cols-12 md:gap-8">
               <Reveal className="md:col-span-3">
@@ -198,7 +198,7 @@ export default async function TeamMemberPage({ params }: Params) {
       )}
 
       {related.length > 0 && (
-        <section className="bg-ivory py-20 md:py-28">
+        <section className="bg-ivory py-14 md:py-20">
           <div className="container-editorial">
             <Reveal className="mb-10">
               <p className="label-eyebrow text-muted">İlgili uzmanlık alanları</p>
@@ -217,7 +217,7 @@ export default async function TeamMemberPage({ params }: Params) {
         </section>
       )}
 
-      <section className="bg-ivory pb-20">
+      <section className="bg-ivory pb-14">
         <div className="container-editorial">
           <ArrowLink href="/ekibimiz">Tüm ekip</ArrowLink>
         </div>

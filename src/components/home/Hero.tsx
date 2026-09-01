@@ -130,7 +130,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="container-editorial relative flex h-full flex-col justify-end pb-16 md:pb-20">
+      <div className="container-editorial relative flex h-full flex-col justify-end pb-12 md:pb-14">
         <div data-hero-content="" className="max-w-4xl text-ivory">
           <p data-hero-eyebrow="" className="label-eyebrow text-ivory/85">
             {hero.eyebrow}

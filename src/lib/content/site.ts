@@ -37,7 +37,6 @@ export const SITE_URL = resolveSiteUrl();
 export const firm = {
   name: "Arslan Hukuk Bürosu",
   shortName: "Arslan Hukuk",
-  wordmark: { first: "ARSLAN", second: "HUKUK" },
   foundedYear: 1982,
   founder: "Av. Seyit Arslan",
 } as const;
@@ -64,6 +63,7 @@ export const contact = {
 export type NavItem = { label: string; href: string };
 
 export const primaryNav: NavItem[] = [
+  { label: "Ana Sayfa", href: "/" },
   { label: "Hakkımızda", href: "/hakkimizda" },
   { label: "Uzmanlık Alanları", href: "/uzmanlik-alanlari" },
   { label: "Ekibimiz", href: "/ekibimiz" },

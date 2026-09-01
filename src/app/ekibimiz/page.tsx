@@ -23,17 +23,17 @@ export default function TeamPage() {
     <>
       <PageHeader
         eyebrow="Ekibimiz"
-        titleLines={["Dosyayı, o alanda", "çalışan avukat", "yürütür."]}
-        lead="Büromuzdaki her bir avukat hukukun farklı bir alanında uzman olup yoğun tecrübe sahibidir. Danışmanlık ve dava takibi Türkçe ve İngilizce olarak yürütülmektedir."
+        titleLines={["Dosyanızla kimin", "ilgilendiğini", "bilirsiniz."]}
+        lead="Büromuzda her avukat hukukun farklı bir alanında çalışır; dosyanız da o alanda çalışan kişiye gider. Danışmanlığı ve dava takibini Türkçe ve İngilizce yürütüyoruz."
         align="wide"
       />
 
       <section
-        className="bg-ivory pb-24 md:pb-32"
+        className="bg-ivory pb-16 md:pb-24"
         aria-labelledby="avukatlar-baslik"
       >
         <div className="container-editorial">
-          <Reveal className="mb-14 border-t border-line pt-8 md:mb-20">
+          <Reveal className="mb-10 border-t border-line pt-8 md:mb-14">
             <h2 id="avukatlar-baslik" className="label-eyebrow text-muted">
               Avukatlar
             </h2>
@@ -44,11 +44,11 @@ export default function TeamPage() {
       </section>
 
       <section
-        className="bg-ivory pb-28 md:pb-40"
+        className="bg-ivory pb-20 md:pb-28"
         aria-labelledby="buro-baslik"
       >
         <div className="container-editorial">
-          <Reveal className="mb-14 border-t border-line pt-8 md:mb-20">
+          <Reveal className="mb-10 border-t border-line pt-8 md:mb-14">
             <h2 id="buro-baslik" className="label-eyebrow text-muted">
               Büro ekibi
             </h2>

@@ -31,7 +31,7 @@ export default function PracticeAreaRows({
               className="absolute inset-0 origin-left scale-x-0 bg-ink transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
             />
 
-            <div className="relative grid grid-cols-12 items-baseline gap-4 px-1 py-8 transition-colors duration-500 group-hover:text-ivory md:gap-6 md:py-11 lg:py-14">
+            <div className="relative grid grid-cols-12 items-baseline gap-4 px-1 py-8 transition-colors duration-500 group-hover:text-ivory md:gap-6 md:py-9 lg:py-10">
               <span className="col-span-12 font-mono text-xs tracking-widest text-muted transition-colors duration-500 group-hover:text-ivory/50 md:col-span-1 md:text-[0.7rem]">
                 {area.number}
               </span>
@@ -63,11 +63,11 @@ export function PracticeAreasSection() {
   return (
     <section
       id="uzmanlik"
-      className="bg-ivory pb-24 pt-4 md:pb-32"
+      className="bg-ivory pb-16 pt-4 md:pb-24"
       aria-labelledby="uzmanlik-baslik"
     >
       <div className="container-editorial">
-        <Reveal className="mb-14 flex flex-wrap items-end justify-between gap-6 md:mb-20">
+        <Reveal className="mb-10 flex flex-wrap items-end justify-between gap-6 md:mb-14">
           <h2
             id="uzmanlik-baslik"
             className="font-serif text-title font-light"

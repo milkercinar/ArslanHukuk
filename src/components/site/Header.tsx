@@ -1,10 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { primaryNav, firm } from "@/lib/content/site";
 import MobileMenu from "./MobileMenu";
+
+/** Ana sayfa dışındaki bağlantılarda alt sayfalar da etkin sayılır. */
+function isActive(pathname: string, href: string): boolean {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 /**
  * Başlık ana sayfada video üzerinde saydam ve açık renkli başlar; kahraman
@@ -24,7 +31,7 @@ export default function Header() {
     }
 
     // Kahraman bölümü ekran yüksekliği kadardır; eşiği biraz önce geçeriz ki
-    // metin renk değişimi videonun karanlık alt kısmında tamamlansın.
+    // renk değişimi videonun karanlık alt kısmında tamamlansın.
     const update = () => {
       setSolid(window.scrollY > window.innerHeight * 0.82);
     };
@@ -67,34 +74,52 @@ export default function Header() {
           <div
             className={`flex items-center justify-between transition-[padding,color] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               light ? "text-ivory" : "text-ink"
-            } ${solid ? "py-5" : "py-7 md:py-9"}`}
+            } ${solid ? "py-4" : "py-6 md:py-7"}`}
           >
             <Link
               href="/"
               onClick={() => setMenuOpen(false)}
-              className="label-eyebrow flex items-baseline gap-[0.45em] text-[0.78rem] md:text-[0.85rem]"
+              className="relative block h-[30px] w-[137px] shrink-0 md:h-[34px] md:w-[155px]"
               aria-label={`${firm.name} — ana sayfa`}
             >
-              <span className="font-semibold">{firm.wordmark.first}</span>
-              <span className="font-normal opacity-70">
-                {firm.wordmark.second}
-              </span>
+              {/* Logonun lacivert yazısı video üzerinde okunmadığı için koyu
+                  zeminde beyaz siluete geçilir; açık zeminde özgün renkler
+                  görünür. İki katman çapraz geçiş yapar. */}
+              <Image
+                src="/images/arslan-hukuk-logo.png"
+                alt={firm.name}
+                fill
+                priority
+                sizes="155px"
+                className={`object-contain object-left brightness-0 invert transition-opacity duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  light ? "opacity-100" : "opacity-0"
+                }`}
+              />
+              <Image
+                src="/images/arslan-hukuk-logo.png"
+                alt=""
+                aria-hidden="true"
+                fill
+                sizes="155px"
+                className={`object-contain object-left transition-opacity duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  light ? "opacity-0" : "opacity-100"
+                }`}
+              />
             </Link>
 
             <nav
               aria-label="Ana menü"
-              className="hidden items-center gap-9 md:flex"
+              className="hidden items-center gap-8 md:flex lg:gap-9"
             >
               {primaryNav.map((item) => {
-                const active =
-                  pathname === item.href || pathname.startsWith(`${item.href}/`);
+                const active = isActive(pathname, item.href);
                 return (
                   <Link
                     key={item.href}
                     href={item.href}
                     aria-current={active ? "page" : undefined}
                     className={`relative text-[0.8rem] tracking-wide transition-opacity duration-300 hover:opacity-100 ${
-                      active ? "opacity-100" : "opacity-65"
+                      active ? "opacity-100" : "opacity-70"
                     }`}
                   >
                     {item.label}

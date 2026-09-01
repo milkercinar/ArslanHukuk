@@ -22,19 +22,18 @@ export default function PracticeAreasPage() {
     <>
       <PageHeader
         eyebrow="Uzmanlık Alanları"
-        titleLines={["Farklı alanlar,", "tek bir çalışma", "disiplini."]}
-        lead="Büromuzdaki her bir avukat hukukun farklı bir alanında uzmanlaşmıştır. Aşağıdaki başlıklar, kurumsal ve bireysel müvekkillerimize danışmanlık verdiğimiz ve dava takibi yaptığımız alanlardır."
+        titleLines={["Farklı alanlar,", "aynı çalışma", "disiplini."]}
+        lead="Aşağıdaki başlıklar, kurumsal ve bireysel müvekkillerimize danışmanlık verdiğimiz ve dava takibi yaptığımız alanlar. Her birinde o konuda çalışan bir avukatımız var."
         align="wide"
       />
 
-      <section className="bg-ivory pb-24 md:pb-32">
+      <section className="bg-ivory pb-16 md:pb-24">
         <div className="container-editorial">
           <PracticeAreaRows />
 
-          <p className="mt-12 max-w-2xl text-sm leading-relaxed text-muted">
-            Bu sayfadaki açıklamalar genel bilgilendirme amaçlıdır ve hukuki
-            görüş niteliği taşımaz. Her uyuşmazlık kendi koşulları içinde
-            değerlendirilir.
+          <p className="mt-10 max-w-2xl text-sm leading-relaxed text-muted">
+            Buradaki açıklamalar genel bilgi vermek içindir, hukuki görüş
+            yerine geçmez. Her dosya kendi koşulları içinde değerlendirilir.
           </p>
         </div>
       </section>

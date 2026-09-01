@@ -28,9 +28,9 @@ export default function AboutPage() {
         align="wide"
       />
 
-      <section className="bg-ivory pb-28 md:pb-40">
+      <section className="bg-ivory pb-20 md:pb-28">
         <div className="container-editorial">
-          <div className="grid gap-12 border-t border-line pt-16 md:grid-cols-12 md:gap-8 md:pt-20">
+          <div className="grid gap-12 border-t border-line pt-16 md:grid-cols-12 md:gap-8">
             <Reveal className="md:col-span-3">
               <p className="label-eyebrow text-muted">Büro</p>
             </Reveal>
@@ -50,10 +50,10 @@ export default function AboutPage() {
       </section>
 
       {/* Büyük tipografi ile üç ilke — hepsi mevcut kurumsal metne dayanır. */}
-      <section className="bg-ivory-soft py-24 md:py-36">
+      <section className="bg-ivory-soft py-16 md:py-24">
         <div className="container-editorial">
           <Reveal
-            className="flex flex-col gap-4 font-serif text-[clamp(2.5rem,7vw,5.5rem)] font-light leading-[1.05] md:flex-row md:gap-16"
+            className="flex flex-col gap-4 font-serif text-[clamp(2.5rem,7vw,5.5rem)] font-light leading-[1.05] md:flex-row md:gap-12"
             stagger={0.12}
           >
             <span>Uzmanlık.</span>
@@ -64,7 +64,7 @@ export default function AboutPage() {
       </section>
 
       <section
-        className="bg-ivory py-28 md:py-40"
+        className="bg-ivory py-20 md:py-28"
         aria-labelledby="ilkeler-baslik"
       >
         <div className="container-editorial">
@@ -98,7 +98,7 @@ export default function AboutPage() {
                 ))}
               </ul>
 
-              <Reveal className="mt-14 flex flex-wrap gap-x-14 gap-y-5">
+              <Reveal className="mt-10 flex flex-wrap gap-x-14 gap-y-5">
                 <ArrowLink href="/uzmanlik-alanlari">
                   Uzmanlık alanlarımız
                 </ArrowLink>

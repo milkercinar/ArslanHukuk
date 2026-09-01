@@ -57,7 +57,7 @@ export default async function PracticeAreaPage({ params }: Params) {
 
   return (
     <>
-      <div className="bg-ivory pt-32 md:pt-44">
+      <div className="bg-ivory pt-28 md:pt-32">
         <div className="container-editorial">
           <Reveal>
             <nav aria-label="Konum" className="label-eyebrow text-muted">
@@ -82,9 +82,9 @@ export default async function PracticeAreaPage({ params }: Params) {
         lead={area.intro}
       />
 
-      <section className="bg-ivory pb-28 md:pb-40">
+      <section className="bg-ivory pb-20 md:pb-28">
         <div className="container-editorial">
-          <div className="grid gap-14 border-t border-line pt-16 md:grid-cols-12 md:gap-8 md:pt-20">
+          <div className="grid gap-10 border-t border-line pt-16 md:grid-cols-12 md:gap-8">
             <Reveal
               className="max-w-2xl space-y-7 md:col-span-7"
               stagger={0.1}
@@ -112,7 +112,7 @@ export default async function PracticeAreaPage({ params }: Params) {
           </div>
 
           {relatedLawyers.length > 0 && (
-            <div className="mt-24 grid gap-10 border-t border-line pt-16 md:grid-cols-12 md:gap-8">
+            <div className="mt-16 grid gap-10 border-t border-line pt-16 md:grid-cols-12 md:gap-8">
               <Reveal className="md:col-span-3">
                 <p className="label-eyebrow text-muted">Bu alanda çalışanlar</p>
               </Reveal>
@@ -144,11 +144,10 @@ export default async function PracticeAreaPage({ params }: Params) {
             </div>
           )}
 
-          <Reveal className="mt-24 border-t border-line pt-10">
+          <Reveal className="mt-16 border-t border-line pt-10">
             <p className="max-w-2xl text-sm leading-relaxed text-muted">
-              Bu sayfadaki bilgiler genel niteliktedir, hukuki görüş veya
-              tavsiye yerine geçmez. Somut bir uyuşmazlık için büromuzla
-              iletişime geçebilirsiniz.
+              Bu sayfadaki bilgiler geneldir, hukuki görüş yerine geçmez.
+              Elinizde somut bir dosya varsa bize yazın, konuşalım.
             </p>
           </Reveal>
         </div>
@@ -164,7 +163,7 @@ export default async function PracticeAreaPage({ params }: Params) {
             aria-hidden="true"
             className="absolute inset-0 origin-left scale-x-0 bg-ink transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
           />
-          <div className="container-editorial relative py-16 transition-colors duration-500 group-hover:text-ivory md:py-24">
+          <div className="container-editorial relative py-12 transition-colors duration-500 group-hover:text-ivory md:py-16">
             <p className="label-eyebrow text-muted transition-colors duration-500 group-hover:text-ivory/50">
               Sonraki alan — {next.number}
             </p>
@@ -181,7 +180,7 @@ export default async function PracticeAreaPage({ params }: Params) {
         </Link>
       </section>
 
-      <section className="bg-ivory py-16 md:py-20">
+      <section className="bg-ivory py-12 md:py-14">
         <div className="container-editorial">
           <ArrowLink href="/uzmanlik-alanlari">
             Tüm uzmanlık alanları
