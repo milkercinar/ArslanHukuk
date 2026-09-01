@@ -8,7 +8,6 @@
  */
 
 export const hero = {
-  eyebrow: "Avukatlık ve hukuki danışmanlık",
   /** Büronun mevcut sitesinde yer alan kurumsal sloganı. */
   headlineLines: [
     "Adalet önünde",

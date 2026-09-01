@@ -166,7 +166,6 @@
   transform: translateY(106%);
 }
 
-.js-ready [data-hero-eyebrow],
 .js-ready [data-hero-support],
 .js-ready [data-hero-cta],
 .js-ready [data-hero-scroll] {
@@ -182,7 +181,6 @@
   .js-ready [data-reveal-children] > *,
   .js-ready [data-reveal-line] [data-line] > span,
   .js-ready [data-hero-line] > span,
-  .js-ready [data-hero-eyebrow],
   .js-ready [data-hero-support],
   .js-ready [data-hero-cta],
   .js-ready [data-hero-scroll] {

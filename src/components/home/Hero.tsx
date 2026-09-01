@@ -27,33 +27,28 @@ export default function Hero() {
 
       intro
         .fromTo(
-          "[data-hero-eyebrow]",
-          { opacity: 0, y: 14 },
-          { opacity: 1, y: 0, duration: 0.9, ease: EASE_LONG },
-        )
-        .fromTo(
           "[data-hero-line] > span",
           { yPercent: 106, y: 0 },
           { yPercent: 0, y: 0, duration: 1.25, ease: EASE_LONG, stagger: 0.1 },
-          0.15,
+          0,
         )
         .fromTo(
           "[data-hero-support]",
           { opacity: 0, y: 16 },
           { opacity: 1, y: 0, duration: 1, ease: EASE_LONG },
-          0.75,
+          0.6,
         )
         .fromTo(
           "[data-hero-cta]",
           { opacity: 0, y: 14 },
           { opacity: 1, y: 0, duration: 0.9, ease: EASE_LONG, stagger: 0.1 },
-          0.95,
+          0.8,
         )
         .fromTo(
           "[data-hero-scroll]",
           { opacity: 0 },
           { opacity: 1, duration: 0.8 },
-          1.15,
+          1,
         );
 
       // Kaydırma: metin yukarı çıkar ve söner, video yavaşça geride kalır.
@@ -132,11 +127,7 @@ export default function Hero() {
 
       <div className="container-editorial relative flex h-full flex-col justify-end pb-12 md:pb-14">
         <div data-hero-content="" className="max-w-4xl text-ivory">
-          <p data-hero-eyebrow="" className="label-eyebrow text-ivory/85">
-            {hero.eyebrow}
-          </p>
-
-          <h1 className="mt-6 font-serif text-hero font-light md:mt-8">
+          <h1 className="font-serif text-hero font-light">
             {hero.headlineLines.map((line, i) => (
               <span key={i} data-hero-line="" className="line-mask">
                 <span className="block">{line + " "}</span>
