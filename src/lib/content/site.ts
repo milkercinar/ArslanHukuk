@@ -10,9 +10,29 @@ export type Locale = "tr" | "en";
 export const DEFAULT_LOCALE: Locale = "tr";
 export const LOCALES: Locale[] = ["tr"];
 
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-  "https://www.arslanhukuk.com.tr";
+const FALLBACK_SITE_URL = "https://www.arslanhukuk.com.tr";
+
+/**
+ * Kanonik kök adres.
+ *
+ * `NEXT_PUBLIC_SITE_URL` dağıtım panelinde tanımlanıp boş bırakılabildiği ya
+ * da protokolsüz ("www.ornek.com") girilebildiği için değer burada
+ * doğrulanır. Geçersiz her durumda varsayılana dönülür; `new URL()` çağrısı
+ * derlemeyi çökertmemelidir.
+ */
+function resolveSiteUrl(): string {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (!raw) return FALLBACK_SITE_URL;
+
+  const candidate = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+  try {
+    return new URL(candidate).origin;
+  } catch {
+    return FALLBACK_SITE_URL;
+  }
+}
+
+export const SITE_URL = resolveSiteUrl();
 
 export const firm = {
   name: "Arslan Hukuk Bürosu",
