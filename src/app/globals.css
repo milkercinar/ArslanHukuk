@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+/* --------------------------------------------------------------------------
+   Tasarım belirteçleri
+   -------------------------------------------------------------------------- */
+
+@theme {
+  /* Yüzeyler */
+  --color-ivory: #f1f0eb;
+  --color-ivory-soft: #e9e8e1;
+  --color-ivory-deep: #dedcd3;
+
+  /* Metin */
+  --color-ink: #171a18;
+  --color-ink-deep: #111512;
+  --color-ink-black: #0b0e0c;
+  --color-muted: #656963;
+  --color-muted-light: #9aa096;
+
+  /* Çok ölçülü aksan */
+  --color-sage: #7b8471;
+
+  /* Çizgiler */
+  --color-line: rgba(23, 26, 24, 0.14);
+  --color-line-strong: rgba(23, 26, 24, 0.28);
+  --color-line-invert: rgba(241, 240, 235, 0.16);
+  --color-line-invert-strong: rgba(241, 240, 235, 0.34);
+
+  --font-serif: var(--font-display), "Cormorant Garamond", "Times New Roman",
+    serif;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+
+  /* Editoryal ölçek */
+  --text-display: clamp(2.75rem, 8vw, 7.5rem);
+  --text-display--line-height: 0.94;
+  --text-hero: clamp(2.75rem, 7.4vw, 6.75rem);
+  --text-hero--line-height: 0.98;
+  --text-statement: clamp(2rem, 4.6vw, 4rem);
+  --text-statement--line-height: 1.08;
+  --text-title: clamp(1.65rem, 3vw, 2.75rem);
+  --text-title--line-height: 1.12;
+
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   Temel
+   -------------------------------------------------------------------------- */
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  /* Lenis devredeyken tarayıcının kendi kaydırması devre dışı bırakılır. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  html.lenis {
+    scroll-behavior: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-ink);
+    color: var(--color-ivory);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  /* Görünür, sakin odak halkası. */
+  :focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 4px;
+    border-radius: 1px;
+  }
+
+  /* Sayfa içi bağlantılarda başlığın altında kalmayı önler. */
+  :target {
+    scroll-margin-top: 7rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Yardımcılar
+   -------------------------------------------------------------------------- */
+
+@utility container-editorial {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 96rem;
+  padding-inline: 1.5rem;
+
+  @media (width >= 48rem) {
+    padding-inline: 2.5rem;
+  }
+
+  @media (width >= 80rem) {
+    padding-inline: 4rem;
+  }
+}
+
+@utility label-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Satır satır maskelenerek açılan başlıklar. */
+@utility line-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+/* --------------------------------------------------------------------------
+   Animasyon başlangıç durumları
+   Betikler yüklenene kadar içeriğin görünmez kalmamasını sağlamak için
+   yalnızca <html> üzerinde `js-ready` sınıfı varken gizlenirler.
+   -------------------------------------------------------------------------- */
+
+.js-ready [data-reveal],
+.js-ready [data-reveal-children] > * {
+  opacity: 0;
+  transform: translateY(1.25rem);
+}
+
+.js-ready [data-reveal-line] [data-line] > span {
+  display: block;
+  transform: translateY(105%);
+}
+
+/* Kahraman bölümünün açılış zamanlaması kendi zaman çizelgesine bağlıdır. */
+.js-ready [data-hero-line] > span {
+  display: block;
+  transform: translateY(106%);
+}
+
+.js-ready [data-hero-eyebrow],
+.js-ready [data-hero-support],
+.js-ready [data-hero-cta],
+.js-ready [data-hero-scroll] {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js-ready [data-reveal],
+  .js-ready [data-reveal-children] > *,
+  .js-ready [data-reveal-line] [data-line] > span,
+  .js-ready [data-hero-line] > span,
+  .js-ready [data-hero-eyebrow],
+  .js-ready [data-hero-support],
+  .js-ready [data-hero-cta],
+  .js-ready [data-hero-scroll] {
+    opacity: 1;
+    transform: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

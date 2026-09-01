@@ -1,0 +1,45 @@
+import Reveal from "@/components/ui/Reveal";
+import SplitLines from "@/components/ui/SplitLines";
+
+/**
+ * İç sayfaların ortak açılışı: küçük etiket, satır satır açılan büyük başlık
+ * ve isteğe bağlı giriş cümlesi. Sabit başlığın altında kalmaması için üst
+ * boşluk cömerttir.
+ */
+export default function PageHeader({
+  eyebrow,
+  titleLines,
+  lead,
+  align = "left",
+}: {
+  eyebrow: string;
+  titleLines: readonly string[];
+  lead?: string;
+  align?: "left" | "wide";
+}) {
+  return (
+    <header className="bg-ivory pb-16 pt-36 md:pb-24 md:pt-52">
+      <div className="container-editorial">
+        <Reveal>
+          <p className="label-eyebrow text-muted">{eyebrow}</p>
+        </Reveal>
+
+        <SplitLines
+          as="h1"
+          lines={titleLines}
+          playOnMount
+          delay={0.1}
+          className={`mt-8 font-serif font-light md:mt-10 ${
+            align === "wide" ? "text-display" : "text-statement"
+          }`}
+        />
+
+        {lead && (
+          <Reveal className="mt-10 max-w-2xl md:mt-12" delay={0.25}>
+            <p className="text-[1.02rem] leading-[1.75] text-ink/70">{lead}</p>
+          </Reveal>
+        )}
+      </div>
+    </header>
+  );
+}
