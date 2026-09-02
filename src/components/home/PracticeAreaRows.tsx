@@ -66,7 +66,7 @@ export function PracticeAreasSection() {
         <Reveal className="mb-10 flex flex-wrap items-end justify-between gap-6 md:mb-14">
           <h2
             id="uzmanlik-baslik"
-            className="font-serif text-title font-light"
+            className="font-serif text-title font-bold"
           >
             Uzmanlık alanlarımız.
           </h2>

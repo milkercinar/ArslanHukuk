@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { fullName, lawyers } from "@/lib/content/team";
+import { fullName, team } from "@/lib/content/team";
 import ArrowLink from "@/components/ui/ArrowLink";
 import Reveal from "@/components/ui/Reveal";
 
@@ -29,7 +29,7 @@ export default function TeamPreview() {
 
       <div className="container-editorial">
         <ul className="flex gap-5 overflow-x-auto pb-2 [scrollbar-width:none] snap-x snap-mandatory md:gap-6 [&::-webkit-scrollbar]:hidden">
-          {lawyers.map((member, i) => {
+          {team.map((member, i) => {
             const card = (
               <>
                 <div className="relative aspect-[3/4] overflow-hidden bg-ivory-deep">

@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Reveal from "@/components/ui/Reveal";
 import SplitLines from "@/components/ui/SplitLines";
 
@@ -8,11 +9,14 @@ import SplitLines from "@/components/ui/SplitLines";
  */
 export default function PageHeader({
   eyebrow,
+  breadcrumb,
   titleLines,
   lead,
   align = "left",
 }: {
   eyebrow: string;
+  /** Etiketin üstünde gösterilen, kendi üst boşluğunu getirmeyen konum çubuğu. */
+  breadcrumb?: ReactNode;
   titleLines: readonly string[];
   lead?: string;
   align?: "left" | "wide";
@@ -20,6 +24,8 @@ export default function PageHeader({
   return (
     <header className="bg-ivory pb-12 pt-28 md:pb-16 md:pt-36">
       <div className="container-editorial">
+        {breadcrumb && <Reveal className="mb-6 md:mb-8">{breadcrumb}</Reveal>}
+
         <Reveal>
           <p className="label-eyebrow text-muted">{eyebrow}</p>
         </Reveal>

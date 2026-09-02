@@ -57,26 +57,21 @@ export default async function PracticeAreaPage({ params }: Params) {
 
   return (
     <>
-      <div className="bg-ivory pt-28 md:pt-32">
-        <div className="container-editorial">
-          <Reveal>
-            <nav aria-label="Konum" className="label-eyebrow text-muted">
-              <Link
-                href="/uzmanlik-alanlari"
-                className="transition-colors duration-300 hover:text-ink"
-              >
-                Uzmanlık Alanları
-              </Link>
-              <span aria-hidden="true" className="px-3 text-muted-light">
-                /
-              </span>
-              <span className="text-ink/60">{area.number}</span>
-            </nav>
-          </Reveal>
-        </div>
-      </div>
-
       <PageHeader
+        breadcrumb={
+          <nav aria-label="Konum" className="label-eyebrow text-muted">
+            <Link
+              href="/uzmanlik-alanlari"
+              className="transition-colors duration-300 hover:text-ink"
+            >
+              Uzmanlık Alanları
+            </Link>
+            <span aria-hidden="true" className="px-3 text-muted-light">
+              /
+            </span>
+            <span className="text-ink/60">{area.number}</span>
+          </nav>
+        }
         eyebrow={area.category}
         titleLines={titleLines(area.title)}
         lead={area.intro}
