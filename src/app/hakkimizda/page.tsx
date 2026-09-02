@@ -35,7 +35,12 @@ export default function AboutPage() {
           <div className="border-t border-line pt-16">
             <SectionLabel>Büro</SectionLabel>
 
-            <Reveal className="max-w-2xl space-y-7" stagger={0.1}>
+            {/* İki sütun: metin sayfanın genişliğini kullanır ama satır
+                uzunluğu okunabilir sınırda kalır. */}
+            <Reveal
+              className="grid gap-x-12 gap-y-7 md:grid-cols-2 lg:gap-x-20"
+              stagger={0.1}
+            >
               {about.paragraphs.map((p) => (
                 <p key={p} className="text-[1.02rem] leading-[1.8] text-ink/78">
                   {p}

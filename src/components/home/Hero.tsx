@@ -28,7 +28,7 @@ export default function Hero() {
       intro
         .fromTo(
           "[data-hero-line] > span",
-          { yPercent: 106, y: 0 },
+          { yPercent: 145, y: 0 },
           { yPercent: 0, y: 0, duration: 1.25, ease: EASE_LONG, stagger: 0.1 },
           0,
         )

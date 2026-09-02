@@ -135,12 +135,24 @@
   text-transform: uppercase;
 }
 
-/* Satır satır maskelenerek açılan başlıklar. */
+/* Satır satır maskelenerek açılan başlıklar.
+ *
+ * Başlıklarda satır yüksekliği 1'in altına indiği için harf gövdesi kendi
+ * satır kutusunun dışına taşar: altta ç/ş/ğ/y kuyrukları, üstte İ/Ğ
+ * noktaları. `overflow: hidden` bunları keserdi. Bu yüzden maskeye alt ve
+ * üstten pay verilir; aynı miktarda negatif kenar boşluğuyla yerleşim
+ * değişmeden kalır.
+ *
+ * Pay arttığı için gizli durumdaki satırın gitmesi gereken yol da uzar:
+ * açılış animasyonları %145 kullanır (bkz. aşağıdaki başlangıç durumları ve
+ * SplitLines / Hero / MobileMenu tween'leri). Bu payı değiştirirseniz o
+ * değeri de birlikte artırın, yoksa gizli satırın tepesi görünür kalır.
+ */
 @utility line-mask {
   display: block;
   overflow: hidden;
-  padding-bottom: 0.08em;
-  margin-bottom: -0.08em;
+  padding-block: 0.3em;
+  margin-block: -0.3em;
 }
 
 /* --------------------------------------------------------------------------
@@ -157,13 +169,13 @@
 
 .js-ready [data-reveal-line] [data-line] > span {
   display: block;
-  transform: translateY(105%);
+  transform: translateY(145%);
 }
 
 /* Kahraman bölümünün açılış zamanlaması kendi zaman çizelgesine bağlıdır. */
 .js-ready [data-hero-line] > span {
   display: block;
-  transform: translateY(106%);
+  transform: translateY(145%);
 }
 
 .js-ready [data-hero-support],

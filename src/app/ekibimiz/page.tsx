@@ -27,7 +27,7 @@ export default function TeamPage() {
         lead="Büromuzda her avukat hukukun farklı bir alanında çalışır; dosyanız da o alanda çalışan kişiye gider. Danışmanlığı ve dava takibini Türkçe ve İngilizce yürütüyoruz."
         align="wide"
         image="/images/sahne/ekibimiz.jpg"
-        overlay="hafif"
+        overlay="koyu"
       />
 
       <section

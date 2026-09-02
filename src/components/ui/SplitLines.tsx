@@ -47,7 +47,7 @@ export default function SplitLines({
     const ctx = gsap.context(() => {
       gsap.fromTo(
         spans,
-        { yPercent: 105, y: 0 },
+        { yPercent: 145, y: 0 },
         {
           yPercent: 0,
           y: 0,

@@ -5,7 +5,8 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import SplitLines from "@/components/ui/SplitLines";
 
 /**
- * Videodan sonraki ilk fildişi bölüm. Etiket başlığın üstünde durur.
+ * Videodan sonraki ilk fildişi bölüm. Etiket en üstte; altında solda büyük
+ * ifade, sağda paragraflar yan yana durur.
  */
 export default function Intro() {
   return (
@@ -20,23 +21,27 @@ export default function Intro() {
       <div className="container-editorial relative">
         <SectionLabel>{intro.label}</SectionLabel>
 
-        <SplitLines
-          as="h2"
-          lines={intro.statementLines}
-          className="max-w-4xl font-serif text-statement font-light"
-        />
+        <div className="grid gap-12 md:grid-cols-12 md:gap-10 lg:gap-16">
+          <SplitLines
+            as="h2"
+            lines={intro.statementLines}
+            className="font-serif text-statement font-light md:col-span-6"
+          />
 
-        <Reveal className="mt-12 max-w-2xl space-y-7" stagger={0.12}>
-          {intro.paragraphs.map((p) => (
-            <p key={p} className="text-[1.05rem] leading-[1.85] text-ink/75">
-              {p}
-            </p>
-          ))}
-        </Reveal>
+          <div className="md:col-span-6 md:pt-2 lg:col-span-5 lg:col-start-8">
+            <Reveal className="space-y-7" stagger={0.12}>
+              {intro.paragraphs.map((p) => (
+                <p key={p} className="text-[1.02rem] leading-[1.85] text-ink/75">
+                  {p}
+                </p>
+              ))}
+            </Reveal>
 
-        <Reveal className="mt-14" delay={0.15}>
-          <ArrowLink href={intro.link.href}>{intro.link.label}</ArrowLink>
-        </Reveal>
+            <Reveal className="mt-10" delay={0.15}>
+              <ArrowLink href={intro.link.href}>{intro.link.label}</ArrowLink>
+            </Reveal>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -49,7 +49,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         "[data-menu-line] > span",
-        { yPercent: 110, y: 0 },
+        { yPercent: 145, y: 0 },
         { yPercent: 0, y: 0, duration: 0.9, ease: EASE_LONG, stagger: 0.07, delay: 0.1 },
       );
       gsap.fromTo(
