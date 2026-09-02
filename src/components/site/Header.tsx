@@ -20,20 +20,24 @@ function isActive(pathname: string, href: string): boolean {
  */
 export default function Header() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
-  const [solid, setSolid] = useState(!isHome);
+  const [solid, setSolid] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (!isHome) {
+    // Sayfanın koyu bir açılış bölümü var mı? Ana sayfadaki video ve
+    // fotoğraflı sayfa başlıkları bu işareti taşır. Rota listesi tutmak
+    // yerine işareti aramak, yeni sayfalar eklendiğinde de doğru çalışır.
+    const region = document.querySelector<HTMLElement>("[data-hero-region]");
+
+    if (!region) {
       setSolid(true);
       return;
     }
 
-    // Kahraman bölümü ekran yüksekliği kadardır; eşiği biraz önce geçeriz ki
-    // renk değişimi videonun karanlık alt kısmında tamamlansın.
+    // Eşiği bölümün biraz öncesinde geçeriz ki renk değişimi fotoğrafın
+    // karanlık alt kısmında tamamlansın.
     const update = () => {
-      setSolid(window.scrollY > window.innerHeight * 0.82);
+      setSolid(window.scrollY > region.offsetHeight * 0.82);
     };
 
     update();
@@ -43,7 +47,7 @@ export default function Header() {
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, [isHome]);
+  }, [pathname]);
 
   // Menü açıkken başlık her zaman ters kontrastta olmalıdır.
   const light = !solid || menuOpen;

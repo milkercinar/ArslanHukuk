@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { lawyers, officeStaff } from "@/lib/content/team";
 import { firm } from "@/lib/content/site";
-import ImageSection from "@/components/ui/ImageSection";
 import PageHeader from "@/components/ui/PageHeader";
-import SectionLabel from "@/components/ui/SectionLabel";
-import SplitLines from "@/components/ui/SplitLines";
 import Reveal from "@/components/ui/Reveal";
 import TeamGrid from "@/components/site/TeamGrid";
 import ContactCta from "@/components/home/ContactCta";
@@ -29,6 +26,8 @@ export default function TeamPage() {
         titleLines={["Dosyanızla kimin", "ilgilendiğini", "bilirsiniz."]}
         lead="Büromuzda her avukat hukukun farklı bir alanında çalışır; dosyanız da o alanda çalışan kişiye gider. Danışmanlığı ve dava takibini Türkçe ve İngilizce yürütüyoruz."
         align="wide"
+        image="/images/sahne/ekibimiz.jpg"
+        overlay="hafif"
       />
 
       <section
@@ -60,20 +59,6 @@ export default function TeamPage() {
           <TeamGrid members={officeStaff} columns={3} />
         </div>
       </section>
-
-      <ImageSection
-        src="/images/sahne/ekibimiz.jpg"
-        alt=""
-        overlay="koyu"
-        height="kisa"
-      >
-        <SectionLabel invert>Kadromuz</SectionLabel>
-        <SplitLines
-          as="p"
-          lines={["Her biri kendi alanında", "uzmanlaşmış bir kadro."]}
-          className="max-w-3xl font-serif text-statement font-light"
-        />
-      </ImageSection>
 
       <ContactCta />
     </>

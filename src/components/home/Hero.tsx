@@ -85,6 +85,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
+      data-hero-region=""
       className="relative h-[100svh] w-full overflow-hidden bg-ink-black"
       aria-label="Giriş"
     >

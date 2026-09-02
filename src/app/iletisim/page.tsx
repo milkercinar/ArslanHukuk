@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { contact, firm } from "@/lib/content/site";
-import ImageSection from "@/components/ui/ImageSection";
 import PageHeader from "@/components/ui/PageHeader";
-import SplitLines from "@/components/ui/SplitLines";
 import Reveal from "@/components/ui/Reveal";
 import SectionLabel from "@/components/ui/SectionLabel";
 import ContactForm from "@/components/contact/ContactForm";
@@ -28,6 +26,7 @@ export default function ContactPage() {
         titleLines={["Büromuza", "ulaşın."]}
         lead="Kısaca durumu anlatın, size dönelim. Doğrudan konuşmayı tercih ederseniz telefon numaralarımız aşağıda."
         align="wide"
+        image="/images/sahne/iletisim.jpg"
       />
 
       <section className="bg-ivory pb-20 md:pb-28">
@@ -107,20 +106,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      <ImageSection
-        src="/images/sahne/iletisim.jpg"
-        alt=""
-        overlay="koyu"
-        height="kisa"
-      >
-        <SectionLabel invert>Nasıl çalışıyoruz</SectionLabel>
-        <SplitLines
-          as="p"
-          lines={["Önce dinliyoruz,", "sonra yolu birlikte çiziyoruz."]}
-          className="max-w-3xl font-serif text-statement font-light"
-        />
-      </ImageSection>
     </>
   );
 }
