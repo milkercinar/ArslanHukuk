@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { firm } from "@/lib/content/site";
+import ImageSection from "@/components/ui/ImageSection";
 import PageHeader from "@/components/ui/PageHeader";
+import SectionLabel from "@/components/ui/SectionLabel";
+import SplitLines from "@/components/ui/SplitLines";
 import PracticeAreaRows from "@/components/home/PracticeAreaRows";
 import ContactCta from "@/components/home/ContactCta";
 
@@ -37,6 +40,20 @@ export default function PracticeAreasPage() {
           </p>
         </div>
       </section>
+
+      <ImageSection
+        src="/images/sahne/uzmanlik-alanlari.jpg"
+        alt=""
+        overlay="koyu"
+        height="normal"
+      >
+        <SectionLabel invert>Çalışma biçimimiz</SectionLabel>
+        <SplitLines
+          as="p"
+          lines={["Her alan, o alanda", "çalışan avukata emanet."]}
+          className="max-w-3xl font-serif text-statement font-light"
+        />
+      </ImageSection>
 
       <ContactCta />
     </>

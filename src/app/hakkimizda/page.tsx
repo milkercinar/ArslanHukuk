@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { about, values } from "@/lib/content/firm";
 import { firm } from "@/lib/content/site";
+import ImageSection from "@/components/ui/ImageSection";
 import PageHeader from "@/components/ui/PageHeader";
 import Reveal from "@/components/ui/Reveal";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -46,18 +47,21 @@ export default function AboutPage() {
       </section>
 
       {/* Büyük tipografi ile üç ilke — hepsi mevcut kurumsal metne dayanır. */}
-      <section className="bg-ivory-soft py-16 md:py-24">
-        <div className="container-editorial">
-          <Reveal
-            className="flex flex-col gap-4 font-serif text-[clamp(2.5rem,7vw,5.5rem)] font-light leading-[1.05] md:flex-row md:gap-12"
-            stagger={0.12}
-          >
-            <span>Uzmanlık.</span>
-            <span>Süreklilik.</span>
-            <span className="text-ink/45">Erişim.</span>
-          </Reveal>
-        </div>
-      </section>
+      <ImageSection
+        src="/images/sahne/hakkimizda.jpg"
+        alt=""
+        overlay="koyu"
+        height="kisa"
+      >
+        <Reveal
+          className="flex flex-col gap-4 font-serif text-[clamp(2.5rem,7vw,5.5rem)] font-light leading-[1.05] md:flex-row md:gap-12"
+          stagger={0.12}
+        >
+          <span>Uzmanlık.</span>
+          <span>Süreklilik.</span>
+          <span className="text-ivory/55">Erişim.</span>
+        </Reveal>
+      </ImageSection>
 
       <section
         className="bg-ivory py-20 md:py-28"
