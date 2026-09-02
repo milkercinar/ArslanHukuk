@@ -18,25 +18,21 @@ export default function PracticeAreaRows({
   const areas = limit ? practiceAreas.slice(0, limit) : practiceAreas;
 
   return (
-    <ul className={`border-t border-line ${className}`}>
+    <ul className={`w-full border-t border-line ${className}`}>
       {areas.map((area) => (
         <li key={area.slug} className="border-b border-line">
           <Link
             href={`/uzmanlik-alanlari/${area.slug}`}
             className="group relative block"
           >
-            {/* Üzerine gelindiğinde soldan açılan koyu zemin. */}
+            {/* Üzerine gelindiğinde soldan açılan, ekranın kenarına kadar giden koyu zemin. */}
             <span
               aria-hidden="true"
               className="absolute inset-0 origin-left scale-x-0 bg-ink transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
             />
 
-            <div className="relative grid grid-cols-12 items-baseline gap-4 px-1 py-8 transition-colors duration-500 group-hover:text-ivory md:gap-6 md:py-9 lg:py-10">
-              <span className="col-span-12 font-mono text-xs tracking-widest text-muted transition-colors duration-500 group-hover:text-ivory/50 md:col-span-1 md:text-[0.7rem]">
-                {area.number}
-              </span>
-
-              <h3 className="col-span-12 mt-2 font-serif text-[1.6rem] font-light leading-tight md:col-span-5 md:mt-0 md:text-[1.85rem] lg:text-[2.15rem]">
+            <div className="container-editorial relative grid grid-cols-12 items-baseline gap-4 py-8 transition-colors duration-500 group-hover:text-ivory md:gap-6 md:py-9 lg:py-10">
+              <h3 className="col-span-12 font-serif text-[1.6rem] font-light leading-tight md:col-span-6 md:text-[1.85rem] lg:text-[2.15rem]">
                 {area.title}
               </h3>
 
@@ -78,9 +74,9 @@ export function PracticeAreasSection() {
             {practiceAreas.length.toString().padStart(2, "0")} alan
           </p>
         </Reveal>
-
-        <PracticeAreaRows />
       </div>
+
+      <PracticeAreaRows />
     </section>
   );
 }

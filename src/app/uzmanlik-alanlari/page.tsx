@@ -28,9 +28,9 @@ export default function PracticeAreasPage() {
       />
 
       <section className="bg-ivory pb-16 md:pb-24">
-        <div className="container-editorial">
-          <PracticeAreaRows />
+        <PracticeAreaRows />
 
+        <div className="container-editorial">
           <p className="mt-10 max-w-2xl text-sm leading-relaxed text-muted">
             Buradaki açıklamalar genel bilgi vermek içindir, hukuki görüş
             yerine geçmez. Her dosya kendi koşulları içinde değerlendirilir.

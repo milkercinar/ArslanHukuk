@@ -171,7 +171,7 @@ export default function Hero() {
               <span>{hero.secondaryCta.label}</span>
               <span
                 aria-hidden="true"
-                className="inline-block transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1 group-hover:translate-x-1"
+                className="inline-block rotate-6 scale-x-110 text-[0.9em] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1 group-hover:translate-x-1"
               >
                 ↗
               </span>
