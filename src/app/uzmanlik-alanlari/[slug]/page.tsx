@@ -10,6 +10,7 @@ import { lawyers, fullName } from "@/lib/content/team";
 import { firm } from "@/lib/content/site";
 import PageHeader from "@/components/ui/PageHeader";
 import Reveal from "@/components/ui/Reveal";
+import SectionLabel from "@/components/ui/SectionLabel";
 import ArrowLink from "@/components/ui/ArrowLink";
 import ContactCta from "@/components/home/ContactCta";
 
@@ -66,10 +67,6 @@ export default async function PracticeAreaPage({ params }: Params) {
             >
               Uzmanlık Alanları
             </Link>
-            <span aria-hidden="true" className="px-3 text-muted-light">
-              /
-            </span>
-            <span className="text-ink/60">{area.number}</span>
           </nav>
         }
         eyebrow={area.category}
@@ -91,9 +88,11 @@ export default async function PracticeAreaPage({ params }: Params) {
               ))}
             </Reveal>
 
-            <Reveal className="md:col-span-4 md:col-start-9" delay={0.1}>
-              <p className="label-eyebrow text-muted">İlgili hizmetler</p>
-              <ul className="mt-7 space-y-0">
+            <div className="md:col-span-4 md:col-start-9">
+              <SectionLabel className="mb-5 md:mb-6">
+                İlgili hizmetler
+              </SectionLabel>
+              <ul className="space-y-0">
                 {area.services.map((service) => (
                   <li
                     key={service}
@@ -103,16 +102,14 @@ export default async function PracticeAreaPage({ params }: Params) {
                   </li>
                 ))}
               </ul>
-            </Reveal>
+            </div>
           </div>
 
           {relatedLawyers.length > 0 && (
-            <div className="mt-16 grid gap-10 border-t border-line pt-16 md:grid-cols-12 md:gap-8">
-              <Reveal className="md:col-span-3">
-                <p className="label-eyebrow text-muted">Bu alanda çalışanlar</p>
-              </Reveal>
+            <div className="mt-16 border-t border-line pt-16">
+              <SectionLabel>Bu alanda çalışanlar</SectionLabel>
               <Reveal
-                className="flex flex-wrap gap-x-12 gap-y-6 md:col-span-9"
+                className="flex flex-wrap gap-x-12 gap-y-6"
                 stagger={0.08}
               >
                 {relatedLawyers.map((lawyer) => (
@@ -160,7 +157,7 @@ export default async function PracticeAreaPage({ params }: Params) {
           />
           <div className="container-editorial relative py-12 transition-colors duration-500 group-hover:text-ivory md:py-16">
             <p className="label-eyebrow text-muted transition-colors duration-500 group-hover:text-ivory/50">
-              Sonraki alan — {next.number}
+              Sonraki alan
             </p>
             <div className="mt-5 flex items-baseline justify-between gap-8">
               <h2 className="font-serif text-title font-light">{next.title}</h2>

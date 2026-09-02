@@ -126,7 +126,7 @@ export default function Hero() {
       />
 
       <div className="container-editorial relative flex h-full flex-col justify-end pb-12 md:pb-14">
-        <div data-hero-content="" className="max-w-4xl text-ivory">
+        <div data-hero-content="" className="max-w-6xl text-ivory">
           <h1 className="font-serif text-hero font-light">
             {hero.headlineLines.map((line, i) => (
               <span key={i} data-hero-line="" className="line-mask">
@@ -137,7 +137,7 @@ export default function Hero() {
 
           <p
             data-hero-support=""
-            className="mt-8 max-w-xl text-[0.95rem] leading-relaxed text-ivory/85 md:mt-10"
+            className="mt-8 max-w-2xl text-[0.95rem] leading-relaxed text-ivory/85 md:mt-10"
           >
             {hero.support}
           </p>

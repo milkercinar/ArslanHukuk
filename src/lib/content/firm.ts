@@ -10,10 +10,8 @@
 export const hero = {
   /** Büronun mevcut sitesinde yer alan kurumsal sloganı. */
   headlineLines: [
-    "Adalet önünde",
-    "herkes eşittir.",
-    "Farkı yaratan,",
-    "iyi avukattır.",
+    "Adalet önünde herkes eşittir.",
+    "Farkı yaratan, iyi avukattır.",
   ],
   support:
     "1982'den bu yana İstanbul'dayız. Yurt içinde ve yurt dışında iş yapan kişi ve şirketlere danışmanlık veriyor, dava ve takiplerini yürütüyoruz.",
@@ -52,27 +50,22 @@ export const about = {
  */
 export const values = [
   {
-    number: "01",
     title: "Alanında uzmanlaşma",
     body: "Her avukatımız hukukun belirli bir alanında derinleşti. Dosyanız o alanda çalışan kişiye gider; herkes her işe bakmaz.",
   },
   {
-    number: "02",
     title: "Süreklilik",
     body: "1982'den bu yana aynı büroyuz. Bugün açtığınız bir dosyayı, yıllar sonra da aynı yerde arayabilirsiniz.",
   },
   {
-    number: "03",
     title: "İki dilde çalışma",
     body: "Danışmanlığı ve yazışmaları Türkçe ve İngilizce yürütüyoruz. Yurt dışındaki müvekkillerimizle aramıza çevirmen girmiyor.",
   },
   {
-    number: "04",
     title: "Sınır ötesi dosyalar",
     body: "Yurt dışında iş yapan şirketlerin ve yurt dışında yaşayan kişilerin işleri, büromuzun alıştığı konular arasında.",
   },
   {
-    number: "05",
     title: "İstanbul dışı",
     body: "Başka şehirlerdeki işler için orada çalıştığımız bürolarla ilerliyoruz. Kendinize ayrıca avukat aramanız gerekmiyor.",
   },

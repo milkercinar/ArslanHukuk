@@ -118,15 +118,22 @@ export default function Header() {
                     key={item.href}
                     href={item.href}
                     aria-current={active ? "page" : undefined}
-                    className={`relative text-[0.8rem] tracking-wide transition-opacity duration-300 hover:opacity-100 ${
-                      active ? "opacity-100" : "opacity-70"
+                    className={`group relative text-[0.8rem] tracking-wide transition-all duration-300 ${
+                      active
+                        ? "font-semibold opacity-100"
+                        : "font-normal opacity-60 hover:opacity-95"
                     }`}
                   >
                     {item.label}
+                    {/* Bulunulan bölüm kalın yazı + tam alt çizgiyle
+                        işaretlenir; diğerlerinde çizgi yalnızca üzerine
+                        gelindiğinde soldan açılır. */}
                     <span
                       aria-hidden="true"
-                      className={`absolute -bottom-1.5 left-0 h-px w-full origin-left bg-current transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                        active ? "scale-x-100" : "scale-x-0"
+                      className={`absolute -bottom-2 left-0 h-[1.5px] w-full origin-left bg-current transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                        active
+                          ? "scale-x-100"
+                          : "scale-x-0 group-hover:scale-x-100"
                       }`}
                     />
                   </Link>

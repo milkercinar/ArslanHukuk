@@ -1,11 +1,11 @@
 import { intro } from "@/lib/content/firm";
 import ArrowLink from "@/components/ui/ArrowLink";
 import Reveal from "@/components/ui/Reveal";
+import SectionLabel from "@/components/ui/SectionLabel";
 import SplitLines from "@/components/ui/SplitLines";
 
 /**
- * Videodan sonraki ilk fildişi bölüm. Solda küçük bir etiket, sağda ekranın
- * büyük bölümünü kaplayan editoryal ifade.
+ * Videodan sonraki ilk fildişi bölüm. Etiket başlığın üstünde durur.
  */
 export default function Intro() {
   return (
@@ -18,34 +18,25 @@ export default function Intro() {
       </span>
 
       <div className="container-editorial relative">
-        <div className="grid gap-12 md:grid-cols-12 md:gap-8">
-          <Reveal className="md:col-span-3">
-            <p className="label-eyebrow font-bold! text-ink">{intro.label}</p>
-          </Reveal>
+        <SectionLabel>{intro.label}</SectionLabel>
 
-          <div className="md:col-span-9 lg:col-span-8">
-            <SplitLines
-              as="h2"
-              lines={intro.statementLines}
-              className="font-serif text-statement font-light"
-            />
+        <SplitLines
+          as="h2"
+          lines={intro.statementLines}
+          className="max-w-4xl font-serif text-statement font-light"
+        />
 
-            <Reveal
-              className="mt-12 max-w-2xl space-y-7"
-              stagger={0.12}
-            >
-              {intro.paragraphs.map((p) => (
-                <p key={p} className="text-[1.05rem] leading-[1.85] text-ink/75">
-                  {p}
-                </p>
-              ))}
-            </Reveal>
+        <Reveal className="mt-12 max-w-2xl space-y-7" stagger={0.12}>
+          {intro.paragraphs.map((p) => (
+            <p key={p} className="text-[1.05rem] leading-[1.85] text-ink/75">
+              {p}
+            </p>
+          ))}
+        </Reveal>
 
-            <Reveal className="mt-14" delay={0.15}>
-              <ArrowLink href={intro.link.href}>{intro.link.label}</ArrowLink>
-            </Reveal>
-          </div>
-        </div>
+        <Reveal className="mt-14" delay={0.15}>
+          <ArrowLink href={intro.link.href}>{intro.link.label}</ArrowLink>
+        </Reveal>
       </div>
     </section>
   );

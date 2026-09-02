@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { practiceAreas } from "@/lib/content/practice-areas";
 import Reveal from "@/components/ui/Reveal";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 /**
- * Numaralandırılmış yatay uzmanlık satırları.
+ * Yatay uzmanlık satırları.
  *
- * Kart yok, gölge yok: hiyerarşi yalnızca numara, tipografi ve ince ayırıcı
- * çizgilerle kurulur. Satırın üzerine gelindiğinde zemin koyulaşır ve ok kayar.
+ * Kart yok, gölge yok, numara yok: hiyerarşi yalnızca tipografi ve ince
+ * ayırıcı çizgilerle kurulur. Satırın üzerine gelindiğinde zemin koyulaşır ve ok kayar.
  */
 export default function PracticeAreaRows({
   limit,
@@ -63,16 +64,12 @@ export function PracticeAreasSection() {
       aria-labelledby="uzmanlik-baslik"
     >
       <div className="container-editorial">
-        <Reveal className="mb-10 flex flex-wrap items-end justify-between gap-6 md:mb-14">
-          <h2
-            id="uzmanlik-baslik"
-            className="font-serif text-title font-bold"
-          >
+        <SectionLabel>Uzmanlık Alanları</SectionLabel>
+
+        <Reveal className="mb-10 md:mb-14">
+          <h2 id="uzmanlik-baslik" className="font-serif text-title font-light">
             Uzmanlık alanlarımız.
           </h2>
-          <p className="label-eyebrow text-muted">
-            {practiceAreas.length.toString().padStart(2, "0")} alan
-          </p>
         </Reveal>
       </div>
 

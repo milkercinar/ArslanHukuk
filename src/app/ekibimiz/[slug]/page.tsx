@@ -5,12 +5,13 @@ import { notFound } from "next/navigation";
 import {
   fullName,
   getTeamMember,
+  profileFacts,
   profiledMembers,
-  type TeamMember,
 } from "@/lib/content/team";
 import { getPracticeArea } from "@/lib/content/practice-areas";
 import { firm, SITE_URL } from "@/lib/content/site";
 import Reveal from "@/components/ui/Reveal";
+import SectionLabel from "@/components/ui/SectionLabel";
 import SplitLines from "@/components/ui/SplitLines";
 import ArrowLink from "@/components/ui/ArrowLink";
 import ContactCta from "@/components/home/ContactCta";
@@ -41,28 +42,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   };
 }
 
-/** Yalnızca sitede açıkça yer alan alanlar listelenir. */
-function factRows(member: TeamMember) {
-  const rows: { label: string; values: string[] }[] = [];
-  if (member.barRegistration) {
-    rows.push({ label: "Baro kaydı", values: [member.barRegistration] });
-  }
-  if (member.education?.length) {
-    rows.push({ label: "Eğitim", values: member.education });
-  }
-  if (member.languages?.length) {
-    rows.push({ label: "Yabancı dil", values: member.languages });
-  }
-  return rows;
-}
-
 export default async function TeamMemberPage({ params }: Params) {
   const { slug } = await params;
   const member = getTeamMember(slug);
   if (!member || !member.hasProfile) notFound();
 
   const name = fullName(member);
-  const facts = factRows(member);
+  const facts = profileFacts(member);
   const related = (member.relatedAreas ?? [])
     .map(getPracticeArea)
     .filter((a) => a !== undefined);
@@ -138,37 +124,40 @@ export default async function TeamMemberPage({ params }: Params) {
                 ))}
               </Reveal>
 
-              {facts.length > 0 && (
-                <Reveal className="mt-10 max-w-xl" delay={0.15}>
-                  <dl className="border-t border-line">
-                    {facts.map((row) => (
-                      <div
-                        key={row.label}
-                        className="grid grid-cols-3 gap-4 border-b border-line py-4"
-                      >
-                        <dt className="label-eyebrow text-muted">
-                          {row.label}
-                        </dt>
-                        <dd className="col-span-2 text-sm leading-relaxed text-ink/78">
-                          {row.values.join(", ")}
-                        </dd>
-                      </div>
-                    ))}
-                    {member.email && (
-                      <div className="grid grid-cols-3 gap-4 border-b border-line py-4">
-                        <dt className="label-eyebrow text-muted">E-posta</dt>
-                        <dd className="col-span-2 text-sm">
-                          <a
-                            href={`mailto:${member.email}`}
-                            className="text-ink/78 underline decoration-line-strong underline-offset-4 transition-colors duration-300 hover:text-ink"
-                          >
-                            {member.email}
-                          </a>
-                        </dd>
-                      </div>
-                    )}
-                  </dl>
-                </Reveal>
+              {(facts.length > 0 || member.email) && (
+                <div className="mt-12 max-w-xl">
+                  <SectionLabel className="mb-5 md:mb-5">Künye</SectionLabel>
+                  <Reveal delay={0.15}>
+                    <dl className="border-t border-line">
+                      {facts.map((row) => (
+                        <div
+                          key={row.label}
+                          className="grid grid-cols-3 gap-4 border-b border-line py-4"
+                        >
+                          <dt className="label-eyebrow text-muted">
+                            {row.label}
+                          </dt>
+                          <dd className="col-span-2 text-sm leading-relaxed text-ink/78">
+                            {row.value}
+                          </dd>
+                        </div>
+                      ))}
+                      {member.email && (
+                        <div className="grid grid-cols-3 gap-4 border-b border-line py-4">
+                          <dt className="label-eyebrow text-muted">E-posta</dt>
+                          <dd className="col-span-2 text-sm">
+                            <a
+                              href={`mailto:${member.email}`}
+                              className="text-ink/78 underline decoration-line-strong underline-offset-4 transition-colors duration-300 hover:text-ink"
+                            >
+                              {member.email}
+                            </a>
+                          </dd>
+                        </div>
+                      )}
+                    </dl>
+                  </Reveal>
+                </div>
               )}
             </div>
           </div>
@@ -178,21 +167,17 @@ export default async function TeamMemberPage({ params }: Params) {
       {member.focus && member.focus.length > 0 && (
         <section className="bg-ivory-soft py-14 md:py-20">
           <div className="container-editorial">
-            <div className="grid gap-10 md:grid-cols-12 md:gap-8">
-              <Reveal className="md:col-span-3">
-                <p className="label-eyebrow text-muted">Çalışma konuları</p>
-              </Reveal>
-              <Reveal className="md:col-span-9" stagger={0.05}>
-                {member.focus.map((item) => (
-                  <p
-                    key={item}
-                    className="border-b border-line py-4 font-serif text-[1.25rem] font-light md:text-[1.45rem]"
-                  >
-                    {item}
-                  </p>
-                ))}
-              </Reveal>
-            </div>
+            <SectionLabel>Çalışma konuları</SectionLabel>
+            <Reveal stagger={0.05}>
+              {member.focus.map((item) => (
+                <p
+                  key={item}
+                  className="border-b border-line py-4 font-serif text-[1.25rem] font-light md:text-[1.45rem]"
+                >
+                  {item}
+                </p>
+              ))}
+            </Reveal>
           </div>
         </section>
       )}
@@ -200,9 +185,7 @@ export default async function TeamMemberPage({ params }: Params) {
       {related.length > 0 && (
         <section className="bg-ivory py-14 md:py-20">
           <div className="container-editorial">
-            <Reveal className="mb-10">
-              <p className="label-eyebrow text-muted">İlgili uzmanlık alanları</p>
-            </Reveal>
+            <SectionLabel>İlgili uzmanlık alanları</SectionLabel>
             <Reveal className="flex flex-wrap gap-x-12 gap-y-5" stagger={0.06}>
               {related.map((area) => (
                 <ArrowLink

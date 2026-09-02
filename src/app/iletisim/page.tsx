@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { contact, firm } from "@/lib/content/site";
 import PageHeader from "@/components/ui/PageHeader";
 import Reveal from "@/components/ui/Reveal";
+import SectionLabel from "@/components/ui/SectionLabel";
 import ContactForm from "@/components/contact/ContactForm";
 
 export const metadata: Metadata = {
@@ -79,20 +80,27 @@ export default function ContactPage() {
               </Reveal>
             </div>
 
+            {/* Form, sayfanın geri kalanından ayrı bir yüzeyde durur;
+                böylece iletişim bilgileri ile doldurulacak alan görsel
+                olarak birbirine karışmaz. */}
             <div className="md:col-span-7 md:col-start-6">
-              <Reveal delay={0.1}>
-                <h2 className="font-serif text-title font-light">
-                  Bize yazın.
-                </h2>
-                <p className="mt-5 max-w-lg text-sm leading-relaxed text-ink/70">
-                  Ne olduğunu birkaç cümleyle anlatmanız yeterli. Gerisini
-                  konuşurken netleştiririz.
-                </p>
-              </Reveal>
+              <div className="bg-ivory-soft p-7 md:p-10">
+                <SectionLabel>Mesaj gönderin</SectionLabel>
 
-              <Reveal className="mt-10" delay={0.18}>
-                <ContactForm />
-              </Reveal>
+                <Reveal delay={0.1}>
+                  <h2 className="font-serif text-title font-light">
+                    Bize yazın.
+                  </h2>
+                  <p className="mt-5 max-w-lg text-sm leading-relaxed text-ink/70">
+                    Ne olduğunu birkaç cümleyle anlatmanız yeterli. Gerisini
+                    konuşurken netleştiririz.
+                  </p>
+                </Reveal>
+
+                <Reveal className="mt-10" delay={0.18}>
+                  <ContactForm />
+                </Reveal>
+              </div>
             </div>
           </div>
         </div>

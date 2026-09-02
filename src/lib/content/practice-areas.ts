@@ -11,7 +11,6 @@
 export type PracticeCategory = "Kurumsal" | "Bireysel";
 
 export type PracticeArea = {
-  number: string;
   slug: string;
   title: string;
   /** Uzun başlıklar için listelerde kullanılan kısa ad. */
@@ -29,7 +28,6 @@ export type PracticeArea = {
 
 export const practiceAreas: PracticeArea[] = [
   {
-    number: "01",
     slug: "ticaret-ve-uluslararasi-ticaret-hukuku",
     title: "Ticaret ve Uluslararası Ticaret Hukuku",
     category: "Kurumsal",
@@ -51,7 +49,6 @@ export const practiceAreas: PracticeArea[] = [
     ],
   },
   {
-    number: "02",
     slug: "kira-ve-gayrimenkul-hukuku",
     title: "Kira ve Gayrimenkul Hukuku",
     category: "Kurumsal",
@@ -72,7 +69,6 @@ export const practiceAreas: PracticeArea[] = [
     ],
   },
   {
-    number: "03",
     slug: "icra-ve-iflas-hukuku",
     title: "İcra ve İflas Hukuku",
     category: "Kurumsal",
@@ -92,7 +88,6 @@ export const practiceAreas: PracticeArea[] = [
     ],
   },
   {
-    number: "04",
     slug: "is-ve-sosyal-guvenlik-hukuku",
     title: "İş ve Sosyal Güvenlik Hukuku",
     category: "Kurumsal",
@@ -114,7 +109,6 @@ export const practiceAreas: PracticeArea[] = [
     ],
   },
   {
-    number: "05",
     slug: "fikri-ve-sinai-haklar-hukuku",
     title: "Fikri ve Sınai Haklar Hukuku",
     shortTitle: "Fikri ve Sınai Haklar",
@@ -135,7 +129,6 @@ export const practiceAreas: PracticeArea[] = [
     ],
   },
   {
-    number: "06",
     slug: "medeni-hukuk",
     title: "Medeni Hukuk",
     category: "Bireysel",
@@ -155,7 +148,6 @@ export const practiceAreas: PracticeArea[] = [
     ],
   },
   {
-    number: "07",
     slug: "idare-ve-vergi-hukuku",
     title: "İdare ve Vergi Hukuku",
     category: "Kurumsal",
@@ -176,7 +168,6 @@ export const practiceAreas: PracticeArea[] = [
     ],
   },
   {
-    number: "08",
     slug: "bankacilik-ve-finans-hukuku",
     title: "Bankacılık ve Finans Hukuku",
     category: "Kurumsal",
