@@ -2,13 +2,10 @@
  * Kurumsal sabitler ve iletişim bilgileri.
  *
  * Buradaki tüm veriler Arslan Hukuk Bürosu'nun mevcut kurumsal iletişim
- * bilgilerinden birebir alınmıştır. Uydurulmuş bilgi yer almaz.
+ * bilgilerinden birebir alınmıştır. Uydurulmuş bilgi yer almaz. Bu dosyadaki
+ * hiçbir değer çevrilmez: adres, telefon ve e-posta her iki dilde de aynıdır.
+ * Çevrilen metinler `tr/ui.ts` ve `en/ui.ts` dosyalarındadır.
  */
-
-export type Locale = "tr" | "en";
-
-export const DEFAULT_LOCALE: Locale = "tr";
-export const LOCALES: Locale[] = ["tr"];
 
 const FALLBACK_SITE_URL = "https://www.arslanhukuk.com.tr";
 
@@ -57,21 +54,4 @@ export const contact = {
   ],
   fax: "0212 415 13 83",
   email: "alperarslan@istanbulbarosu.org.tr",
-  bar: "İstanbul Barosu",
 } as const;
-
-export type NavItem = { label: string; href: string };
-
-export const primaryNav: NavItem[] = [
-  { label: "Ana Sayfa", href: "/" },
-  { label: "Hakkımızda", href: "/hakkimizda" },
-  { label: "Uzmanlık Alanları", href: "/uzmanlik-alanlari" },
-  { label: "Ekibimiz", href: "/ekibimiz" },
-  { label: "İletişim", href: "/iletisim" },
-];
-
-export const legalNav: NavItem[] = [
-  { label: "KVKK Aydınlatma Metni", href: "/kvkk" },
-  { label: "Gizlilik", href: "/gizlilik" },
-  { label: "Çerez Politikası", href: "/cerez-politikasi" },
-];

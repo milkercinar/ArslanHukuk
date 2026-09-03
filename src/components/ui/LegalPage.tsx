@@ -16,13 +16,11 @@ export default function LegalPage({
   titleLines,
   lead,
   sections,
-  updatedAt,
 }: {
   eyebrow: string;
   titleLines: readonly string[];
   lead?: string;
   sections: LegalSection[];
-  updatedAt?: string;
 }) {
   return (
     <>
@@ -69,14 +67,6 @@ export default function LegalPage({
                 )}
               </Reveal>
             ))}
-
-            {updatedAt && (
-              <Reveal className="mt-12 border-t border-line pt-8">
-                <p className="text-xs text-muted">
-                  Son güncelleme: {updatedAt}
-                </p>
-              </Reveal>
-            )}
           </div>
         </div>
       </section>

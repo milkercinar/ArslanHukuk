@@ -1,7 +1,11 @@
 import Link from "next/link";
-import { practiceAreas } from "@/lib/content/practice-areas";
+import { getPracticeAreas } from "@/lib/content/practice-areas";
+import {
+  getDictionary,
+  practiceAreaRoute,
+  type Locale,
+} from "@/lib/i18n";
 import Reveal from "@/components/ui/Reveal";
-import SectionLabel from "@/components/ui/SectionLabel";
 
 /**
  * Yatay uzmanlık satırları.
@@ -10,20 +14,23 @@ import SectionLabel from "@/components/ui/SectionLabel";
  * ayırıcı çizgilerle kurulur. Satırın üzerine gelindiğinde zemin koyulaşır ve ok kayar.
  */
 export default function PracticeAreaRows({
+  locale,
   limit,
   className = "",
 }: {
+  locale: Locale;
   limit?: number;
   className?: string;
 }) {
-  const areas = limit ? practiceAreas.slice(0, limit) : practiceAreas;
+  const all = getPracticeAreas(locale);
+  const areas = limit ? all.slice(0, limit) : all;
 
   return (
     <ul className={`w-full border-t border-line ${className}`}>
       {areas.map((area) => (
         <li key={area.slug} className="border-b border-line">
           <Link
-            href={`/uzmanlik-alanlari/${area.slug}`}
+            href={practiceAreaRoute(locale, area.slug)}
             className="group relative block"
           >
             {/* Üzerine gelindiğinde soldan açılan, ekranın kenarına kadar giden koyu zemin. */}
@@ -56,7 +63,9 @@ export default function PracticeAreaRows({
 }
 
 /** Ana sayfadaki bölüm sarmalayıcısı. */
-export function PracticeAreasSection() {
+export function PracticeAreasSection({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+
   return (
     <section
       id="uzmanlik"
@@ -64,16 +73,14 @@ export function PracticeAreasSection() {
       aria-labelledby="uzmanlik-baslik"
     >
       <div className="container-editorial">
-        <SectionLabel>Uzmanlık Alanları</SectionLabel>
-
         <Reveal className="mb-10 md:mb-14">
           <h2 id="uzmanlik-baslik" className="font-serif text-title font-light">
-            Uzmanlık alanlarımız.
+            {dict.home.practiceHeading}
           </h2>
         </Reveal>
       </div>
 
-      <PracticeAreaRows />
+      <PracticeAreaRows locale={locale} />
     </section>
   );
 }

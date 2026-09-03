@@ -3,10 +3,12 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { contact, primaryNav } from "@/lib/content/site";
+import { contact } from "@/lib/content/site";
+import { getDictionary, NAV_KEYS, route, type Locale } from "@/lib/i18n";
 import { gsap, EASE_LONG, prefersReducedMotion } from "@/lib/gsap";
 
 type MobileMenuProps = {
+  locale: Locale;
   open: boolean;
   onClose: () => void;
 };
@@ -15,9 +17,10 @@ type MobileMenuProps = {
  * Tam ekran koyu menü. Bağlantılar sırayla maskeden açılır; Escape ve
  * rota değişimi menüyü kapatır.
  */
-export default function MobileMenu({ open, onClose }: MobileMenuProps) {
+export default function MobileMenu({ locale, open, onClose }: MobileMenuProps) {
   const panelRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const dict = getDictionary(locale);
 
   // Rota değiştiğinde menü açık kalmamalı.
   useEffect(() => {
@@ -72,19 +75,19 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
       }`}
     >
       <div className="container-editorial flex h-[100svh] flex-col justify-between pb-10 pt-28">
-        <nav aria-label="Mobil menü">
+        <nav aria-label={dict.common.mobileMenuLabel}>
           <ul>
-            {primaryNav.map((item) => (
-              <li key={item.href} className="border-b border-line-invert">
+            {NAV_KEYS.map((key) => (
+              <li key={key} className="border-b border-line-invert">
                 <Link
-                  href={item.href}
+                  href={route(locale, key)}
                   onClick={onClose}
                   tabIndex={open ? 0 : -1}
                   className="block py-5"
                 >
                   <span data-menu-line="" className="line-mask">
                     <span className="block font-serif text-[2.1rem] font-light leading-none">
-                      {item.label}
+                      {dict.nav[key]}
                     </span>
                   </span>
                 </Link>
@@ -94,7 +97,9 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
         </nav>
 
         <div data-menu-foot="" className="space-y-3 text-sm text-ivory/70">
-          <p className="label-eyebrow text-ivory/55">İletişim</p>
+          <p className="label-eyebrow text-ivory/55">
+            {dict.footer.contactHeading}
+          </p>
           <p>
             <a href={contact.phones[0].href} tabIndex={open ? 0 : -1}>
               {contact.phones[0].label}

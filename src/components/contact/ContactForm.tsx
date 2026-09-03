@@ -2,6 +2,8 @@
 
 import { useId, useState, type FormEvent } from "react";
 import Link from "next/link";
+import { getDictionary, route, type Locale } from "@/lib/i18n";
+import type { Dictionary } from "@/lib/i18n/dictionary";
 
 type Values = {
   name: string;
@@ -24,27 +26,27 @@ const EMPTY: Values = {
 };
 
 /** Sunucuda da aynı kurallar uygulanır; bkz. app/api/iletisim/route.ts */
-function validate(values: Values): Errors {
+function validate(values: Values, messages: Dictionary["form"]["errors"]): Errors {
   const errors: Errors = {};
 
   if (values.name.trim().length < 2) {
-    errors.name = "Lütfen ad ve soyadınızı yazınız.";
+    errors.name = messages.name;
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(values.email.trim())) {
-    errors.email = "Geçerli bir e-posta adresi giriniz.";
+    errors.email = messages.email;
   }
   // Telefon isteğe bağlıdır; girildiyse en az 10 rakam beklenir.
   if (values.phone.trim() && values.phone.replace(/\D/g, "").length < 10) {
-    errors.phone = "Telefon numarası eksik görünüyor.";
+    errors.phone = messages.phone;
   }
   if (values.subject.trim().length < 3) {
-    errors.subject = "Lütfen kısa bir konu başlığı yazınız.";
+    errors.subject = messages.subject;
   }
   if (values.message.trim().length < 20) {
-    errors.message = "Mesajınızı biraz daha ayrıntılı yazabilir misiniz?";
+    errors.message = messages.message;
   }
   if (!values.consent) {
-    errors.consent = "Devam edebilmek için onay kutusunu işaretlemeniz gerekir.";
+    errors.consent = messages.consent;
   }
 
   return errors;
@@ -53,8 +55,10 @@ function validate(values: Values): Errors {
 const fieldClass =
   "w-full border-b border-line bg-transparent py-3 text-[0.95rem] text-ink outline-none transition-colors duration-300 placeholder:text-muted-light focus:border-ink";
 
-export default function ContactForm() {
+export default function ContactForm({ locale }: { locale: Locale }) {
   const id = useId();
+  const dict = getDictionary(locale);
+  const t = dict.form;
   const [values, setValues] = useState<Values>(EMPTY);
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
@@ -70,7 +74,7 @@ export default function ContactForm() {
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const found = validate(values);
+    const found = validate(values, t.errors);
     setErrors(found);
     if (Object.keys(found).length > 0) {
       const firstKey = Object.keys(found)[0];
@@ -83,7 +87,7 @@ export default function ContactForm() {
       const res = await fetch("/api/iletisim", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, locale }),
       });
       if (!res.ok) throw new Error(String(res.status));
       setStatus("sent");
@@ -100,22 +104,19 @@ export default function ContactForm() {
         className="border-t border-ink py-12"
         aria-live="polite"
       >
-        <p className="label-eyebrow text-muted">Teşekkür ederiz</p>
+        <p className="label-eyebrow text-muted">{t.sentLabel}</p>
         <p className="mt-6 max-w-lg font-serif text-[1.6rem] font-light leading-snug md:text-[1.9rem]">
-          Mesajınızı aldık.
+          {t.sentHeading}
         </p>
         <p className="mt-5 max-w-lg text-sm leading-relaxed text-ink/70">
-          Okuyup size döneceğiz. Beklemeyecek bir konuysa büromuzu telefonla
-          da arayabilirsiniz.
+          {t.sentBody}
         </p>
         <button
           type="button"
           onClick={() => setStatus("idle")}
           className="group mt-10 inline-flex items-baseline gap-3 text-sm"
         >
-          <span className="border-b border-line-strong pb-1">
-            Yeni bir mesaj yaz
-          </span>
+          <span className="border-b border-line-strong pb-1">{t.sentAgain}</span>
           <span
             aria-hidden="true"
             className="inline-block transition-transform duration-500 group-hover:translate-x-2"
@@ -132,7 +133,7 @@ export default function ContactForm() {
       <div className="grid gap-10 sm:grid-cols-2">
         <Field
           id={`${id}-name`}
-          label="Ad Soyad"
+          label={t.name}
           required
           error={errors.name}
           input={
@@ -152,7 +153,7 @@ export default function ContactForm() {
 
         <Field
           id={`${id}-email`}
-          label="E-posta"
+          label={t.email}
           required
           error={errors.email}
           input={
@@ -172,8 +173,8 @@ export default function ContactForm() {
 
         <Field
           id={`${id}-phone`}
-          label="Telefon"
-          hint="isteğe bağlı"
+          label={t.phone}
+          hint={t.optional}
           error={errors.phone}
           input={
             <input
@@ -192,7 +193,7 @@ export default function ContactForm() {
 
         <Field
           id={`${id}-subject`}
-          label="Konu"
+          label={t.subject}
           required
           error={errors.subject}
           input={
@@ -214,7 +215,7 @@ export default function ContactForm() {
 
       <Field
         id={`${id}-message`}
-        label="Mesaj"
+        label={t.message}
         required
         error={errors.message}
         input={
@@ -251,14 +252,14 @@ export default function ContactForm() {
             className="mt-1 h-4 w-4 shrink-0 accent-ink"
           />
           <span>
+            {t.consentBefore}
             <Link
-              href="/kvkk"
+              href={route(locale, "dataProtection")}
               className="underline decoration-line-strong underline-offset-4 transition-colors hover:text-ink"
             >
-              KVKK Aydınlatma Metni
+              {t.consentLink}
             </Link>
-            &rsquo;ni okudum ve kişisel verilerimin belirtilen kapsamda
-            işlenmesini kabul ediyorum.
+            {t.consentAfter}
           </span>
         </label>
         {errors.consent && (
@@ -278,7 +279,7 @@ export default function ContactForm() {
           className="group inline-flex items-baseline gap-3 text-sm tracking-wide disabled:opacity-50"
         >
           <span className="border-b border-ink pb-1 transition-colors duration-500">
-            {status === "sending" ? "Gönderiliyor" : "Mesajı gönder"}
+            {status === "sending" ? t.submitting : t.submit}
           </span>
           <span
             aria-hidden="true"
@@ -290,17 +291,13 @@ export default function ContactForm() {
 
         {status === "error" && (
           <p role="alert" className="text-sm text-ink/70">
-            Mesaj gönderilemedi. Lütfen tekrar deneyin veya bize doğrudan
-            e-posta gönderin.
+            {t.deliveryError}
           </p>
         )}
       </div>
 
       <p className="max-w-2xl border-t border-line pt-8 text-xs leading-relaxed text-muted">
-        Bu formu doldurmanız avukat–müvekkil ilişkisi kurmaz; vekâlet ilişkisi
-        ancak ayrıca imzalanacak bir sözleşmeyle doğar. Bu nedenle gizli
-        bilgileri forma yazmamanızı öneririz. Süre sınırı olan bir konuysa
-        beklemeden bizi arayın.
+        {t.disclaimer}
       </p>
     </form>
   );

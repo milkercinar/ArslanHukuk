@@ -10,6 +10,8 @@ type Payload = {
   subject?: unknown;
   message?: unknown;
   consent?: unknown;
+  /** Formun hangi dilde doldurulduğu — yanıtın dilini seçmeye yarar. */
+  locale?: unknown;
 };
 
 const str = (v: unknown) => (typeof v === "string" ? v.trim() : "");
@@ -22,6 +24,8 @@ function validate(body: Payload) {
   const subject = str(body.subject);
   const message = str(body.message);
   const consent = body.consent === true;
+  // Bilinmeyen bir değer gönderilirse Türkçe kabul edilir.
+  const locale = body.locale === "en" ? "en" : "tr";
 
   const problems: string[] = [];
   if (name.length < 2) problems.push("name");
@@ -34,7 +38,7 @@ function validate(body: Payload) {
   // Aşırı uzun gönderimler kabul edilmez.
   if (message.length > 5000) problems.push("message");
 
-  return { problems, data: { name, email, phone, subject, message } };
+  return { problems, data: { name, email, phone, subject, message, locale } };
 }
 
 type FormData = ReturnType<typeof validate>["data"];
@@ -45,6 +49,8 @@ function asText(data: FormData) {
     `E-posta: ${data.email}`,
     `Telefon: ${data.phone || "—"}`,
     `Konu: ${data.subject}`,
+    // Büro, yanıtı gönderenin sitede kullandığı dilde yazabilsin.
+    `Form dili: ${data.locale === "en" ? "İngilizce" : "Türkçe"}`,
     "",
     data.message,
   ].join("\n");

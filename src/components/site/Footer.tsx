@@ -1,8 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import { contact, firm, legalNav, primaryNav } from "@/lib/content/site";
+import { contact, firm } from "@/lib/content/site";
+import {
+  getDictionary,
+  LEGAL_KEYS,
+  NAV_KEYS,
+  route,
+  type Locale,
+} from "@/lib/i18n";
 
-export default function Footer() {
+export default function Footer({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
   const year = new Date().getFullYear();
 
   return (
@@ -10,7 +18,10 @@ export default function Footer() {
       <div className="container-editorial py-14 md:py-20">
         <div className="grid gap-10 md:grid-cols-12 md:gap-10">
           <div className="md:col-span-5">
-            <Link href="/" className="relative block h-[34px] w-[155px]">
+            <Link
+              href={route(locale, "home")}
+              className="relative block h-[34px] w-[155px]"
+            >
               {/* Koyu zemin için beyaz siluet. */}
               <Image
                 src="/images/arslan-hukuk-logo.png"
@@ -21,21 +32,22 @@ export default function Footer() {
               />
             </Link>
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-ivory/60">
-              {firm.foundedYear}&apos;den bu yana İstanbul&apos;da avukatlık ve
-              hukuki danışmanlık yapıyoruz.
+              {dict.footer.tagline}
             </p>
           </div>
 
-          <nav aria-label="Alt menü" className="md:col-span-3">
-            <p className="label-eyebrow text-ivory/55">Menü</p>
+          <nav aria-label={dict.common.footerMenuLabel} className="md:col-span-3">
+            <p className="label-eyebrow text-ivory/55">
+              {dict.footer.menuHeading}
+            </p>
             <ul className="mt-6 space-y-3 text-sm">
-              {primaryNav.map((item) => (
-                <li key={item.href}>
+              {NAV_KEYS.map((key) => (
+                <li key={key}>
                   <Link
-                    href={item.href}
+                    href={route(locale, key)}
                     className="text-ivory/75 transition-colors duration-300 hover:text-ivory"
                   >
-                    {item.label}
+                    {dict.nav[key]}
                   </Link>
                 </li>
               ))}
@@ -43,7 +55,9 @@ export default function Footer() {
           </nav>
 
           <div className="md:col-span-4">
-            <p className="label-eyebrow text-ivory/55">İletişim</p>
+            <p className="label-eyebrow text-ivory/55">
+              {dict.footer.contactHeading}
+            </p>
             <address className="mt-6 space-y-3 text-sm not-italic leading-relaxed text-ivory/75">
               <p className="max-w-[16rem]">{contact.address.full}</p>
               <p className="flex flex-wrap gap-x-3">
@@ -63,7 +77,9 @@ export default function Footer() {
                   </span>
                 ))}
               </p>
-              <p className="text-ivory/60">Faks {contact.fax}</p>
+              <p className="text-ivory/60">
+                {dict.footer.fax} {contact.fax}
+              </p>
               <p>
                 <a
                   href={`mailto:${contact.email}`}
@@ -78,16 +94,16 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col gap-5 border-t border-line-invert pt-8 text-xs text-ivory/55 md:flex-row md:items-center md:justify-between">
           <p>
-            © {year} {firm.name}. Tüm hakları saklıdır.
+            © {year} {firm.name}. {dict.footer.rights}
           </p>
           <ul className="flex flex-wrap gap-x-7 gap-y-2">
-            {legalNav.map((item) => (
-              <li key={item.href}>
+            {LEGAL_KEYS.map((key) => (
+              <li key={key}>
                 <Link
-                  href={item.href}
+                  href={route(locale, key)}
                   className="transition-colors duration-300 hover:text-ivory"
                 >
-                  {item.label}
+                  {dict.legalNav[key]}
                 </Link>
               </li>
             ))}

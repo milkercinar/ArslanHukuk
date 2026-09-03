@@ -42,20 +42,63 @@ yayına alınmadan önce bunlardan biri yapılandırılmalıdır.
 Tüm metinler `src/lib/content/` altında toplanmıştır; bileşenlerde sabit
 metin yoktur.
 
-- `site.ts` — büro adı, adres, telefon, e-posta, menüler
-- `firm.ts` — kahraman bölümü, giriş, hakkımızda, ilkeler, iletişim çağrısı
-- `practice-areas.ts` — uzmanlık alanları ve detay sayfası içerikleri
-- `team.ts` — ekip üyeleri, özgeçmişler, sicil ve dil bilgileri
+Dile bağlı **olmayan** veriler tek yerde durur:
 
-Bir uzmanlık alanı veya ekip üyesi eklemek için ilgili dizideki nesneyi
-çoğaltmak yeterlidir; sayfa, sitemap ve statik üretim otomatik olarak
-güncellenir.
+- `site.ts` — adres, telefon, faks, e-posta, ticaret unvanı, kanonik adres
+- `practice-areas.ts` — uzmanlık alanı tipleri ve erişim yardımcıları
+- `team.ts` — kişilerin adı, fotoğrafı, sicil numarası, yılları, e-postası
 
-### Çok dillilik
+Çevrilen metinler dil dizinlerindedir — `tr/` ve `en/` altında aynı dosyalar:
 
-`site.ts` içinde `Locale`, `LOCALES` ve `DEFAULT_LOCALE` tanımları hazırdır;
-şu an yalnızca `tr` etkindir. İngilizce içerik geldiğinde içerik modülleri
-dile göre anahtarlanıp `app/[locale]` segmenti eklenerek genişletilebilir.
+- `ui.ts` — menü, sayfa başlıkları, form, hukuki metinler, üst veri
+- `practice-areas.ts` — uzmanlık alanı başlıkları, açıklamaları, adres parçaları
+- `team.ts` — unvanlar, özgeçmişler, eğitim ve çalışma konuları
+
+Bir uzmanlık alanı veya ekip üyesi eklemek için ilgili dizideki nesneyi **her
+iki dilde** çoğaltmak yeterlidir; sayfa, sitemap ve statik üretim otomatik
+olarak güncellenir. Bir dile eklenip diğerine eklenmeyen metin, `Dictionary`
+tipi sayesinde derleme sırasında hata verir.
+
+## Çok dillilik
+
+Türkçe varsayılan dildir ve adreslerde ön ek taşımaz; İngilizce `/en` altında
+yayınlanır.
+
+| Türkçe | İngilizce |
+| --- | --- |
+| `/` | `/en` |
+| `/hakkimizda` | `/en/about` |
+| `/uzmanlik-alanlari` | `/en/practice-areas` |
+| `/uzmanlik-alanlari/<slug>` | `/en/practice-areas/<slug>` |
+| `/ekibimiz` | `/en/team` |
+| `/ekibimiz/<slug>` | `/en/team/<slug>` |
+| `/iletisim` | `/en/contact` |
+| `/kvkk` | `/en/data-protection` |
+| `/gizlilik` | `/en/privacy` |
+| `/cerez-politikasi` | `/en/cookies` |
+
+Uzmanlık alanı adres parçaları iki dilde farklıdır; eşleşme, her alanın
+dilden bağımsız `id` değeri üzerinden kurulur. Kişi adresleri iki dilde
+aynıdır.
+
+Nasıl çalıştığı:
+
+- `src/lib/i18n/routes.ts` — rota haritası; site içindeki her bağlantı
+  buradan üretilir, hiçbir bileşende elle yazılmış yol yoktur.
+- `src/lib/i18n/alternate.ts` — başlıktaki **TR | EN** geçişi; bulunulan
+  sayfanın diğer dildeki karşılığına gider, ana sayfaya düşürmez.
+- `src/lib/seo.ts` — her sayfanın kanonik adresi ve `hreflang` bağlantıları.
+  Site haritası da aynı eşleşmeyi `xhtml:link` ile bildirir.
+- `src/app/(tr)/` ve `src/app/(en)/` — iki ayrı **kök yerleşim**. Ayrı olmaları
+  gerekir; `<html lang>` ancak böyle sunucuda doğru üretilir. Sayfa gövdeleri
+  ortaktır (`src/components/pages/`), rota dosyaları yalnızca dili ve üst
+  veriyi verir.
+- Diller arası geçiş tam sayfa yüklemesiyle olur — ayrı kök yerleşimlerin
+  doğal sonucu ve dil değiştirme zaten seyrek bir eylem.
+
+Yeni bir dil eklemek için: `config.ts` içindeki `LOCALES` ve `Locale`,
+`routes.ts` içindeki `SEGMENTS`, `content/<dil>/` altındaki üç dosya ve
+`src/app/(<dil>)/` ağacı.
 
 ## Görseller ve video
 
@@ -86,6 +129,7 @@ ffmpeg -i public/video/hero-geneva.mp4 -vframes 1 -q:v 3 public/video/hero-poste
 - [ ] İletişim formu teslimat yolu yapılandırıldı ve test edildi.
 - [ ] KVKK, Gizlilik ve Çerez Politikası metinleri büro tarafından
       onaylandı (bkz. aşağıdaki not).
+- [ ] İngilizce metinler büro tarafından okundu (bkz. aşağıdaki not).
 - [ ] Aşağıdaki içerik çelişkileri büro tarafından netleştirildi.
 
 ### Netleştirilmesi gereken içerik çelişkileri
@@ -116,4 +160,21 @@ bölümü ve menü öğesi oluşturulmamıştır. İçerik hazırlandığında
 `/kvkk`, `/gizlilik` ve `/cerez-politikasi` sayfalarındaki metinler mevcut
 sitede bulunmadığı için, büronun gerçek iletişim bilgileri kullanılarak
 standart yapıda hazırlanmıştır. Yayına alınmadan önce büro tarafından
-gözden geçirilmelidir.
+gözden geçirilmelidir. Aynısı `/en/data-protection`, `/en/privacy` ve
+`/en/cookies` için de geçerlidir.
+
+### İngilizce metinler
+
+İngilizce içerik, Türkçe metinlerin çevirisidir; kaynakta olmayan hiçbir
+bilgi eklenmemiştir. İki noktanın büro tarafından onaylanması gerekir:
+
+1. **Görünen ad.** Ticaret unvanı "Arslan Hukuk Bürosu"dur ve yapılandırılmış
+   veride (`schema.org`) esas ad olarak bu kullanılır. İngilizce sayfalarda
+   ve sayfa başlıklarında okunabilir karşılık olarak **"Arslan Law Office"**
+   kullanılmış, yapılandırılmış veriye `alternateName` olarak eklenmiştir.
+   Büro başka bir karşılık tercih ederse `src/lib/content/en/ui.ts` içindeki
+   `FIRM_EN` sabitini değiştirmek yeterlidir.
+2. **Hukuk terimleri.** Türk hukukuna özgü kavramların (konkordato, tenkis,
+   bilirkişilik, tam yargı davası) İngilizce karşılıkları yerleşik
+   kullanımlara göre seçilmiş, karşılığı tam oturmayan yerlerde Türkçe terim
+   parantez içinde korunmuştur.

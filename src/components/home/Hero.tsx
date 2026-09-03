@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
-import { hero } from "@/lib/content/firm";
+import { getDictionary, route, type Locale } from "@/lib/i18n";
 import { gsap, ScrollTrigger, EASE_LONG, prefersReducedMotion } from "@/lib/gsap";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 
@@ -13,7 +13,9 @@ import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
  * Kaydırıldıkça yalnızca metin yukarı süzülür ve video hafifçe geride kalır —
  * bu, koyu videodan fildişi bölüme geçişi yumuşatır.
  */
-export default function Hero() {
+export default function Hero({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+  const hero = dict.home;
   const sectionRef = useRef<HTMLElement>(null);
 
   useIsomorphicLayoutEffect(() => {
@@ -87,7 +89,7 @@ export default function Hero() {
       ref={sectionRef}
       data-hero-region=""
       className="relative h-[100svh] w-full overflow-hidden bg-ink-black"
-      aria-label="Giriş"
+      aria-label={dict.common.heroRegionLabel}
     >
       {/* Video yüklenene kadar koyu zemin görünür; bu sayede yerleşim
           kayması ve beyaz parlama oluşmaz. */}
@@ -129,7 +131,7 @@ export default function Hero() {
       <div className="container-editorial relative flex h-full flex-col justify-end pb-12 md:pb-14">
         <div data-hero-content="" className="max-w-6xl text-ivory">
           <h1 className="font-serif text-hero font-light">
-            {hero.headlineLines.map((line, i) => (
+            {hero.heroHeadlineLines.map((line, i) => (
               <span key={i} data-hero-line="" className="line-mask">
                 <span className="block">{line + " "}</span>
               </span>
@@ -140,17 +142,17 @@ export default function Hero() {
             data-hero-support=""
             className="mt-8 max-w-2xl text-[0.95rem] leading-relaxed text-ivory/85 md:mt-10"
           >
-            {hero.support}
+            {hero.heroSupport}
           </p>
 
           <div className="mt-10 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-12">
             <Link
               data-hero-cta=""
-              href={hero.primaryCta.href}
+              href={route(locale, "practiceAreas")}
               className="group inline-flex items-baseline gap-3 text-sm tracking-wide text-ivory"
             >
               <span className="relative">
-                {hero.primaryCta.label}
+                {hero.heroPrimaryCta}
                 <span
                   aria-hidden="true"
                   className="absolute -bottom-1 left-0 h-px w-full bg-ivory/45 transition-colors duration-500 group-hover:bg-ivory"
@@ -166,10 +168,10 @@ export default function Hero() {
 
             <Link
               data-hero-cta=""
-              href={hero.secondaryCta.href}
+              href={route(locale, "contact")}
               className="group inline-flex items-baseline gap-3 text-sm tracking-wide text-ivory/85 transition-colors duration-500 hover:text-ivory"
             >
-              <span>{hero.secondaryCta.label}</span>
+              <span>{hero.heroSecondaryCta}</span>
               <span
                 aria-hidden="true"
                 className="inline-block rotate-6 scale-x-110 text-[0.9em] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1 group-hover:translate-x-1"
@@ -186,7 +188,7 @@ export default function Hero() {
         aria-hidden="true"
         className="absolute bottom-8 right-6 hidden items-center gap-3 text-ivory/45 md:right-10 md:flex xl:right-16"
       >
-        <span className="label-eyebrow text-[0.6rem]">Kaydırın</span>
+        <span className="label-eyebrow text-[0.6rem]">{dict.common.scrollHint}</span>
         <span className="block h-px w-10 bg-ivory/35" />
       </div>
     </section>

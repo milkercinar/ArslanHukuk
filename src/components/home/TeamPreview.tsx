@@ -1,6 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { fullName, team } from "@/lib/content/team";
+import { fullName, getTeam } from "@/lib/content/team";
+import {
+  getDictionary,
+  route,
+  teamMemberRoute,
+  type Locale,
+} from "@/lib/i18n";
 import ArrowLink from "@/components/ui/ArrowLink";
 import Reveal from "@/components/ui/Reveal";
 
@@ -9,21 +15,26 @@ import Reveal from "@/components/ui/Reveal";
  * çizgiye sıkışmış hâlde durur; üzerine gelindiğinde alttan yukarı doğru
  * büyüyen koyu bir bar açılır ve avukat hakkındaki bilgileri gösterir.
  */
-export default function TeamPreview() {
+export default function TeamPreview({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+  const team = getTeam(locale);
+
   return (
     <section className="bg-ivory py-20 md:py-28" aria-labelledby="ekip-baslik">
       <div className="container-editorial">
         <Reveal className="mb-12 flex flex-wrap items-end justify-between gap-6 md:mb-16">
           <div>
-            <p className="label-eyebrow text-muted">Ekibimiz</p>
+            <p className="label-eyebrow text-muted">{dict.home.teamEyebrow}</p>
             <h2
               id="ekip-baslik"
               className="mt-6 max-w-xl font-serif text-title font-light"
             >
-              Dosyanızla kimin ilgilendiğini baştan bilirsiniz.
+              {dict.home.teamHeading}
             </h2>
           </div>
-          <ArrowLink href="/ekibimiz">Tüm ekip</ArrowLink>
+          <ArrowLink href={route(locale, "team")}>
+            {dict.common.allTeam}
+          </ArrowLink>
         </Reveal>
       </div>
 
@@ -35,7 +46,7 @@ export default function TeamPreview() {
                 <div className="relative aspect-[3/4] overflow-hidden bg-ivory-deep">
                   <Image
                     src={member.photo}
-                    alt={`${fullName(member)} portresi`}
+                    alt={dict.common.portraitAlt(fullName(member))}
                     width={710}
                     height={947}
                     sizes="(max-width: 640px) 80vw, (max-width: 1024px) 55vw, 30vw"
@@ -61,7 +72,7 @@ export default function TeamPreview() {
                         )}
                         {member.hasProfile && (
                           <span className="mt-4 inline-flex items-baseline gap-2 text-sm text-ivory/80 transition-colors duration-500 group-hover:text-ivory">
-                            Profil
+                            {dict.common.profile}
                             <span
                               aria-hidden="true"
                               className="inline-block transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-2"
@@ -85,7 +96,10 @@ export default function TeamPreview() {
                 className="w-[80%] shrink-0 snap-start sm:w-[55%] lg:w-[30%]"
               >
                 {member.hasProfile ? (
-                  <Link href={`/ekibimiz/${member.slug}`} className="group block">
+                  <Link
+                    href={teamMemberRoute(locale, member.slug)}
+                    className="group block"
+                  >
                     {card}
                   </Link>
                 ) : (

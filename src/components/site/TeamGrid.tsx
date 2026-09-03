@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { fullName, type TeamMember } from "@/lib/content/team";
+import { getDictionary, teamMemberRoute, type Locale } from "@/lib/i18n";
 import Reveal from "@/components/ui/Reveal";
 
 /**
@@ -8,12 +9,15 @@ import Reveal from "@/components/ui/Reveal";
  * kullanılmaz. Üzerine gelindiğinde görsel yalnızca %2 büyür.
  */
 export default function TeamGrid({
+  locale,
   members,
   columns = 2,
 }: {
+  locale: Locale;
   members: TeamMember[];
   columns?: 2 | 3;
 }) {
+  const dict = getDictionary(locale);
   const grid =
     columns === 3
       ? "sm:grid-cols-2 lg:grid-cols-3"
@@ -27,7 +31,7 @@ export default function TeamGrid({
             <div className="relative overflow-hidden bg-ivory-deep">
               <Image
                 src={member.photo}
-                alt={`${fullName(member)} portresi`}
+                alt={dict.common.portraitAlt(fullName(member))}
                 width={710}
                 height={532}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -47,7 +51,7 @@ export default function TeamGrid({
               )}
               {member.hasProfile && (
                 <span className="mt-5 inline-flex items-baseline gap-2 text-sm text-ink/70 transition-colors duration-500 group-hover:text-ink">
-                  Profil
+                  {dict.common.profile}
                   <span
                     aria-hidden="true"
                     className="inline-block transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-2"
@@ -63,7 +67,10 @@ export default function TeamGrid({
         return (
           <Reveal as="li" key={member.slug} delay={(i % 3) * 0.08}>
             {member.hasProfile ? (
-              <Link href={`/ekibimiz/${member.slug}`} className="group block">
+              <Link
+                href={teamMemberRoute(locale, member.slug)}
+                className="group block"
+              >
                 {card}
               </Link>
             ) : (

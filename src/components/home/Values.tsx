@@ -1,4 +1,4 @@
-import { values } from "@/lib/content/firm";
+import { getDictionary, type Locale } from "@/lib/i18n";
 import Reveal from "@/components/ui/Reveal";
 import SectionLabel from "@/components/ui/SectionLabel";
 import SplitLines from "@/components/ui/SplitLines";
@@ -6,23 +6,25 @@ import SplitLines from "@/components/ui/SplitLines";
 /**
  * Yaklaşımımız. İkon ve numara yok; başlık ve tek cümlelik açıklama.
  */
-export default function Values() {
+export default function Values({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+
   return (
     <section
       className="bg-ivory-soft py-20 md:py-28"
       aria-labelledby="yaklasim-baslik"
     >
       <div className="container-editorial">
-        <SectionLabel>Yaklaşımımız</SectionLabel>
+        <SectionLabel>{dict.home.valuesLabel}</SectionLabel>
 
         <SplitLines
           as="h2"
-          lines={["Çalışma biçimimizi", "belirleyen ilkeler."]}
+          lines={dict.home.valuesHeadingLines}
           className="font-serif text-title font-light"
         />
 
         <ul className="mt-12 md:mt-14">
-          {values.map((value, i) => (
+          {dict.home.values.map((value, i) => (
             <Reveal
               as="li"
               key={value.title}

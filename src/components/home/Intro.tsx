@@ -1,4 +1,4 @@
-import { intro } from "@/lib/content/firm";
+import { getDictionary, route, type Locale } from "@/lib/i18n";
 import ArrowLink from "@/components/ui/ArrowLink";
 import Reveal from "@/components/ui/Reveal";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -8,7 +8,9 @@ import SplitLines from "@/components/ui/SplitLines";
  * Videodan sonraki ilk fildişi bölüm. Etiket en üstte; altında solda büyük
  * ifade, sağda paragraflar yan yana durur.
  */
-export default function Intro() {
+export default function Intro({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
+
   return (
     <section className="relative overflow-hidden bg-ivory py-24 md:py-32 lg:py-40">
       <span
@@ -19,18 +21,18 @@ export default function Intro() {
       </span>
 
       <div className="container-editorial relative">
-        <SectionLabel>{intro.label}</SectionLabel>
+        <SectionLabel>{dict.home.introLabel}</SectionLabel>
 
         <div className="grid gap-12 md:grid-cols-12 md:gap-10 lg:gap-16">
           <SplitLines
             as="h2"
-            lines={intro.statementLines}
+            lines={dict.home.introStatementLines}
             className="font-serif text-statement font-light md:col-span-6"
           />
 
           <div className="md:col-span-6 md:pt-2 lg:col-span-5 lg:col-start-8">
             <Reveal className="space-y-7" stagger={0.12}>
-              {intro.paragraphs.map((p) => (
+              {dict.home.introParagraphs.map((p) => (
                 <p key={p} className="text-[1.02rem] leading-[1.85] text-ink/75">
                   {p}
                 </p>
@@ -38,7 +40,9 @@ export default function Intro() {
             </Reveal>
 
             <Reveal className="mt-10" delay={0.15}>
-              <ArrowLink href={intro.link.href}>{intro.link.label}</ArrowLink>
+              <ArrowLink href={route(locale, "about")}>
+                {dict.home.introLink}
+              </ArrowLink>
             </Reveal>
           </div>
         </div>
