@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { firm } from "@/lib/content/site";
 import PageHeader from "@/components/ui/PageHeader";
 import PracticeAreaRows from "@/components/home/PracticeAreaRows";
-import ContactCta from "@/components/home/ContactCta";
 
 export const metadata: Metadata = {
   title: "Uzmanlık Alanları",
@@ -39,7 +38,6 @@ export default function PracticeAreasPage() {
         </div>
       </section>
 
-      <ContactCta />
     </>
   );
 }

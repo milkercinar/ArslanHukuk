@@ -5,7 +5,6 @@ import PageHeader from "@/components/ui/PageHeader";
 import Reveal from "@/components/ui/Reveal";
 import SectionLabel from "@/components/ui/SectionLabel";
 import ArrowLink from "@/components/ui/ArrowLink";
-import ContactCta from "@/components/home/ContactCta";
 
 export const metadata: Metadata = {
   title: "Hakkımızda",
@@ -35,18 +34,31 @@ export default function AboutPage() {
           <div className="border-t border-line pt-16">
             <SectionLabel>Büro</SectionLabel>
 
-            {/* İki sütun: metin sayfanın genişliğini kullanır ama satır
-                uzunluğu okunabilir sınırda kalır. */}
-            <Reveal
-              className="grid gap-x-12 gap-y-7 md:grid-cols-2 lg:gap-x-20"
-              stagger={0.1}
-            >
-              {about.paragraphs.map((p) => (
-                <p key={p} className="text-[1.02rem] leading-[1.8] text-ink/78">
-                  {p}
-                </p>
+            {/* İki bağımsız sütun. Tek ızgarada dört paragraf verilirse
+                satırlar hizalanır ve kısa paragrafın altında ölü boşluk
+                kalır; burada her sütun kendi içinde akar. */}
+            <div className="grid gap-x-12 gap-y-7 md:grid-cols-2 lg:gap-x-20">
+              {[
+                about.paragraphs.slice(0, 2),
+                about.paragraphs.slice(2),
+              ].map((sutun, i) => (
+                <Reveal
+                  key={i}
+                  className="space-y-7"
+                  stagger={0.1}
+                  delay={i * 0.08}
+                >
+                  {sutun.map((p) => (
+                    <p
+                      key={p}
+                      className="text-[1.02rem] leading-[1.8] text-ink/78"
+                    >
+                      {p}
+                    </p>
+                  ))}
+                </Reveal>
               ))}
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>
@@ -102,7 +114,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <ContactCta />
     </>
   );
 }

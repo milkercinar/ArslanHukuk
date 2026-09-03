@@ -14,7 +14,6 @@ import Reveal from "@/components/ui/Reveal";
 import SectionLabel from "@/components/ui/SectionLabel";
 import SplitLines from "@/components/ui/SplitLines";
 import ArrowLink from "@/components/ui/ArrowLink";
-import ContactCta from "@/components/home/ContactCta";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -206,7 +205,6 @@ export default async function TeamMemberPage({ params }: Params) {
         </div>
       </section>
 
-      <ContactCta />
     </>
   );
 }

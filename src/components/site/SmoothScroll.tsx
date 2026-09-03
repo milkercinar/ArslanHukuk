@@ -65,5 +65,27 @@ export default function SmoothScroll() {
     return () => window.clearTimeout(id);
   }, [pathname]);
 
+  // Tembel yüklenen görseller yerleşimi sonradan değiştirir. ScrollTrigger
+  // tetik konumlarını önceden ölçtüğü için, bir görselin altındaki bölüm
+  // hiç açılmadan kalabilir. Görseller yüklendikçe ölçümü tazeleriz.
+  useEffect(() => {
+    let id = 0;
+    const tazele = () => {
+      window.clearTimeout(id);
+      id = window.setTimeout(() => ScrollTrigger.refresh(), 200);
+    };
+
+    // `load` olayı baloncuklanmaz; yakalama aşamasında dinlenir.
+    const onLoad = (event: Event) => {
+      if ((event.target as HTMLElement | null)?.tagName === "IMG") tazele();
+    };
+
+    document.addEventListener("load", onLoad, true);
+    return () => {
+      document.removeEventListener("load", onLoad, true);
+      window.clearTimeout(id);
+    };
+  }, [pathname]);
+
   return null;
 }

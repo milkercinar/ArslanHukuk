@@ -4,7 +4,6 @@ import { firm } from "@/lib/content/site";
 import PageHeader from "@/components/ui/PageHeader";
 import Reveal from "@/components/ui/Reveal";
 import TeamGrid from "@/components/site/TeamGrid";
-import ContactCta from "@/components/home/ContactCta";
 
 export const metadata: Metadata = {
   title: "Ekibimiz",
@@ -60,7 +59,6 @@ export default function TeamPage() {
         </div>
       </section>
 
-      <ContactCta />
     </>
   );
 }
