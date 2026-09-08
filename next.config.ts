@@ -6,13 +6,25 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  async redirects() {
+    return [
+      {
+        source: "/faaliyet-alanlari",
+        destination: "/uzmanlik-alanlari",
+        statusCode: 301,
+      },
+    ];
+  },
   async headers() {
     return [
       {
         // The hero video never changes; cache it aggressively.
         source: "/video/:path*",
         headers: [
-          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
         ],
       },
     ];
