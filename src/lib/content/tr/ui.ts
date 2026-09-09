@@ -174,6 +174,8 @@ export const dictionaryTr: Dictionary = {
     emailLabel: "E-posta",
     barLabel: "Baro",
     barValue: "İstanbul Barosu",
+    locationLabel: "Konum",
+    mapCta: "Google Haritalar'da aç",
     formLabel: "Mesaj gönderin",
     formHeading: "Bize yazın.",
     formIntro:

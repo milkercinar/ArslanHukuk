@@ -121,6 +121,9 @@ export type Dictionary = {
     emailLabel: string;
     barLabel: string;
     barValue: string;
+    locationLabel: string;
+    /** Haritaya götüren bağlantının metni. */
+    mapCta: string;
     formLabel: string;
     formHeading: string;
     formIntro: string;

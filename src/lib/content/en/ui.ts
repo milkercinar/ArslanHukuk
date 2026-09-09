@@ -179,6 +179,8 @@ export const dictionaryEn: Dictionary = {
     emailLabel: "Email",
     barLabel: "Bar",
     barValue: "Istanbul Bar Association",
+    locationLabel: "Location",
+    mapCta: "Open in Google Maps",
     formLabel: "Send a message",
     formHeading: "Write to us.",
     formIntro:

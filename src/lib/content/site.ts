@@ -55,3 +55,16 @@ export const contact = {
   fax: "0212 415 13 83",
   email: "alperarslan@istanbulbarosu.org.tr",
 } as const;
+
+/**
+ * Adresin Google Haritalar'daki karşılığı.
+ *
+ * Koordinat değil, büro adı + açık adres sorgusu gönderilir; elimizde
+ * doğrulanmış bir enlem/boylam olmadığı için uydurma bir iğne konumu
+ * yerine adresi Google'ın çözmesi tercih edilmiştir. Büronun Google İşletme
+ * Profili varsa, buradaki adres yerine o profilin bağlantısı yazılırsa iğne
+ * tam yerine oturur.
+ */
+export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${firm.name}, ${contact.address.full}`,
+)}`;
