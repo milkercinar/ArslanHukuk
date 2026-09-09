@@ -109,9 +109,6 @@ export const dictionaryTr: Dictionary = {
       },
     ],
 
-    teamEyebrow: "Ekibimiz",
-    teamHeading: "Dosyanızla kimin ilgilendiğini baştan bilirsiniz.",
-
     contactLabel: "İletişim",
     contactHeadlineLines: ["Anlatın,", "birlikte bakalım."],
     contactBody:

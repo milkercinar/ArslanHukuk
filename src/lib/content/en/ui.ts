@@ -114,9 +114,6 @@ export const dictionaryEn: Dictionary = {
       },
     ],
 
-    teamEyebrow: "Our team",
-    teamHeading: "You know from the outset who is handling your file.",
-
     contactLabel: "Contact",
     contactHeadlineLines: ["Tell us,", "let us look at it together."],
     contactBody:

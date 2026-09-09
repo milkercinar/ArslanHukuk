@@ -72,9 +72,6 @@ export type Dictionary = {
     valuesHeadingLines: string[];
     values: { title: string; body: string }[];
 
-    teamEyebrow: string;
-    teamHeading: string;
-
     contactLabel: string;
     contactHeadlineLines: string[];
     contactBody: string;
