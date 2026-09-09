@@ -207,6 +207,8 @@ export const dictionaryTr: Dictionary = {
     submitting: "Gönderiliyor",
     deliveryError:
       "Mesaj gönderilemedi. Lütfen tekrar deneyin veya bize doğrudan e-posta gönderin.",
+    rateLimited:
+      "Kısa süre içinde çok sayıda mesaj gönderildi. Bir süre sonra tekrar deneyin; acil bir konuysa lütfen telefonla arayın.",
     sentLabel: "Teşekkür ederiz",
     sentHeading: "Mesajınızı aldık.",
     sentBody:

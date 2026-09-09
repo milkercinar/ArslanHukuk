@@ -153,6 +153,8 @@ export type Dictionary = {
     submit: string;
     submitting: string;
     deliveryError: string;
+    /** Hız sınırına takılan gönderimde gösterilir. */
+    rateLimited: string;
     sentLabel: string;
     sentHeading: string;
     sentBody: string;

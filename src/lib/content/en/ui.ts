@@ -212,6 +212,8 @@ export const dictionaryEn: Dictionary = {
     submitting: "Sending",
     deliveryError:
       "The message could not be sent. Please try again, or email us directly.",
+    rateLimited:
+      "Too many messages have been sent in a short time. Please try again later; if the matter is urgent, call us instead.",
     sentLabel: "Thank you",
     sentHeading: "We have your message.",
     sentBody:

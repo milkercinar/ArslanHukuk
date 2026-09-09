@@ -61,9 +61,14 @@ export default function ContactForm({ locale }: { locale: Locale }) {
   const t = dict.form;
   const [values, setValues] = useState<Values>(EMPTY);
   const [errors, setErrors] = useState<Errors>({});
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
-    "idle",
-  );
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "sent" | "error" | "rateLimited"
+  >("idle");
+  /**
+   * Tuzak alan. Görünmez olduğu için gerçek kullanıcı dolduramaz; bir bot
+   * doldurursa sunucu mesajı sessizce yok sayar.
+   */
+  const [website, setWebsite] = useState("");
 
   function update<K extends keyof Values>(key: K, value: Values[K]) {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -87,8 +92,12 @@ export default function ContactForm({ locale }: { locale: Locale }) {
       const res = await fetch("/api/iletisim", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, locale }),
+        body: JSON.stringify({ ...values, locale, website }),
       });
+      if (res.status === 429) {
+        setStatus("rateLimited");
+        return;
+      }
       if (!res.ok) throw new Error(String(res.status));
       setStatus("sent");
       setValues(EMPTY);
@@ -130,6 +139,23 @@ export default function ContactForm({ locale }: { locale: Locale }) {
 
   return (
     <form onSubmit={onSubmit} noValidate className="space-y-10">
+      {/* Tuzak alan. Ekran okuyucudan ve klavye sırasından çıkarılmıştır;
+          yalnızca formu körlemesine dolduran botlar buraya değer yazar.
+          `display:none` yerine ekran dışına alınır — bazı botlar gizli
+          alanları atlar. */}
+      <div aria-hidden="true" className="absolute left-[-9999px] top-0 h-0 w-0 overflow-hidden">
+        <label htmlFor={`${id}-website`}>Web sitesi</label>
+        <input
+          id={`${id}-website`}
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
+        />
+      </div>
+
       <div className="grid gap-10 sm:grid-cols-2">
         <Field
           id={`${id}-name`}
@@ -289,9 +315,9 @@ export default function ContactForm({ locale }: { locale: Locale }) {
           </span>
         </button>
 
-        {status === "error" && (
-          <p role="alert" className="text-sm text-ink/70">
-            {t.deliveryError}
+        {(status === "error" || status === "rateLimited") && (
+          <p role="alert" className="max-w-md text-sm leading-relaxed text-ink/70">
+            {status === "rateLimited" ? t.rateLimited : t.deliveryError}
           </p>
         )}
       </div>

@@ -27,15 +27,50 @@ npm run build
 | Değişken | Zorunlu | Açıklama |
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Yayında evet | Kanonik adres, sitemap ve Open Graph için mutlak kök adres. |
-| `CONTACT_WEBHOOK_URL` | — | İletişim formu gönderimlerinin POST edileceği adres. |
-| `RESEND_API_KEY` | — | Webhook yerine e-posta ile teslimat için. |
-| `CONTACT_FROM_EMAIL` | `RESEND_API_KEY` ile birlikte | Gönderen adresi (doğrulanmış alan adı). |
+| `SMTP_HOST` `SMTP_USER` `SMTP_PASSWORD` | Teslimat için birini seçin | Büronun kendi mail sunucusuyla gönderim (tercih edilen yol). |
+| `SMTP_PORT` `SMTP_SECURE` | — | Varsayılan 465 ve porta göre otomatik TLS. |
+| `CONTACT_WEBHOOK_URL` | Teslimat için birini seçin | Gönderimlerin POST edileceği adres. |
+| `RESEND_API_KEY` + `CONTACT_FROM_EMAIL` | Teslimat için birini seçin | E-posta API'si ile teslimat. |
 | `CONTACT_TO_EMAIL` | — | Alıcı adres; tanımlanmazsa büro e-postası kullanılır. |
 
-**Önemli:** Teslimat yolu (`CONTACT_WEBHOOK_URL` ya da `RESEND_API_KEY` +
-`CONTACT_FROM_EMAIL`) tanımlanmadığı sürece `/api/iletisim` uç noktası `501`
-döner ve form kullanıcıya mesajın iletilemediğini açıkça bildirir. Site
-yayına alınmadan önce bunlardan biri yapılandırılmalıdır.
+## İletişim formu mesajları nereye gider?
+
+**Veritabanı yoktur ve gerekmez.** Form gönderildiğinde mesaj doğrudan
+büronun gelen kutusuna e-posta olarak iletilir; sitede saklanmaz. Gelen
+e-postanın `Reply-To` başlığı formu dolduran kişiye ayarlıdır, yani gelen
+kutusunda "Yanıtla" demek doğrudan o kişiye yazmak demektir.
+
+Saklamamak bilinçli bir tercihtir: mesajlar zaten e-posta arşivinde durur,
+ayrıca bir veri tabanı tutmak KVKK açısından saklama süresi, silme, erişim
+yetkisi ve güvenlik yükümlülükleri doğururdu.
+
+Teslimat yolları, yapılandırılmışsa şu sırayla denenir:
+
+1. **SMTP** — büronun kendi mail sunucusu. Araya yeni bir hizmet sağlayıcı
+   girmediği ve veri yurt dışına çıkmadığı için tercih edilen yoldur.
+2. **Webhook** — mesajı bir otomasyona veya tabloya iletir.
+3. **Resend** — SMTP erişimi yoksa. Gönderen adres Resend'de doğrulanmış bir
+   alan adında olmalıdır; sağlayıcı ABD merkezlidir.
+
+**Önemli:** Hiçbiri tanımlanmadığı sürece `/api/iletisim` uç noktası `501`
+döner ve form kullanıcıya mesajın iletilemediğini açıkça bildirir — mesaj
+sessizce kaybolmaz. Site yayına alınmadan önce biri yapılandırılmalıdır.
+
+### Spam koruması
+
+- **Tuzak alan (honeypot):** formda ekran dışına alınmış, klavye sırasından
+  ve ekran okuyucudan çıkarılmış bir alan vardır. Doluysa gönderim bir
+  bottandır; sunucu `200` döner ama mesajı iletmez. Bilerek başarı dönülür —
+  hata dönmek bota neyin yakalandığını söylerdi.
+- **Hız sınırı:** iki katmanlıdır. Aynı adresten saatte en fazla **5 iletilen
+  mesaj**, ve geçersiz olanlar dahil saatte **30 istek**. Aşılırsa `429` döner
+  ve form bunu ayrı bir mesajla bildirir. Mesaj hakkı yalnızca teslimat
+  gerçekten başarılı olduğunda harcanır; formu yanlış doldurup düzelten ya da
+  teslimat hatası alıp tekrar deneyen kullanıcı hakkını yakmaz. Sınır sunucu
+  örneğinin belleğinde tutulur; sunucusuz dağıtımda her örnek kendi sayacını
+  tutar, yani kesin bir engel değil caydırıcıdır (bkz.
+  `src/lib/rate-limit.ts`).
+- CAPTCHA yoktur; kullanıcıya ek yük bindirmez.
 
 ## İçerik nerede?
 
