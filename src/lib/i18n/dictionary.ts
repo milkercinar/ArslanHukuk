@@ -124,6 +124,13 @@ export type Dictionary = {
     locationLabel: string;
     /** Haritaya götüren bağlantının metni. */
     mapCta: string;
+    /** Harita görselinin alternatif metni. */
+    mapAlt: string;
+    /**
+     * OpenStreetMap atfı. Karolar ODbL kapsamında olduğu için haritanın
+     * göründüğü yerde bu satırın da görünmesi zorunludur.
+     */
+    mapAttribution: string;
     formLabel: string;
     formHeading: string;
     formIntro: string;

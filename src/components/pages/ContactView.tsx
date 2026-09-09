@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { contact, mapsUrl } from "@/lib/content/site";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import PageHeader from "@/components/ui/PageHeader";
@@ -101,27 +102,28 @@ export default function ContactView({ locale }: { locale: Locale }) {
                     aria-label={`${dict.contact.mapCta} — ${contact.address.full}`}
                     className="group mt-5 block border border-line bg-ivory-soft transition-colors duration-500 hover:border-line-strong"
                   >
-                    <span className="flex aspect-4/3 items-center justify-center">
-                      {/* Soyut konum işareti. Bilerek sokak çizimi değil:
-                          doğrulanmış koordinatımız yok, gerçek gibi duran
-                          uydurma bir kroki yanıltıcı olurdu. */}
-                      <svg
-                        viewBox="0 0 120 120"
+                    {/* Harita, büronun koordinatına ortalanmış olarak
+                        üretilip projeye kopyalanmıştır (bkz. README). Karolar
+                        çalışma anında değil, bir kez indirildiği için sayfa
+                        hiçbir üçüncü tarafa istek atmaz. */}
+                    <span className="relative block aspect-4/3 overflow-hidden">
+                      <Image
+                        src="/images/harita-buro.png"
+                        alt={dict.contact.mapAlt}
+                        width={812}
+                        height={608}
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="h-full w-full object-cover grayscale-[0.35] transition-[filter,transform] duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:grayscale-0"
+                      />
+
+                      {/* Büronun tam noktası. Görselin merkezi bu koordinata
+                          göre kırpıldığı için işaret ortada durur. */}
+                      <span
                         aria-hidden="true"
-                        className="h-28 w-28 text-ink/45 transition-colors duration-500 group-hover:text-ink/70"
+                        className="absolute left-1/2 top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-ink/12 ring-1 ring-ink/25 transition-colors duration-500 group-hover:bg-ink/20"
                       >
-                        <g
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1"
-                          vectorEffect="non-scaling-stroke"
-                        >
-                          <circle cx="60" cy="60" r="46" opacity="0.35" />
-                          <circle cx="60" cy="60" r="30" opacity="0.55" />
-                          <path d="M60 6v20M60 94v20M6 60h20M94 60h20" opacity="0.4" />
-                        </g>
-                        <circle cx="60" cy="60" r="4.5" fill="currentColor" />
-                      </svg>
+                        <span className="block h-2.5 w-2.5 rounded-full bg-ink shadow-[0_0_0_3px_rgba(241,240,235,0.9)]" />
+                      </span>
                     </span>
 
                     <span className="flex items-baseline justify-between gap-4 border-t border-line px-5 py-4">
@@ -136,6 +138,20 @@ export default function ContactView({ locale }: { locale: Locale }) {
                       </span>
                     </span>
                   </a>
+
+                  {/* Atıf bağlantısı, geçerli işaretleme için dış bağlantının
+                      içine değil altına konur. */}
+                  <p className="mt-3 text-[0.7rem] leading-relaxed text-muted">
+                    ©{" "}
+                    <a
+                      href="https://www.openstreetmap.org/copyright"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline decoration-line-strong underline-offset-2 transition-colors duration-300 hover:text-ink"
+                    >
+                      {dict.contact.mapAttribution}
+                    </a>
+                  </p>
                 </div>
               </Reveal>
             </div>

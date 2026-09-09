@@ -57,13 +57,23 @@ export const contact = {
 } as const;
 
 /**
+ * Büronun koordinatı.
+ *
+ * Google Haritalar'daki "ARSLAN HUKUK BÜROSU" kaydından alınmıştır; oradaki
+ * adres ("Fulya, Büyükdere Cd. No:30 Sema Apt. K:3, 34015 Şişli/İstanbul")
+ * yukarıdaki adresle birebir örtüşür. `public/images/harita-buro.png` bu
+ * noktaya ortalanarak üretilmiştir; koordinat değişirse görsel de yeniden
+ * üretilmelidir (bkz. README, "İletişim sayfasındaki harita").
+ */
+export const officeCoordinates = { lat: 41.0648362, lng: 28.9937742 } as const;
+
+/**
  * Adresin Google Haritalar'daki karşılığı.
  *
- * Koordinat değil, büro adı + açık adres sorgusu gönderilir; elimizde
- * doğrulanmış bir enlem/boylam olmadığı için uydurma bir iğne konumu
- * yerine adresi Google'ın çözmesi tercih edilmiştir. Büronun Google İşletme
- * Profili varsa, buradaki adres yerine o profilin bağlantısı yazılırsa iğne
- * tam yerine oturur.
+ * Koordinat yerine büro adı + açık adres sorgusu gönderilir: bu sorgu
+ * Google'ın kendi işletme kaydına düşüyor ve ziyaretçiye yol tarifi,
+ * çalışma saatleri gibi bilgileri de veriyor. Çıplak koordinat yalnızca
+ * haritada bir nokta gösterirdi.
  */
 export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   `${firm.name}, ${contact.address.full}`,

@@ -104,6 +104,31 @@ Yeni bir dil eklemek için: `config.ts` içindeki `LOCALES` ve `Locale`,
 
 - `public/video/hero-geneva.mp4` — sağlanan açılış videosu, olduğu gibi kullanılır.
 - `public/images/team/*.jpg` — mevcut siteden alınan özgün ekip fotoğrafları.
+- `public/images/harita-buro.png` — iletişim sayfasındaki harita (aşağıya bakınız).
+
+### İletişim sayfasındaki harita
+
+Harita **gömülü değildir**. Gömülü bir harita (Google Maps iframe'i ya da
+çalışma anında karo çeken bir kütüphane) sayfa açılır açılmaz üçüncü tarafa
+istek atar ve çerez bırakır; bu, sitenin Çerez Politikası'ndaki "üçüncü taraf
+takip çerezi kullanılmaz" taahhüdünü ve KVKK metnindeki aktarım beyanını
+geçersiz kılardı. Bunun yerine OpenStreetMap karoları bir kez indirilip tek
+bir görsele birleştirilmiş, projeye konmuştur. Sayfa yalnızca kendi
+sunucusundaki dosyayı gösterir; tıklandığında Google Haritalar yeni sekmede
+açılır.
+
+Görseli yeniden üretmek için, proje kökünden:
+
+```bash
+powershell -ExecutionPolicy Bypass -File scripts\harita-uret.ps1
+```
+
+Koordinat `src/lib/content/site.ts` içindeki `officeCoordinates` ile betikteki
+`$lat`/`$lon` değerlerinde **iki yerde** durur; biri değişirse diğeri de
+güncellenmelidir, aksi hâlde işaret haritanın merkezinden kayar.
+
+Atıf satırı (© OpenStreetMap katkıda bulunanları) haritanın altında
+gösterilir. Karolar ODbL kapsamında olduğu için bu satır **kaldırılmamalıdır**.
 
 Videonun poster görseli üretilmemiştir; hazırlanacaksa ilk kareden
 oluşturulup `Hero.tsx` içindeki `<video>` etiketine `poster` olarak

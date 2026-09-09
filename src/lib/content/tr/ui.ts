@@ -176,6 +176,8 @@ export const dictionaryTr: Dictionary = {
     barValue: "İstanbul Barosu",
     locationLabel: "Konum",
     mapCta: "Google Haritalar'da aç",
+    mapAlt: "Büronun Şişli, Büyükdere Caddesi üzerindeki konumunu gösteren harita",
+    mapAttribution: "OpenStreetMap katkıda bulunanları",
     formLabel: "Mesaj gönderin",
     formHeading: "Bize yazın.",
     formIntro:

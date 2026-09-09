@@ -181,6 +181,8 @@ export const dictionaryEn: Dictionary = {
     barValue: "Istanbul Bar Association",
     locationLabel: "Location",
     mapCta: "Open in Google Maps",
+    mapAlt: "Map showing the office on Büyükdere Caddesi in Şişli",
+    mapAttribution: "OpenStreetMap contributors",
     formLabel: "Send a message",
     formHeading: "Write to us.",
     formIntro:
