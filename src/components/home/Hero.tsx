@@ -101,6 +101,12 @@ export default function Hero({ locale }: { locale: Locale }) {
           loop
           playsInline
           preload="metadata"
+          // Videonun ilk karesi. Video 4 MB ve `preload="metadata"` ile
+          // geç başladığı için, poster olmadan yavaş bağlantıda sayfa düz
+          // koyu zeminle açılıyordu. Kare t=0'dan alındığı için video
+          // başladığında geçiş görünmez.
+          // Üretimi: scripts/ dizini yerine tarayıcıdan alındı, bkz. README.
+          poster="/video/hero-poster.jpg"
           disablePictureInPicture
           aria-hidden="true"
           tabIndex={-1}

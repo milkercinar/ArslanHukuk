@@ -3,6 +3,18 @@ import { getDictionary, OG_LOCALE, route, type Locale } from "@/lib/i18n";
 import type { RouteKey } from "@/lib/i18n/routes";
 
 /**
+ * Paylaşım kartının varsayılan görseli.
+ *
+ * Sayfa kendi görselini vermezse (avukat profillerinde portre veriliyor) bu
+ * kullanılır. Görsel olmadan WhatsApp ve LinkedIn boş kart gösterir.
+ * `scripts/paylasim-gorseli-uret.ps1` ile üretilir.
+ */
+const DEFAULT_OG_IMAGE: Record<Locale, string> = {
+  tr: "/images/og-tr.png",
+  en: "/images/og-en.png",
+};
+
+/**
  * Sayfa üst verisi.
  *
  * İki dilli bir sitede en kolay kaçırılan şey `hreflang` bağlantılarıdır:
@@ -38,6 +50,17 @@ export function buildMetadata({
 }): Metadata {
   const dict = getDictionary(locale);
 
+  const cardImages = images ?? [
+    {
+      url: DEFAULT_OG_IMAGE[locale],
+      width: 1200,
+      height: 630,
+      alt: dict.common.firmName,
+    },
+  ];
+  const cardTitle = ogTitle ?? `${title} | ${dict.common.firmName}`;
+  const cardDescription = ogDescription ?? description;
+
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
@@ -55,9 +78,17 @@ export function buildMetadata({
       alternateLocale: OG_LOCALE[locale === "tr" ? "en" : "tr"],
       siteName: dict.common.firmName,
       url: paths[locale],
-      title: ogTitle ?? `${title} | ${dict.common.firmName}`,
-      description: ogDescription ?? description,
-      ...(images ? { images } : {}),
+      title: cardTitle,
+      description: cardDescription,
+      images: cardImages,
+    },
+    // Next.js bunu Open Graph'tan türetmez; ayrıca yazılmazsa X'te kart
+    // eksik görünür.
+    twitter: {
+      card: "summary_large_image",
+      title: cardTitle,
+      description: cardDescription,
+      images: cardImages.map((i) => i.url),
     },
   };
 }

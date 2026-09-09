@@ -1,4 +1,4 @@
-# İletişim sayfasındaki harita görselini üretir.
+﻿# İletişim sayfasındaki harita görselini üretir.
 #
 # Neden dosya olarak üretiyoruz: gömülü bir harita (Google Maps iframe'i ya da
 # çalışma anında karo çeken bir harita kütüphanesi) sayfa açıldığında üçüncü

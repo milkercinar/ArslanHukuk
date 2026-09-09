@@ -138,8 +138,38 @@ Yeni bir dil eklemek için: `config.ts` içindeki `LOCALES` ve `Locale`,
 ## Görseller ve video
 
 - `public/video/hero-geneva.mp4` — sağlanan açılış videosu, olduğu gibi kullanılır.
+- `public/video/hero-poster.jpg` — videonun ilk karesi (aşağıya bakınız).
 - `public/images/team/*.jpg` — mevcut siteden alınan özgün ekip fotoğrafları.
 - `public/images/harita-buro.png` — iletişim sayfasındaki harita (aşağıya bakınız).
+- `public/images/og-tr.png`, `og-en.png` — sosyal paylaşım kartları.
+- `src/app/icon.png`, `apple-icon.png` — sekme ve iOS ana ekran ikonları.
+
+### Üretilen görseller
+
+Üçü de logodan/videodan türetilmiştir ve betiklerle yeniden üretilebilir.
+Proje kökünden:
+
+```bash
+powershell -ExecutionPolicy Bypass -File scripts\ikon-uret.ps1
+powershell -ExecutionPolicy Bypass -File scripts\paylasim-gorseli-uret.ps1
+powershell -ExecutionPolicy Bypass -File scripts\harita-uret.ps1
+```
+
+Betikler UTF-8 **BOM ile** kaydedilmiştir; BOM olmadan Windows PowerShell 5.1
+dosyayı ANSI okur ve Türkçe karakterler görsellere bozuk basılır.
+
+**Kaynak logonun çözünürlüğü düşük** (205×45). Sekme ikonu için sorun değil
+(küçültme yapılıyor) ama 180 pikselik iOS ikonu ve paylaşım kartındaki aslan
+büyütüldüğü için hafif yumuşak kalıyor. Elde vektör (SVG/AI/EPS) veya yüksek
+çözünürlüklü logo varsa betiklerdeki `$LOGO` yolunu ona çevirip yeniden
+çalıştırmak yeterlidir; ölçüler ve yerleşim aynı kalır.
+
+Video posteri (`hero-poster.jpg`) videonun **t=0** karesidir, bu yüzden video
+başladığında geçiş görünmez. Yeniden üretmek gerekirse, ffmpeg kuruluysa:
+
+```bash
+ffmpeg -i public/video/hero-geneva.mp4 -vframes 1 -q:v 3 public/video/hero-poster.jpg
+```
 
 ### İletişim sayfasındaki harita
 
