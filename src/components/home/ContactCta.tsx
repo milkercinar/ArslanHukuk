@@ -22,6 +22,7 @@ export default function ContactCta({ locale }: { locale: Locale }) {
 
         <SplitLines
           as="h2"
+          id="iletisim-cta-baslik"
           lines={dict.home.contactHeadlineLines}
           className="font-serif text-statement font-light"
         />

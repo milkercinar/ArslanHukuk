@@ -19,6 +19,7 @@ export default function Values({ locale }: { locale: Locale }) {
 
         <SplitLines
           as="h2"
+          id="yaklasim-baslik"
           lines={dict.home.valuesHeadingLines}
           className="font-serif text-title font-light"
         />

@@ -8,6 +8,11 @@ type SplitLinesProps = {
   /** Her dizi elemanı kendi maskesi içinde ayrı bir satırdır. */
   lines: readonly string[];
   as?: ElementType;
+  /**
+   * Başlığa kimlik verir. Bölümün `aria-labelledby` değeri buraya işaret
+   * ettiğinde, bölümün erişilebilir adı görünen başlıktan gelir.
+   */
+  id?: string;
   className?: string;
   lineClassName?: string;
   delay?: number;
@@ -25,6 +30,7 @@ type SplitLinesProps = {
 export default function SplitLines({
   lines,
   as: Tag = "h2",
+  id,
   className,
   lineClassName,
   delay = 0,
@@ -66,7 +72,7 @@ export default function SplitLines({
   }, [delay, playOnMount, start]);
 
   return (
-    <Tag ref={ref} className={className} data-reveal-line="">
+    <Tag ref={ref} id={id} className={className} data-reveal-line="">
       {lines.map((line, i) => (
         <span key={i} data-line="" className={`line-mask ${lineClassName ?? ""}`}>
           {/* Satır sonundaki boşluk, metin çıkarıldığında sözcüklerin
