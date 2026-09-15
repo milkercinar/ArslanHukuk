@@ -121,10 +121,12 @@ export const dictionaryTr: Dictionary = {
     headlineLines: ["1982 yılından beri", "adaletin yanında."],
     officeLabel: "Büro",
     paragraphs: [
-      "Büromuz 1982 yılında Av. Seyit Arslan tarafından kuruldu. O günden bu yana çalışmalarını kesintisiz sürdürüyor.",
-      "Bugün, her biri kendi alanında uzmanlaşmış avukatlardan oluşan bir kadroyuz. Yurt içinde ve yurt dışında faaliyet gösteren kişi ve kurumlara Türkçe ve İngilizce hizmet veriyoruz.",
-      "Şirketler ve uluslararası ticaret hukukundan icra ve iflasa, kira ve gayrimenkulden bankacılık ve finansa, iş hukukundan fikri ve sınai haklara, idare ve vergiden medeni hukuka kadar geniş bir alanda çalışıyoruz. Tüketici ve rekabet hukuku da faaliyet alanlarımız arasında yer alıyor. Her avukatımız bu alanlardan birinde derinleşmiştir; dosyalar da buna göre paylaşılır.",
-      "Merkezimiz İstanbul. Ancak ülkenin birçok şehrindeki hukuk bürolarıyla kurduğumuz bağlantılar sayesinde, dosyalarınızı İstanbul dışında da takip edebiliyoruz.",
+      "40 yılı aşan tecrübemizle 1982'den bu yana İstanbul'da; yurt içi ve yurt dışı ölçekli kişi ve kurumlara danışmanlık, dava takibi ve çözüm ortaklığı sunuyoruz.",
+      "1982 yılında Av. Seyit Arslan tarafından kurulan Hukuk Büromuz, 44 yılı aşkın tecrübeye sahiptir. O günden bu zamana büyüyen kadrosuyla beraber yurtiçi ve yurtdışındaki müvekkillerine en iyi hizmeti verebilmek adına çalışmaktadır.",
+      "Her bir çalışma arkadaşımız hukukun en önemli dallarında ayrı olarak bilgi birikimine sahiptir ve dosyanız profesyonel ellerle birlikte derinlemesine takip edilmektedir.",
+      "1982 yılından beri danışanlarımıza en üst düzeyde hizmet verebilmek adına aynı özveri ve titizlikle çalışmaktayız.",
+      "Uluslararası bazdaki müvekkillerimizle tüm danışmanlık ve yazışma süreçlerini Türkçe ve İngilizce olarak doğrudan yürütmekteyiz.",
+      "Sadece İstanbul sınırları içinde kalmamaktayız. Profesyonel ve yoğun ağımız sayesinde yurdun her bir köşesinde dosyanızı takip edebiliyoruz.",
     ],
     pillars: ["Uzmanlık.", "Süreklilik.", "Erişim."],
     valuesLabel: "Yaklaşımımız",
@@ -133,7 +135,7 @@ export const dictionaryTr: Dictionary = {
   practiceAreas: {
     eyebrow: "Uzmanlık Alanları",
     titleLines: ["Farklı alanlar,", "aynı çalışma", "disiplini."],
-    lead: "Aşağıdaki başlıklar, kurumsal ve bireysel müvekkillerimize danışmanlık verdiğimiz ve dava takibi yaptığımız alanlar. Her birinde o konuda çalışan bir avukatımız var.",
+    lead: "Köklü tecrübemizi, hukukun farklı dallarındaki uzmanlığımızla birleştirerek her bir dava ve danışmanlık sürecinde kesintisiz bir güvence sunuyoruz.\n\nBüromuzda her bir çalışma arkadaşımız hukukun farklı alanlarında derinlemesine yetkinliğe ve bilgi birikimine sahiptir; dosyanız da o alandaki profesyonel ellerle yürütülür.",
     disclaimer:
       "Buradaki açıklamalar genel bilgi vermek içindir, hukuki görüş yerine geçmez. Her dosya kendi koşulları içinde değerlendirilir.",
     servicesLabel: "İlgili hizmetler",

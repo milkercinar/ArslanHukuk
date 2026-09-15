@@ -88,7 +88,7 @@ export default function PageHeader({
 
           {lead && (
             <Reveal className="mt-10 max-w-2xl md:mt-12" delay={0.25}>
-              <p className="text-[1.02rem] leading-[1.75] text-ink/70">{lead}</p>
+              <p className="whitespace-pre-line text-[1.02rem] leading-[1.75] text-ink/70">{lead}</p>
             </Reveal>
           )}
         </div>
@@ -140,7 +140,7 @@ export default function PageHeader({
 
         {lead && (
           <Reveal className="mt-8 max-w-2xl md:mt-10" delay={0.25}>
-            <p className="text-[1.02rem] leading-[1.75] text-ivory/85">{lead}</p>
+            <p className="whitespace-pre-line text-[1.02rem] leading-[1.75] text-ivory/85">{lead}</p>
           </Reveal>
         )}
       </div>
