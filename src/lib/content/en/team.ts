@@ -74,6 +74,23 @@ export const teamTextEn: Record<string, TeamMemberText> = {
     education: ["Faculty of Law, 2014"],
     languages: ["English", "German"],
   },
+  "bartu-sahin": {
+    role: "Trainee Lawyer",
+    bio: [
+      "Bartu Şahin graduated from the Faculty of Law in 2025, passed the 2026/1 Entrance Examination for Legal Professions (HMGS), and is completing the compulsory legal traineeship at our office.",
+      "Bartu Şahin takes an active role in litigation and advisory matters, particularly in commercial law, enforcement and insolvency law, employment law, and family law.",
+    ],
+    education: ["Faculty of Law, 2025"],
+    credentials: [
+      "2026/1 Entrance Examination for Legal Professions (HMGS)",
+    ],
+    focus: [
+      "Commercial Law",
+      "Enforcement and Insolvency Law",
+      "Employment Law",
+      "Family Law",
+    ],
+  },
   "habibe-turkay": {
     role: "Enforcement and Insolvency Unit",
     bio: [

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import {
   fullName,
   getTeamMember,
+  initials,
   profileFacts,
 } from "@/lib/content/team";
 import { getPracticeAreaById } from "@/lib/content/practice-areas";
@@ -44,7 +45,7 @@ export default function TeamMemberView({
     jobTitle: member.role,
     worksFor: { "@type": "LegalService", name: firm.name, url: SITE_URL },
     url: `${SITE_URL}${teamMemberRoute(locale, member.slug)}`,
-    image: `${SITE_URL}${member.photo}`,
+    ...(member.photo ? { image: `${SITE_URL}${member.photo}` } : {}),
     ...(member.email ? { email: member.email } : {}),
     ...(member.languages?.length ? { knowsLanguage: member.languages } : {}),
   };
@@ -74,16 +75,28 @@ export default function TeamMemberView({
 
           <div className="mt-10 grid gap-12 md:mt-14 md:grid-cols-12 md:gap-10">
             <Reveal className="md:col-span-5" delay={0.1}>
-              <div className="overflow-hidden bg-ivory-deep">
-                <Image
-                  src={member.photo}
-                  alt={dict.common.portraitAlt(name)}
-                  width={710}
-                  height={532}
-                  priority
-                  sizes="(max-width: 768px) 100vw, 40vw"
-                  className="aspect-4/3 w-full object-cover object-center grayscale-[0.15]"
-                />
+              <div className="aspect-4/3 overflow-hidden bg-ivory-deep">
+                {member.photo ? (
+                  <Image
+                    src={member.photo}
+                    alt={dict.common.portraitAlt(name)}
+                    width={710}
+                    height={532}
+                    priority
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                    className="h-full w-full object-cover object-center grayscale-[0.15]"
+                  />
+                ) : (
+                  <div
+                    role="img"
+                    aria-label={dict.common.portraitAlt(name)}
+                    className="flex h-full items-center justify-center bg-ivory-soft"
+                  >
+                    <span className="font-serif text-[clamp(4rem,10vw,7rem)] font-light text-ink/25">
+                      {initials(member)}
+                    </span>
+                  </div>
+                )}
               </div>
             </Reveal>
 

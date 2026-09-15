@@ -28,7 +28,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     description: `${name} — ${member.role}, ${dict.common.firmName}. ${member.bio[0]}`,
     ogDescription: `${member.role}, ${dict.common.firmName}`,
     ogType: "profile",
-    images: [{ url: member.photo, width: 710, height: 532, alt: name }],
+    ...(member.photo
+      ? { images: [{ url: member.photo, width: 710, height: 532, alt: name }] }
+      : {}),
   });
 }
 

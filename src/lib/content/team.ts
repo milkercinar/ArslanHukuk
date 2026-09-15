@@ -21,7 +21,7 @@ type TeamMemberBase = {
   slug: string;
   name: string;
   group: TeamGroup;
-  photo: string;
+  photo?: string;
   /** Özgeçmişte belirtilen doğum yılı. */
   birthYear?: number;
   /** Baro sicil numarası. Bağlı olduğu baronun adı çeviriden gelir. */
@@ -101,6 +101,13 @@ const BASE: TeamMemberBase[] = [
     hasProfile: true,
   },
   {
+    slug: "bartu-sahin",
+    name: "Bartu Şahin",
+    group: "avukatlar",
+    relatedAreas: ["ticaret", "icra", "is", "medeni"],
+    hasProfile: true,
+  },
+  {
     slug: "habibe-turkay",
     name: "Habibe Türkay",
     group: "buro",
@@ -172,6 +179,16 @@ export function getTeamMember(
 /** Tam görünen ad: Türkçe'de "Av. Seyit Arslan", İngilizce'de "Seyit Arslan". */
 export function fullName(member: TeamMember): string {
   return member.prefix ? `${member.prefix} ${member.name}` : member.name;
+}
+
+/** Fotoğrafı henüz olmayan ekip üyeleri için ad ve soyadın baş harfleri. */
+export function initials(member: TeamMember): string {
+  return member.name
+    .split(/\s+/)
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toLocaleUpperCase("tr-TR");
 }
 
 /** Profil sayfasındaki künye satırlarının başlıkları. */

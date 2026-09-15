@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { fullName, type TeamMember } from "@/lib/content/team";
+import { fullName, initials, type TeamMember } from "@/lib/content/team";
 import { getDictionary, teamMemberRoute, type Locale } from "@/lib/i18n";
 import Reveal from "@/components/ui/Reveal";
 
@@ -28,15 +28,27 @@ export default function TeamGrid({
       {members.map((member, i) => {
         const card = (
           <>
-            <div className="relative overflow-hidden bg-ivory-deep">
-              <Image
-                src={member.photo}
-                alt={dict.common.portraitAlt(fullName(member))}
-                width={710}
-                height={532}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="aspect-4/3 w-full object-cover object-center grayscale-[0.15] transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02]"
-              />
+            <div className="relative aspect-4/3 overflow-hidden bg-ivory-deep">
+              {member.photo ? (
+                <Image
+                  src={member.photo}
+                  alt={dict.common.portraitAlt(fullName(member))}
+                  width={710}
+                  height={532}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="h-full w-full object-cover object-center grayscale-[0.15] transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02]"
+                />
+              ) : (
+                <div
+                  role="img"
+                  aria-label={dict.common.portraitAlt(fullName(member))}
+                  className="flex h-full items-center justify-center bg-ivory-soft"
+                >
+                  <span className="font-serif text-[clamp(3rem,8vw,6rem)] font-light text-ink/25">
+                    {initials(member)}
+                  </span>
+                </div>
+              )}
             </div>
 
             <div className="mt-6">

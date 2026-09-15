@@ -76,6 +76,22 @@ export const teamTextTr: Record<string, TeamMemberText> = {
     education: ["Hukuk Fakültesi, 2014"],
     languages: ["İngilizce", "Almanca"],
   },
+  "bartu-sahin": {
+    prefix: "Stj. Av.",
+    role: "Stajyer Avukat",
+    bio: [
+      "2025 yılında Hukuk Fakültesi'nden mezun olan ve 2026/1 Hukuk Mesleklerine Giriş Sınavı'nda (HMGS) başarı gösteren Stajyer Avukat Bartu Şahin, yasal staj sürecini büromuz bünyesinde sürdürmektedir.",
+      "Ticaret hukuku, icra ve iflas hukuku, iş hukuku ve aile hukuku başta olmak üzere temel dava ve danışmanlık süreçlerinde aktif görev almaktadır.",
+    ],
+    education: ["Hukuk Fakültesi, 2025"],
+    credentials: ["2026/1 Hukuk Mesleklerine Giriş Sınavı (HMGS)"],
+    focus: [
+      "Ticaret Hukuku",
+      "İcra ve İflas Hukuku",
+      "İş Hukuku",
+      "Aile Hukuku",
+    ],
+  },
   "habibe-turkay": {
     role: "İcra ve İflas Birimi",
     bio: [
