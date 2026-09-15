@@ -6,6 +6,7 @@ import ArrowLink from "@/components/ui/ArrowLink";
 
 export default function AboutView({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
+  const paragraphSplitIndex = Math.ceil(dict.about.paragraphs.length / 2);
 
   return (
     <>
@@ -21,13 +22,12 @@ export default function AboutView({ locale }: { locale: Locale }) {
           <div className="border-t border-line pt-16">
             <SectionLabel>{dict.about.officeLabel}</SectionLabel>
 
-            {/* İki bağımsız sütun. Tek ızgarada dört paragraf verilirse
-                satırlar hizalanır ve kısa paragrafın altında ölü boşluk
-                kalır; burada her sütun kendi içinde akar. */}
+            {/* Paragraflar iki bağımsız ve dengeli sütuna bölünür. Böylece
+                sütunlar kendi içinde akar ve altta büyük bir boşluk kalmaz. */}
             <div className="grid gap-x-12 gap-y-7 md:grid-cols-2 lg:gap-x-20">
               {[
-                dict.about.paragraphs.slice(0, 2),
-                dict.about.paragraphs.slice(2),
+                dict.about.paragraphs.slice(0, paragraphSplitIndex),
+                dict.about.paragraphs.slice(paragraphSplitIndex),
               ].map((sutun, i) => (
                 <Reveal
                   key={i}
