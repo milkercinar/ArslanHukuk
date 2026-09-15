@@ -53,7 +53,7 @@ export const contact = {
     { label: "0212 415 34 20", href: "tel:+902124153420" },
   ],
   fax: "0212 415 13 83",
-  email: "alperarslan@istanbulbarosu.org.tr",
+  email: "info@arslanhukuk.com.tr",
 } as const;
 
 /**

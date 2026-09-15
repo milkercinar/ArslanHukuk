@@ -235,8 +235,8 @@ tarafımızca değiştirilmemiş, yalnızca aktarılmıştır:
    ise 2009'dan bu yana Cevizlibağ'daki büroda hizmet verildiği yazar.
    Güncel adres olarak Şişli alınmış, eski adrese ilişkin cümle
    çıkarılmıştır.
-3. **E-posta.** Ana sayfa `alperarslan@istanbulbarosu.org.tr`, iletişim
-   sayfası `alperarslan@istanbulbaro.org.tr` yazar. İlki kullanılmıştır.
+3. **E-posta.** Sitenin genel iletişim adresi `info@arslanhukuk.com.tr`
+   olarak kullanılır. Avukat profilindeki kişisel e-posta adresi korunur.
 
 ### Yayınlar bölümü
 
