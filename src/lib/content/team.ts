@@ -1,9 +1,8 @@
 /**
  * Ekip.
  *
- * İsimler, baro sicil numaraları, doğum yılları, mezuniyet yılları ve
- * e-posta adresleri arslanhukuk.com.tr "Avukatlarımız" sayfasından birebir
- * alınmıştır. Bunlar dile bağlı olmadığı için burada tek yerde durur;
+ * Ekip bilgileri eski siteden ve büro tarafından verilen güncellemelerden
+ * alınmıştır. Dile bağlı olmayan bilgiler burada tek yerde durur;
  * unvan, özgeçmiş, eğitim ve çalışma konusu metinleri `tr/team.ts` ve
  * `en/team.ts` dosyalarındadır. Kaynakta bulunmayan hiçbir bilgi
  * eklenmemiştir.
@@ -94,13 +93,6 @@ const BASE: TeamMemberBase[] = [
     hasProfile: true,
   },
   {
-    slug: "mehmet-cacan",
-    name: "Mehmet Çaçan",
-    group: "avukatlar",
-    photo: "/images/team/mehmet-cacan.jpg",
-    hasProfile: true,
-  },
-  {
     slug: "bartu-sahin",
     name: "Bartu Şahin",
     group: "avukatlar",
@@ -108,19 +100,9 @@ const BASE: TeamMemberBase[] = [
     hasProfile: true,
   },
   {
-    slug: "habibe-turkay",
-    name: "Habibe Türkay",
+    slug: "ceylan-eroglu",
+    name: "Ceylan Eroğlu",
     group: "buro",
-    photo: "/images/team/habibe-turkay.jpg",
-    joinedYear: 2014,
-    hasProfile: false,
-  },
-  {
-    slug: "perihan-altunsoy",
-    name: "Perihan Altunsoy",
-    group: "buro",
-    photo: "/images/team/perihan-altunsoy.jpg",
-    joinedYear: 2013,
     hasProfile: false,
   },
 ];

@@ -67,15 +67,6 @@ export const teamTextTr: Record<string, TeamMemberText> = {
       "Tüketici Hukuku",
     ],
   },
-  "mehmet-cacan": {
-    prefix: "Stj. Av.",
-    role: "Stajyer Avukat",
-    bio: [
-      "2014 yılında Hukuk Fakültesi'nden mezun olan Mehmet Çaçan, avukatlık stajını hukuk büromuzda yapmaktadır.",
-    ],
-    education: ["Hukuk Fakültesi, 2014"],
-    languages: ["İngilizce", "Almanca"],
-  },
   "bartu-sahin": {
     prefix: "Stj. Av.",
     role: "Stajyer Avukat",
@@ -95,17 +86,8 @@ export const teamTextTr: Record<string, TeamMemberText> = {
       "Aile Hukuku",
     ],
   },
-  "habibe-turkay": {
-    role: "İcra ve İflas Birimi",
-    bio: [
-      "2014 yılından bu yana büromuz bünyesinde çalışan Habibe Türkay, icra ve iflas hukuku konusunda çalışmalarda bulunmaktadır.",
-    ],
-    focus: ["İcra ve İflas Hukuku"],
-  },
-  "perihan-altunsoy": {
-    role: "Yönetici Asistanı",
-    bio: [
-      "2013 yılından bu yana büromuz bünyesinde çalışmakta olan Perihan Altunsoy, yönetici asistanlığı görevini sürdürmektedir.",
-    ],
+  "ceylan-eroglu": {
+    role: "Büro ekibi",
+    bio: [],
   },
 };

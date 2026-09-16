@@ -66,14 +66,6 @@ export const teamTextEn: Record<string, TeamMemberText> = {
       "Consumer Law",
     ],
   },
-  "mehmet-cacan": {
-    role: "Trainee Lawyer",
-    bio: [
-      "Mehmet Çaçan graduated from law school in 2014 and is completing the compulsory legal traineeship at our office.",
-    ],
-    education: ["Faculty of Law, 2014"],
-    languages: ["English", "German"],
-  },
   "bartu-sahin": {
     role: "Trainee Lawyer",
     bio: [
@@ -92,17 +84,8 @@ export const teamTextEn: Record<string, TeamMemberText> = {
       "Family Law",
     ],
   },
-  "habibe-turkay": {
-    role: "Enforcement and Insolvency Unit",
-    bio: [
-      "Habibe Türkay has worked at our office since 2014, on enforcement and insolvency matters.",
-    ],
-    focus: ["Enforcement and Insolvency Law"],
-  },
-  "perihan-altunsoy": {
-    role: "Executive Assistant",
-    bio: [
-      "Perihan Altunsoy has worked at our office since 2013 and serves as executive assistant.",
-    ],
+  "ceylan-eroglu": {
+    role: "Office team",
+    bio: [],
   },
 };
