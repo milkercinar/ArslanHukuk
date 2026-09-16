@@ -99,7 +99,7 @@ export default function PageHeader({
   return (
     <header
       data-hero-region=""
-      className="relative flex min-h-[62svh] items-end overflow-hidden bg-ink-black pb-14 pt-36 md:min-h-[70svh] md:pb-20 md:pt-44"
+      className="relative flex min-h-[100svh] items-end overflow-hidden bg-ink-black pb-14 pt-36 md:pb-20 md:pt-44"
     >
       <Image
         src={image}
