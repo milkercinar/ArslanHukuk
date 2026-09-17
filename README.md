@@ -31,14 +31,16 @@ npm run build
 | `SMTP_PORT` `SMTP_SECURE` | — | Varsayılan 465 ve porta göre otomatik TLS. |
 | `CONTACT_WEBHOOK_URL` | Teslimat için birini seçin | Gönderimlerin POST edileceği adres. |
 | `RESEND_API_KEY` + `CONTACT_FROM_EMAIL` | Teslimat için birini seçin | E-posta API'si ile teslimat. |
-| `CONTACT_TO_EMAIL` | — | Alıcı adres; tanımlanmazsa büro e-postası kullanılır. |
+| İletişim formu alıcısı | — | Form mesajları `src/lib/content/site.ts` içindeki kurumsal e-posta adresine gönderilir; dış yönlendirme posta sağlayıcısında yönetilir. |
 
 ## İletişim formu mesajları nereye gider?
 
 **Veritabanı yoktur ve gerekmez.** Form gönderildiğinde mesaj doğrudan
-büronun gelen kutusuna e-posta olarak iletilir; sitede saklanmaz. Gelen
-e-postanın `Reply-To` başlığı formu dolduran kişiye ayarlıdır, yani gelen
-kutusunda "Yanıtla" demek doğrudan o kişiye yazmak demektir.
+büronun `info@arslanhukuk.com.tr` gelen kutusuna e-posta olarak iletilir;
+sitede saklanmaz. Bu kutudaki IHS yönlendirmesi mesajı ayrıca Baro adresine
+iletebilir. Gelen e-postanın `Reply-To` başlığı formu dolduran kişiye ayarlıdır;
+yanıtın gönderen adresinin `info@arslanhukuk.com.tr` olması için yanıt bu
+hesaptan gönderilmelidir.
 
 Saklamamak bilinçli bir tercihtir: mesajlar zaten e-posta arşivinde durur,
 ayrıca bir veri tabanı tutmak KVKK açısından saklama süresi, silme, erişim

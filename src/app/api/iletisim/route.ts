@@ -111,7 +111,9 @@ async function deliver(data: FormData): Promise<boolean> {
       // Çoğu sunucu kimliği doğrulanmış kutudan başka bir gönderici
       // adresini reddeder; bu yüzden varsayılan SMTP kullanıcısıdır.
       from: process.env.CONTACT_FROM_EMAIL ?? user,
-      to: process.env.CONTACT_TO_EMAIL ?? contact.email,
+      // Form mesajı önce sitede yayımlanan kurumsal posta kutusuna ulaşır.
+      // Bu kutudan Baro adresine iletim IHS yönlendirmesiyle yönetilir.
+      to: contact.email,
       // "Yanıtla" doğrudan formu dolduran kişiye gitsin.
       replyTo: data.email,
       subject: `İletişim formu — ${data.subject}`,
@@ -141,7 +143,7 @@ async function deliver(data: FormData): Promise<boolean> {
       },
       body: JSON.stringify({
         from,
-        to: [process.env.CONTACT_TO_EMAIL ?? contact.email],
+        to: [contact.email],
         reply_to: data.email,
         subject: `İletişim formu — ${data.subject}`,
         text: asText(data),
