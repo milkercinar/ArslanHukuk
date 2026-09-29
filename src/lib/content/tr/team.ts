@@ -71,13 +71,13 @@ export const teamTextTr: Record<string, TeamMemberText> = {
     prefix: "Stj. Av.",
     role: "Stajyer Avukat",
     bio: [
-      "2025 yılında Hukuk Fakültesi'nden mezun olan ve 2026/1 Hukuk Mesleklerine Giriş Sınavı'nda (HMGS) başarı gösteren Stajyer Avukat Bartu Şahin, yasal staj sürecini büromuz bünyesinde sürdürmektedir.",
+      "2025 yılında Hukuk Fakültesi'nden mezun olan ve Hukuk Mesleklerine Giriş Sınavı'nda (HMGS) başarı gösteren Stajyer Avukat Bartu Şahin, yasal staj sürecini büromuz bünyesinde sürdürmektedir.",
       "Ticaret hukuku, icra ve iflas hukuku, iş hukuku ve aile hukuku başta olmak üzere temel dava ve danışmanlık süreçlerinde aktif görev almaktadır.",
     ],
     education: ["Erciyes Üniversitesi Hukuk Fakültesi, 2025"],
     credentials: [
       "Stajyer Avukat",
-      "2026/1 Hukuk Mesleklerine Giriş Sınavı (HMGS)",
+      "Hukuk Mesleklerine Giriş Sınavı (HMGS)",
     ],
     focus: [
       "Ticaret Hukuku",
@@ -87,7 +87,7 @@ export const teamTextTr: Record<string, TeamMemberText> = {
     ],
   },
   "ceylan-eroglu": {
-    role: "Büro ekibi",
+    role: "Yönetici Asistanı",
     bio: [],
   },
 };

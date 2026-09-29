@@ -69,13 +69,13 @@ export const teamTextEn: Record<string, TeamMemberText> = {
   "bartu-sahin": {
     role: "Trainee Lawyer",
     bio: [
-      "Bartu Şahin graduated from the Faculty of Law in 2025, passed the 2026/1 Entrance Examination for Legal Professions (HMGS), and is completing the compulsory legal traineeship at our office.",
+      "Bartu Şahin graduated from the Faculty of Law in 2025, passed the Entrance Examination for Legal Professions (HMGS), and is completing the compulsory legal traineeship at our office.",
       "Bartu Şahin takes an active role in litigation and advisory matters, particularly in commercial law, enforcement and insolvency law, employment law, and family law.",
     ],
     education: ["Erciyes University Faculty of Law, 2025"],
     credentials: [
       "Trainee Lawyer",
-      "2026/1 Entrance Examination for Legal Professions (HMGS)",
+      "Entrance Examination for Legal Professions (HMGS)",
     ],
     focus: [
       "Commercial Law",
@@ -85,7 +85,7 @@ export const teamTextEn: Record<string, TeamMemberText> = {
     ],
   },
   "ceylan-eroglu": {
-    role: "Office team",
+    role: "Executive Assistant",
     bio: [],
   },
 };
