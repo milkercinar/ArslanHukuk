@@ -96,6 +96,8 @@ const BASE: TeamMemberBase[] = [
     slug: "bartu-sahin",
     name: "Bartu Şahin",
     group: "avukatlar",
+    photo: "/images/team/bartu-sahin.jpg",
+    barNumber: "102445",
     relatedAreas: ["ticaret", "icra", "is", "medeni"],
     hasProfile: true,
   },
@@ -103,6 +105,7 @@ const BASE: TeamMemberBase[] = [
     slug: "ceylan-eroglu",
     name: "Ceylan Eroğlu",
     group: "buro",
+    photo: "/images/team/ceylan-eroglu.jpg",
     hasProfile: false,
   },
 ];
