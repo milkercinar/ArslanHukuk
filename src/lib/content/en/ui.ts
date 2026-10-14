@@ -126,8 +126,7 @@ export const dictionaryEn: Dictionary = {
     headlineLines: ["Alongside justice", "since 1982."],
     officeLabel: "The office",
     paragraphs: [
-      "Our office was founded in 1982 by Seyit Arslan. It has worked without interruption ever since.",
-      "Today we are a team of lawyers, each specialised in a field of their own. We serve individuals and institutions operating in Türkiye and abroad, in Turkish and in English.",
+      "Founded in Istanbul in 1982 by Seyit Arslan and drawing on more than 44 years of experience, Arslan Law Office provides individuals and institutions in Türkiye and abroad with legal advice, litigation services and comprehensive solution partnership through its continually growing team.",
       "We work across a wide range: from company and international trade law to enforcement and insolvency, from lease and real estate to banking and finance, from employment law to intellectual and industrial property, from administrative and tax law to civil law. Consumer and competition law are also among our fields. Each of our lawyers has gone deep in one of these areas, and files are distributed accordingly.",
       "Our base is Istanbul. Through the connections we have built with law offices in many cities across the country, however, we can follow your files outside Istanbul as well.",
     ],

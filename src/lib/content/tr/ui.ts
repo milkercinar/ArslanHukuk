@@ -121,8 +121,7 @@ export const dictionaryTr: Dictionary = {
     headlineLines: ["1982 yılından beri", "adaletin yanında."],
     officeLabel: "Büro",
     paragraphs: [
-      "40 yılı aşan tecrübemizle 1982'den bu yana İstanbul'da; yurt içi ve yurt dışı ölçekli kişi ve kurumlara danışmanlık, dava takibi ve çözüm ortaklığı sunuyoruz.",
-      "1982 yılında Av. Seyit Arslan tarafından kurulan Hukuk Büromuz, 44 yılı aşkın tecrübeye sahiptir. O günden bu zamana büyüyen kadrosuyla beraber yurtiçi ve yurtdışındaki müvekkillerine en iyi hizmeti verebilmek adına çalışmaktadır.",
+      "Av. Seyit Arslan tarafından 1982'de İstanbul'da kurulan ve 44 yılı aşkın tecrübeye sahip Arslan Hukuk Bürosu, her geçen gün büyüyen kadrosuyla yurt içi ve yurt dışındaki kişi ve kurumlara danışmanlık, dava takibi ve kapsamlı bir çözüm ortaklığı sunmaktadır.",
       "Her bir çalışma arkadaşımız hukukun en önemli dallarında ayrı olarak bilgi birikimine sahiptir ve dosyanız profesyonel ellerle birlikte derinlemesine takip edilmektedir.",
       "1982 yılından beri danışanlarımıza en üst düzeyde hizmet verebilmek adına aynı özveri ve titizlikle çalışmaktayız.",
       "Uluslararası bazdaki müvekkillerimizle tüm danışmanlık ve yazışma süreçlerini Türkçe ve İngilizce olarak doğrudan yürütmekteyiz.",
